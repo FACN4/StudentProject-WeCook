@@ -1,4 +1,4 @@
-#WeCook - FACN4 Student Project by Suha, Denis, Noor & Matt
+# WeCook - FACN4 Student Project by Suha, Denis, Noor & Matt
 
 --
 
