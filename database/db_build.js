@@ -1,9 +1,8 @@
-/* eslint-disable no-console */
 const fs = require('fs');
-const dbConnection = require('./dbconnection');
+const dbConnection = require('./db_connection');
 
 
-const makeEmptyTables = fs.readFileSync(`${__dirname}/build.sql`, 'utf-8');
+const makeEmptyTables = fs.readFileSync(`${__dirname}/build_tables.sql`, 'utf-8');
 
 const runDbBuild = () => new Promise((resolve, reject) => {
   dbConnection.query(makeEmptyTables,
@@ -15,6 +14,9 @@ const runDbBuild = () => new Promise((resolve, reject) => {
       }
     });
 });
+
+// const fillDummyData = fs.readFileSync(`${__dirname}/db_dummy_data.sql`, 'utf-8');
+
 
 if (process.argv[2] === 'run') {
   runDbBuild()

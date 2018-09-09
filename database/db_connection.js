@@ -1,15 +1,15 @@
 const { Pool } = require('pg');
-require('env2')('./config.env');
+require('env2')('./.env');
 
-let { TRADING_DB_URL } = process.env;
+let { DB_URL } = process.env;
 if (process.env.NODE_ENV === 'test') {
-  TRADING_DB_URL = process.env.TESTING_DB_URL;
+  DB_URL = process.env.TEST_DB_URL;
 }
-
-if (!TRADING_DB_URL) throw new Error('Enviroment variable TRADING_DB_URL must be set');
+console.log();
+if (!DB_URL) throw new Error('Enviroment variable DB_URL must be set');
 
 const options = {
-  connectionString: TRADING_DB_URL,
+  connectionString: DB_URL,
 };
 
 module.exports = new Pool(options);

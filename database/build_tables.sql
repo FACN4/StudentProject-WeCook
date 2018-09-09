@@ -45,7 +45,7 @@ CREATE TABLE meals(
   published_at TIMESTAMP WITH TIME ZONE NOT NULL,
   meal_scheduled_at TIMESTAMP WITH TIME ZONE NOT NULL,
   final_booking_at TIMESTAMP WITH TIME ZONE NOT NULL CHECK (final_booking_at <= meal_scheduled_at)
-)
+);
 
 CREATE TABLE reviews(
   id SERIAL PRIMARY KEY,
