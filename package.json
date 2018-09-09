@@ -4,7 +4,10 @@
   "description": "FACN4 WeCook student project",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "NODE_ENV=test nyc tape testing/* | tap-spec",
+    "dev": "nodemon src/index.js",
+    "coverage": "nyc --reporter=lcov npm run test",
+    "start": "node src/index.js"
   },
   "repository": {
     "type": "git",
@@ -15,5 +18,16 @@
   "bugs": {
     "url": "https://github.com/FACN4/StudentProject-WeCook/issues"
   },
-  "homepage": "https://github.com/FACN4/StudentProject-WeCook#readme"
+  "homepage": "https://github.com/FACN4/StudentProject-WeCook#readme",
+  "devDependencies": {
+    "nodemon": "^1.18.4",
+    "nyc": "^13.0.1",
+    "supertest": "^3.3.0",
+    "tap-spec": "^5.0.0",
+    "tape": "^4.9.1"
+  },
+  "dependencies": {
+    "express": "^4.16.3",
+    "pg": "^7.4.3"
+  }
 }
