@@ -1,0 +1,19 @@
+{
+  "name": "studentproject-wecook",
+  "version": "1.0.0",
+  "description": "FACN4 WeCook student project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FACN4/StudentProject-WeCook.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/FACN4/StudentProject-WeCook/issues"
+  },
+  "homepage": "https://github.com/FACN4/StudentProject-WeCook#readme"
+}
