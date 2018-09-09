@@ -5,7 +5,7 @@ let { DB_URL } = process.env;
 if (process.env.NODE_ENV === 'test') {
   DB_URL = process.env.TEST_DB_URL;
 }
-console.log();
+
 if (!DB_URL) throw new Error('Enviroment variable DB_URL must be set');
 
 const options = {

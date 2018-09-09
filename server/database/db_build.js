@@ -24,4 +24,4 @@ if (process.argv[2] === 'run') {
     .catch(console.log);
 }
 
-module.exports = runDbBuild;
+module.exports = { runDbBuild };
