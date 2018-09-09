@@ -28,8 +28,7 @@
     "nyc": "^13.0.1",
     "supertest": "^3.3.0",
     "tap-spec": "^5.0.0",
-    "tape": "^4.9.1",
-    "watch": "^1.0.2"
+    "tape": "^4.9.1"
   },
   "dependencies": {
     "express": "^4.16.3",
