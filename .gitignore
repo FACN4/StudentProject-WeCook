@@ -63,5 +63,8 @@ typings/
 # Macbook
 .DS_Store
 
+# React compiled
+client/dist
+
 #Security
 security
