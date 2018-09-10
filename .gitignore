@@ -65,3 +65,6 @@ typings/
 
 # React compiled
 client/dist
+
+#Security
+security
