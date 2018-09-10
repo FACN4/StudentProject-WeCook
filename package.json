@@ -33,7 +33,6 @@
   "dependencies": {
     "env2": "^2.2.2",
     "express": "^4.16.3",
-    "pg": "^7.4.3",
     "pg-promise": "^8.4.6"
   }
 }
