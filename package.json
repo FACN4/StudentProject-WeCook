@@ -5,9 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "NODE_ENV=test nyc tape testing/* | tap-spec",
-    "dev": "nodemon src/index.js",
+    "dev": "nodemon server/index.js",
     "coverage": "nyc --reporter=lcov npm run test",
-    "start": "node src/index.js"
+    "start": "node server/index.js"
   },
   "repository": {
     "type": "git",
