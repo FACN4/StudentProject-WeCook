@@ -1,0 +1,9 @@
+/* https://github.com/airbnb/javascript */
+
+{
+  "extends": ["eslint:recommended", "plugin:react/recommended"],
+  "env": {
+    "browser": true,
+    "node": true
+  }
+}
