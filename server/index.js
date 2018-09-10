@@ -8,6 +8,6 @@ const certificate = fs.readFileSync('./security/server.crt');
 https.createServer({
   key: privateKey,
   cert: certificate,
-}, app).listen(app.get('port'), () => {
+}, app).listen(app.get('PORT'), () => {
   console.log('App running on port', app.get('PORT'));
 });
