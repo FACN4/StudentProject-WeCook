@@ -5,11 +5,12 @@
   "main": "index.js",
   "scripts": {
     "test": "NODE_ENV=test nyc tape testing/* | tap-spec",
-    "dev": "nodemon server/index.js",
+    "server": "NODE_ENV=development nodemon server/index.js",
     "coverage": "nyc --reporter=lcov npm run test",
     "start": "node server/index.js",
     "client": "webpack-dev-server --mode development --devtool inline-source-map --hot",
-    "build": "webpack --mode production"
+    "build": "webpack --mode production",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
   },
   "repository": {
     "type": "git",
@@ -42,6 +43,7 @@
     "webpack-dev-server": "^3.1.8"
   },
   "dependencies": {
+    "concurrently": "^4.0.1",
     "express": "^4.16.3",
     "pg": "^7.4.3",
     "react": "^16.5.0",
