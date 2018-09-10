@@ -1,0 +1,9 @@
+/* https://github.com/airbnb/javascript */
+
+{
+  "extends": "airbnb-base",
+  "env": {
+    "browser": true,
+    "node": true
+  }
+}
