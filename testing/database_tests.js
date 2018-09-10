@@ -1,5 +1,6 @@
 const test = require('tape');
-const { databaseQuery, emptyTables, dummyData } = require('./../server/database/db_build');
+const { db } = require('./../server/database/db_connection');
+const { emptyTables, dummyData } = require('./../server/database/db_build');
 
 test('--------database_tests.js-------', (t) => {
   t.pass('tape is working');
@@ -8,11 +9,11 @@ test('--------database_tests.js-------', (t) => {
 });
 
 test('DB build is working correctly', (t) => {
-  databaseQuery(emptyTables)
+  db.none(emptyTables)
     .then(() => {
       t.pass('build emptyTables works with no errors');
     })
-    .then(() => databaseQuery(dummyData))
+    .then(() => db.none(dummyData))
     .then(() => {
       t.pass('filling DB with dummy data works with no errors');
       t.end();
