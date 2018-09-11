@@ -1,7 +1,11 @@
 import React, { Component } from "react";
 import { Provider } from "react-redux";
-import store from "../store";
-import MoneyButton from "./MoneyButton";
+// import { injectGlobal } from "styled-components";
+import { GlobalStyle } from "./App.style";
+import MoneyButton from "./components/MoneyButton";
+import Header from "./components/Header/Header";
+
+import store from "./store";
 
 const { Link } = require("react-router-dom");
 
@@ -10,6 +14,7 @@ class App extends Component {
     return (
       <Provider store={store}>
         <React.Fragment>
+          <Header />
           <h1>My React App!</h1>
           <Link to="/about">About</Link>
           <MoneyButton />

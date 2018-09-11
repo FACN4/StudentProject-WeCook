@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import ReactDom, { render } from "react-dom";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 
-import App from "./components/App";
+import App from "./App";
 import About from "./components/About";
 
 class Router extends Component {
