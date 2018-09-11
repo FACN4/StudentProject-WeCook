@@ -9,12 +9,10 @@ class Router extends Component {
   render() {
     return (
       <BrowserRouter>
-        <div>
-          <Switch>
-            <Route exact path="/" component={App} />
-            <Route exact path="/about" component={About} />
-          </Switch>
-        </div>
+        <Switch>
+          <Route exact path="/" component={App} />
+          <Route exact path="/about" component={About} />
+        </Switch>
       </BrowserRouter>
     );
   }
