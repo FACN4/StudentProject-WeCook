@@ -8,7 +8,7 @@ CREATE TABLE users(
   id SERIAL PRIMARY KEY,
   username VARCHAR(20) UNIQUE NOT NULL,
   password VARCHAR(80) NOT NULL,
-  email VARCHAR(80) NOT NULL,
+  email VARCHAR(80) UNIQUE NOT NULL,
   phone_no VARCHAR(20) NOT NULL,
   delivery_house_no INTEGER NOT NULL,
   delivery_post_code VARCHAR(10) NOT NULL,
