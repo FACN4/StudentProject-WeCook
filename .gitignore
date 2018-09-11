@@ -67,4 +67,5 @@ typings/
 client/dist
 
 # Security
+security/
 security
