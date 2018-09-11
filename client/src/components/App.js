@@ -1,8 +1,9 @@
 import React, { Component } from "react";
-const { Link } = require("react-router-dom");
 import { Provider } from "react-redux";
-import store from "./../store";
+import store from "../store";
 import MoneyButton from "./MoneyButton";
+
+const { Link } = require("react-router-dom");
 
 class App extends Component {
   render() {
