@@ -2,6 +2,7 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
+  watch: true,
   entry: './client/src/index.js',
   output: {
     path: path.join(__dirname, 'client', 'dist'),
@@ -18,6 +19,7 @@ module.exports = {
     ],
   },
   devServer: {
+    host: 'localhost',
     port: 3000,
     open: true,
     proxy: {
@@ -30,5 +32,4 @@ module.exports = {
       template: './client/src/index.html',
     }),
   ],
-
 };

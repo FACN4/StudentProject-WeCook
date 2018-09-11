@@ -12,12 +12,12 @@ class Router extends Component {
     return (
       <BrowserRouter>
         <div>
-        <Switch>
-          <Route exact path="/" component={App} />
-          <Route exact path="/about" component={About} />
-          <Route path="/work" component={Work} />
-          <Route path="/community" component={Community} />
-        </Switch>
+          <Switch>
+            <Route exact path="/" component={App} />
+            <Route exact path="/about" component={About} />
+            <Route path="/work" component={Work} />
+            <Route path="/community" component={Community} />
+          </Switch>
         </div>
       </BrowserRouter>
     );
