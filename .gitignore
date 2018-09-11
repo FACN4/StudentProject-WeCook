@@ -63,5 +63,8 @@ typings/
 # Macbook
 .DS_Store
 
+# ignore dist
+client/dist
+
 #Security
 security
