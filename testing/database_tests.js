@@ -7,14 +7,16 @@ const {
   getMealCard, getMealInfo, getCookInfo, getCookReviews,
 } = require('../server/database/getQueries');
 
+const { postCreateUser } = require('../server/database/postQueries');
+
 const {
-  mealCardResult, mealInfoResult, cookInfoResult, cookReviewsResult,
+  mealCardResult, mealInfoResult, cookInfoResult, cookReviewsResult, userDetails,
 } = require('./testDummyData');
 
 let counter = 0;
 const disconnectPG = () => {
   counter += 1;
-  if (counter === 2) {
+  if (counter === 3) {
     pgp.end();
   }
 };
@@ -27,13 +29,9 @@ test('--------database_tests.js-------', (t) => {
 
 test('DB build tests', (t) => {
   db.none(emptyTables)
-    .then(() => {
-      t.pass('build emptyTables works with no errors');
-    })
+    .then(() => t.pass('build emptyTables works with no errors'))
     .then(() => db.none(dummyData))
-    .then(() => {
-      t.pass('filling DB with dummy data works with no errors');
-    })
+    .then(() => t.pass('filling DB with dummy data works with no errors'))
     .catch(t.fail)
     .then(disconnectPG)
     .then(t.end);
@@ -41,31 +39,39 @@ test('DB build tests', (t) => {
 
 test('getQueries are working', (t) => {
   db.none(emptyTables)
-    .then(() => {
-      t.pass('build emptyTables works with no errors');
-    })
     .then(() => db.none(dummyData))
-    .then(() => {
-      t.pass('filling DB with dummy data works with no errors');
-    })
     .then(() => getMealCard(1))
-    .then((row) => {
-      t.deepEqual(row, mealCardResult, 'getMealCard should return preset data');
-    })
+    .then(row => t.deepEqual(row, mealCardResult, 'getMealCard should return preset data'))
     .then(() => getMealInfo(1))
-    .then((row) => {
-      t.deepEqual(row, mealInfoResult, 'getMealInfo should return preset data');
-    })
+    .then(row => t.deepEqual(row, mealInfoResult, 'getMealInfo should return preset data'))
     .then(() => getCookInfo(1))
-    .then((row) => {
-      t.deepEqual(row, cookInfoResult, 'getCookInfo should return preset data');
-    })
+    .then(row => t.deepEqual(row, cookInfoResult, 'getCookInfo should return preset data'))
     .then(() => getCookReviews(1))
     .then((rows) => {
       const removedStaticDates = rows.map(row => ({ ...row, reviewed_at: 'Date Not Static' }));
       t.deepEqual(removedStaticDates, cookReviewsResult, 'getCookReviews should return preset data');
     })
     .catch(t.fail)
+    .then(disconnectPG)
+    .then(t.end);
+});
+
+test('postQueries are working', (t) => {
+  db.none(emptyTables)
+    .then(() => db.none(dummyData))
+    .then(() => postCreateUser(userDetails))
+    .then(() => t.pass('created a new User with no errors'))
+    .catch(t.fail)
+    .then(() => {
+      const duplicateUsername = { ...userDetails, email: 'something@new.com' };
+      return postCreateUser(duplicateUsername);
+    })
+    .catch(err => t.pass(err.message))
+    .then(() => {
+      const duplicateEmail = { ...userDetails, username: 'newName' };
+      return postCreateUser(duplicateEmail);
+    })
+    .catch(err => t.pass(err.message))
     .then(disconnectPG)
     .then(t.end);
 });

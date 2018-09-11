@@ -71,7 +71,11 @@ const cookReviewsResult = [{
   review_msg: 'I love Mama Afifi’s food. This dish is one of my favourites. A lovely member of our community. Will definitely be going back!',
 }];
 
+const userDetails = {
+  username: 'Denis', password: 'willBeHashed', email: 'foundersandeaters@gmail.com', phoneNo: '07763828285', houseNo: 13, postCode: 'N2 0EZ',
+};
+
 
 module.exports = {
-  mealCardResult, mealInfoResult, cookInfoResult, cookReviewsResult,
+  mealCardResult, mealInfoResult, cookInfoResult, cookReviewsResult, userDetails,
 };
