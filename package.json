@@ -5,12 +5,12 @@
   "main": "index.js",
   "scripts": {
     "test": "NODE_ENV=test nyc tape testing/* | tap-spec",
-    "dev": "nodemon server/index.js",
+    "server": "NODE_ENV=development nodemon server/index.js",
     "coverage": "nyc --reporter=lcov npm run test",
     "start": "node server/index.js",
-    "client":
-      "webpack-dev-server --mode development --devtool inline-source-map --hot",
-    "build": "webpack --mode production"
+    "client": "webpack-dev-server --mode development --devtool inline-source-map --hot",
+    "build": "webpack --mode production",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
   },
   "repository": {
     "type": "git",
@@ -36,20 +36,17 @@
     "nyc": "^13.0.1",
     "supertest": "^3.3.0",
     "tap-spec": "^5.0.0",
-<<<<<<< HEAD
-    "tape": "^4.9.1"
-=======
-    "tape": "^4.9.1",
-    "watch": "^1.0.2",
     "webpack": "^4.17.2",
     "webpack-cli": "^3.1.0",
     "webpack-dev-server": "^3.1.8"
->>>>>>> 1b589f147aae5cf2bd727ea65768bc6cbd44d899
   },
   "dependencies": {
+    "concurrently": "^4.0.1",
+    "env2": "^2.2.2",
     "express": "^4.16.3",
-    "pg": "^7.4.3",
+    "pg-promise": "^8.4.6",
     "react": "^16.5.0",
-    "react-dom": "^16.5.0"
+    "react-dom": "^16.5.0",
+    "react-router-dom": "^4.3.1"
   }
 }
