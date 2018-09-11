@@ -11,10 +11,6 @@ export const H1 = styled.h1`
   }
 `;
 
-export const H2 = styled.h2`
-  color: #000;
-`;
-
 export const User = styled.img`
   height: 20px;
   padding: 18px 0 0 20px;
