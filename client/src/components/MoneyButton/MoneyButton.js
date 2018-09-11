@@ -5,16 +5,12 @@ import { Order, Price } from "./MoneyButton.style";
 
 import addToBasket from "../../actions/addToBasket";
 
-class MoneyButton extends Component {
-  render() {
-    return (
-      <Order>
-        <Price>Price: £10.00</Price>
-        <button onClick={this.props.addToBasket}>Add to Basket</button>
-      </Order>
-    );
-  }
-}
+const MoneyButton = props => (
+  <Order>
+    <Price>Price: £10.00</Price>
+    <button onClick={props.addToBasket}>Add to Basket</button>
+  </Order>
+);
 
 MoneyButton.propTypes = {
   addToBasket: PropTypes.func.isRequired
