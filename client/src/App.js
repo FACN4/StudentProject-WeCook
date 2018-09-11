@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { Provider } from "react-redux";
-// import { injectGlobal } from "styled-components";
 import { GlobalStyle } from "./App.style";
 import MoneyButton from "./components/MoneyButton/MoneyButton";
 import Header from "./components/Header/Header";
