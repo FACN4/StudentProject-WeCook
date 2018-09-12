@@ -22,7 +22,7 @@ const MealCard = () => (
           <img src={reviewImage} alt="Review Image" />
           40 reviews
         </MealCardReview>
-        Price: £10.00. <TimeRemaning>2 hours to buy.</TimeRemaning>
+        £10.00/serving <TimeRemaning>2 hours to buy</TimeRemaning>
       </MealDetails>
       <CookDetails>
         <img src={cookProfileImage} alt="Cook Image" />
