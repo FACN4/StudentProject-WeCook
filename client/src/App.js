@@ -1,13 +1,13 @@
 import React, { Component } from "react";
 import { Provider } from "react-redux";
 import { ThemeProvider } from "styled-components";
-import { Link } from "react-router-dom";
 import { GlobalStyle } from "./App.style";
 import MoneyButton from "./components/MoneyButton/MoneyButton";
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
 import wecookTheme from "./themes/weCookv1";
 import MealCard from "./components/MealCard/MealCard";
+import MealList from "./App.style";
 
 import store from "./store";
 
@@ -18,8 +18,9 @@ class App extends Component {
         <ThemeProvider theme={wecookTheme}>
           <React.Fragment>
             <Header />
-            <h1>My React App!</h1>
-            <Link to="/about">About</Link>
+            <h1>23 menus available in your local area for this date</h1>
+            <MealCard />
+            <MealCard />
             <MealCard />
             <MoneyButton />
             <Footer />

@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import {
   StyledMealCard,
   MealDescription,
@@ -17,7 +18,7 @@ const MealCard = () => (
     <img src={mealImage} alt="Meal Image" />
     <MealDescription>
       <MealDetails>
-        <a href="">Name of Meal</a>
+        <Link to="/about">Name of Meal</Link>
         <MealCardReview>
           <img src={reviewImage} alt="Review Image" />
           40 reviews

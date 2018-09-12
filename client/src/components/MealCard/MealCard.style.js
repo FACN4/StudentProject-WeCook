@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const StyledMealCard = styled.section`
   width: 345px;
-  margin: 0;
+  margin: 0 0 20px 0px;
   padding: 0;
   img {
     border-top-right-radius: 10px;

@@ -10,4 +10,11 @@ body {
   padding: 0;
   font-family: 'Raleway', sans-serif;
 }
+
+h1 {
+  color: #11445E;
+  font-family: 'Crete Round', serif;
+  font-size: 24px;
+  margin: 10px 0;
+}
 `;
