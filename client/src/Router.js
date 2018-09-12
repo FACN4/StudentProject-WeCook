@@ -9,7 +9,7 @@ export default class Router extends Component {
       <BrowserRouter>
         <Switch>
           <Route exact path="/" component={MealsListPage} />
-          <Route exact path="/mealInfo" component={MealPage} />
+          <Route exact path="/mealInfo/:mealId" component={MealPage} />
         </Switch>
       </BrowserRouter>
     );

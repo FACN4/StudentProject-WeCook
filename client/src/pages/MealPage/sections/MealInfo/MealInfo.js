@@ -7,7 +7,7 @@ import timeRemaining from '../../../../utils/formatingLogic'
 
 class MealInfo extends Component {
   componentDidMount() {
-    this.props.getMealInfo(1);
+    this.props.getMealInfo(this.props.mealId);
   }
   render() {
     if (this.props.mealInfo.status !=='Fulfilled') return <h1>Loading</h1>;
@@ -54,6 +54,7 @@ MealInfo.propTypes = {
     status: PropTypes.string
   })
   ,
+  mealId: PropTypes.string,
 };
 
 const mapDispatchToProps = {
