@@ -2,11 +2,10 @@ const express = require('express');
 
 const router = express.Router();
 
+// Import controllers
+const mealInfo = require('./mealInfo');
 
-router.get('/api', (req, res) => {
-  // eslint-disable-next-line no-console
-  console.log(req.url);
-  res.send('Hello world!');
-});
+// GET routes
+router.get('/api/mealInfo/:mealId', mealInfo.get);
 
 module.exports = router;
