@@ -4,6 +4,7 @@ const wecookTheme = {
   lightGrey: "#EDF1F1",
   green: "#6BC869",
   orange: "#D58629",
+  white: "#fff",
   headerFont: "'Crete Round', serif",
   bodyFont: "'Raleway', sans-serif"
 };
