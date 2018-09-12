@@ -1,21 +1,26 @@
 import React, { Component } from "react";
-import ReactDom, { render } from "react-dom";
-import { BrowserRouter, Route, Switch } from "react-router-dom";
+import { render } from "react-dom";
 
-import App from "./App";
-import About from "./components/About";
+import { Provider } from "react-redux";
+import { ThemeProvider } from "styled-components";
 
-class Router extends Component {
+import store from "./store";
+
+import { GlobalStyle } from "./App.style"; // eslint-disable-line no-unused-vars
+import wecookTheme from "./themes/weCookv1";
+
+import Router from "./Router"
+
+class App extends Component {
   render() {
     return (
-      <BrowserRouter>
-        <Switch>
-          <Route exact path="/" component={App} />
-          <Route exact path="/about" component={About} />
-        </Switch>
-      </BrowserRouter>
+      <Provider store={store}>
+        <ThemeProvider theme={wecookTheme}>
+          <Router />
+        </ThemeProvider>
+      </Provider>
     );
   }
 }
 
-render(<Router />, document.getElementById("app"));
+render(<App />, document.getElementById("app"));
