@@ -1,5 +1,13 @@
 # WeCook - FACN4 Student Project by Suha, Denis, Noor & Matt
 
+
+## Project setup
+
+Build database:
+```
+node server/database/db_build.js run
+```
+
 ## Context
 
 This project is for the FACN4 Student Project idea pitched by Denis. Read the full initial issue here: https://github.com/foundersandcoders/nazareth-project-leads/issues/10
