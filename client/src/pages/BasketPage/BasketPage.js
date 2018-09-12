@@ -1,7 +1,6 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
 import { Header, Footer, MoneyButton, MealCard } from "../../components";
-import { MealName, Delivery, OrderInfo, Cost } from "./BasketPage.style.js";
+import { MealName, Delivery, OrderInfo, Cost } from "./BasketPage.style";
 
 import mealImage from "../../assets/meal_image.png";
 
