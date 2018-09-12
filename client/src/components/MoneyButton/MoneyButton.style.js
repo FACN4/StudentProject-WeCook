@@ -2,9 +2,9 @@ import styled from "styled-components";
 import addToBasket from "../../assets/addToBasket.png";
 
 export const Order = styled.section`
+  background: ${props => props.theme.lightGrey};
   position: fixed;
   bottom: 0;
-  background: #edf1f1;
   font-size: 18px;
   font-weight: bold;
   padding: 0;
@@ -12,7 +12,7 @@ export const Order = styled.section`
   width: 100%;
   height: 53px;
   button {
-    background: #15b7d3 url(${addToBasket});
+    background: ${props => props.theme.lightBlue} url(${addToBasket});
     color: transparent;
     width: 184px;
     height: 53px;
@@ -25,7 +25,7 @@ export const Order = styled.section`
 `;
 
 export const Price = styled.section`
-  color: #11445e;
+  color: ${props => props.theme.darkBlue};
   padding: 0;
   margin: 0;
   line-height: 53px;

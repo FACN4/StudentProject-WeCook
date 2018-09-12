@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const H1 = styled.h1`
-  color: #fff;
+  font-family: ${props => props.theme.headerFont};
   font-size: 28px;
   padding: 0;
   margin: 0;
@@ -23,13 +23,13 @@ export const ShoppingBasket = styled.img`
 `;
 
 export const StyledHeader = styled.header`
-  background: #15b7d3;
+  background: ${props => props.theme.lightBlue};
+  color: ${props => props.theme.white};
+  font-family: ${props => props.theme.headerFont};
   height: 56px;
-  font-family: Crete Round;
   font-style: Regular;
   line-height: 56px;
   text-align: center;
-  color: #fff;
   display: flex;
   justify-content: space-between;
   text-align: center;
