@@ -4,24 +4,23 @@ import { connect } from 'react-redux';
 import {Gallery} from "../../../../components"
 import getMealInfo from "../../../../actions/getMealInfo";
 
-
 class MealInfo extends Component {
   componentDidMount() {
     this.props.getMealInfo(1);
-    console.log('component mounting');
   }
-
   render() {
     if (!this.props.mealInfo) return   <h1>Loading</h1>;
-    const {meal_title} = this.props.mealInfo;
+
+    const {meal_title,description, price, meal_scheduled_at, remaining_portions, final_booking_at, ingredients, tags, meal_image_url} = this.props.mealInfo;
+    const hoursRemaining = (new Date(final_booking_at)- Date.now())/360000;
     return (
       <section>
-        <h1>{meal_title}IT WORKS</h1>
+        <h1>{meal_title}</h1>
         <div>
-          <span>7pm 22/09/18</span>
-          <span>£5 per serving</span>
-          <span>14 hours to order</span>
-          <span>15 servings left</span>
+          <span>{meal_scheduled_at}</span>
+          <span>{'£'+price+ 'per serving'}</span>
+          <span>{hoursRemaining} hours to order</span>
+          <span>{remaining_portions}</span>
         </div>
         <Gallery />
       </section>
@@ -76,8 +75,8 @@ const mapDispatchToProps = {
 //    }],
 // };
 
-const mapStateToProps = ({mealInfo:mealInfoStore}) => ({
-  mealInfo: mealInfoStore,
+const mapStateToProps = ({mealData}) => ({
+  mealInfo: mealData.mealData,
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(MealInfo);
