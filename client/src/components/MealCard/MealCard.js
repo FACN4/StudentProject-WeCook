@@ -4,11 +4,12 @@ import {
   MealDescription,
   MealDetails,
   MealCardReview,
-  Price,
+  TimeRemaning,
   CookDetails
 } from "./MealCard.style";
 
 import mealImage from "../../assets/meal_image.png";
+import reviewImage from "../../assets/stars.png";
 import cookProfileImage from "../../assets/cook_profile_img.png";
 
 const MealCard = () => (
@@ -17,8 +18,11 @@ const MealCard = () => (
     <MealDescription>
       <MealDetails>
         <a href="">Name of Meal</a>
-        <MealCardReview />
-        <Price>Price: £10.00</Price>
+        <MealCardReview>
+          <img src={reviewImage} alt="Review Image" />
+          40 reviews
+        </MealCardReview>
+        Price: £10.00. <TimeRemaning>2 hours to buy.</TimeRemaning>
       </MealDetails>
       <CookDetails>
         <img src={cookProfileImage} alt="Cook Image" />
