@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const StyledMealCard = styled.section`
   width: 345px;
-  margin: 0;
+  margin: 0 0 20px 0px;
   padding: 0;
   img {
     border-top-right-radius: 10px;
@@ -59,4 +59,10 @@ export const CookDetails = styled.section`
     display: block;
     margin: 0 auto;
   }
+`;
+
+export const MealList = styled.section`
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
 `;
