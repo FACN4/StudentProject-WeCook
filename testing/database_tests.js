@@ -31,7 +31,7 @@ test('DB build tests', (t) => {
   db.none(emptyTables)
     .then(() => t.pass('build emptyTables works with no errors'))
     .then(() => db.none(cookFillerData))
-    .then(() => t.pass('filling DB with dummy data works with no errors'))
+    .then(() => t.pass('filling DB with filler data works with no errors'))
     .catch(t.fail)
     .then(disconnectPG)
     .then(t.end);
