@@ -24,8 +24,10 @@
   "homepage": "https://github.com/FACN4/StudentProject-WeCook#readme",
   "devDependencies": {
     "@babel/core": "^7.0.0",
+    "@babel/plugin-proposal-class-properties": "^7.0.0",
     "@babel/preset-env": "^7.0.0",
     "@babel/preset-react": "^7.0.0",
+    "babel-eslint": "^9.0.0",
     "babel-loader": "^8.0.2",
     "babel-plugin-styled-components": "^1.6.4",
     "css-loader": "^1.0.0",

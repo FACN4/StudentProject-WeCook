@@ -6,11 +6,11 @@ const initialState = {
 export default function (state = initialState, action) {
   switch (action.type) {
     case GET_MEAL_INFO_FULFILLED:
-      return {mealData:action.payload.data};
+      return {mealData:action.payload.data, status:"Fulfilled"};
     case GET_MEAL_INFO_PENDING:
-      return {mealDataLoading:true};
+      return {status:"Pending"};
     case GET_MEAL_INFO_REJECTED:
-      return {mealDataRejected:true}
+      return {status:"Rejected"}
     default:
       return state;
   }
