@@ -5,7 +5,6 @@ import logo from "../../assets/logo.png";
 import userIcon from "../../assets/profile.png";
 import basketIcon from "../../assets/empty-shopping-basket.png";
 
-
 export default class Header extends Component {
   render() {
     return (
@@ -16,7 +15,9 @@ export default class Header extends Component {
             <img src={logo} alt="WeCook" />
           </Link>
         </H1>
-        <ShoppingBasket src={basketIcon} alt="ShoppingBasket" />
+        <Link to="/basket">
+          <ShoppingBasket src={basketIcon} alt="ShoppingBasket" />
+        </Link>
       </StyledHeader>
     );
   }

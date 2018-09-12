@@ -1,10 +1,9 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { Header, Footer, MoneyButton, MealCard } from "../../components";
+import { MealName, Delivery, OrderInfo, Cost } from "./BasketPage.style.js";
 
 import mealImage from "../../assets/meal_image.png";
-import reviewImage from "../../assets/stars.png";
-import cookProfileImage from "../../assets/cook_profile_img.png";
 
 export default class MealListPage extends Component {
   render() {
@@ -13,18 +12,15 @@ export default class MealListPage extends Component {
         <Header />
         <h1>Your Basket</h1>
         <MealCard mealImage={mealImage}>
-          <MealDetails>
-            <Link to="/about">Name of Meal</Link>
-            <MealCardReview>
-              <img src={reviewImage} alt="Review Image" />
-              40 reviews
-            </MealCardReview>
-            £10.00/serving <TimeRemaning>2 hours to buy</TimeRemaning>
-          </MealDetails>
-          <CookDetails>
-            <img src={cookProfileImage} alt="Cook Image" />
-            By Mama Afifi
-          </CookDetails>
+          <MealName>Russian tomato sauce with shashlikee</MealName>
+          <Delivery>For delivery for 7pm on 22/09/18</Delivery>
+          <OrderInfo>
+            <Cost>Cost: £5.00</Cost>
+            <select>
+              <option value="">1 Portion</option>
+            </select>
+            <button>Delete</button>
+          </OrderInfo>
         </MealCard>
         <MoneyButton />
         <Footer />
