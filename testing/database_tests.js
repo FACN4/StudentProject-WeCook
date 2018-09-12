@@ -2,7 +2,7 @@ const test = require('tape');
 const pgp = require('pg-promise')();
 const { db } = require('./../server/database/db_connection');
 
-const { emptyTables, dummyData } = require('./../server/database/db_build');
+const { emptyTables, cookFillerData } = require('./../server/database/db_build');
 const {
   getMealCard, getMealInfo, getCookInfo, getCookReviews,
 } = require('../server/database/getQueries');
@@ -11,7 +11,7 @@ const { postCreateUser } = require('../server/database/postQueries');
 
 const {
   mealCardResult, mealInfoResult, cookInfoResult, cookReviewsResult, userDetails,
-} = require('./testDummyData');
+} = require('./testPresetData');
 
 let counter = 0;
 const disconnectPG = () => {
@@ -30,7 +30,7 @@ test('--------database_tests.js-------', (t) => {
 test('DB build tests', (t) => {
   db.none(emptyTables)
     .then(() => t.pass('build emptyTables works with no errors'))
-    .then(() => db.none(dummyData))
+    .then(() => db.none(cookFillerData))
     .then(() => t.pass('filling DB with dummy data works with no errors'))
     .catch(t.fail)
     .then(disconnectPG)
@@ -39,7 +39,7 @@ test('DB build tests', (t) => {
 
 test('getQueries are working', (t) => {
   db.none(emptyTables)
-    .then(() => db.none(dummyData))
+    .then(() => db.none(cookFillerData))
     .then(() => getMealCard(1))
     .then(row => t.deepEqual(row, mealCardResult, 'getMealCard should return preset data'))
     .then(() => getMealInfo(1))
@@ -58,7 +58,7 @@ test('getQueries are working', (t) => {
 
 test('postQueries are working', (t) => {
   db.none(emptyTables)
-    .then(() => db.none(dummyData))
+    .then(() => db.none(cookFillerData))
     .then(() => postCreateUser(userDetails))
     .then(() => t.pass('created a new User with no errors'))
     .catch(t.fail)
