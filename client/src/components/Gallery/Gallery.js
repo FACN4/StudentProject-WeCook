@@ -1,16 +1,52 @@
 import React, { Component } from "react";
+import PropTypes from 'prop-types';
 
 import {GalleryContainer, MainImg, Img1, Img2, Img3} from './Gallery.style'
 
-export default class Gallery extends Component {
+class Gallery extends Component {
+  state = {
+    pics:[]
+   };
+
+  componentDidMount () {
+    const {images} = this.props
+    // order images correctly
+    const pics = images.reduce((acc, obj) => {
+      if (obj.isThumbnail) {
+        return [obj.imageUrl,...acc];
+      } else {
+        return [...acc,obj.imageUrl];
+      }
+    },[])
+    this.setState(() => ({
+      pics
+    }));
+  }
+  switchPictures = event => {
+    const {src, id} = event.target
+    this.setState(({pics}) => {
+      const reOrderPics = [...pics];
+      reOrderPics[id] = pics[0]
+      reOrderPics[0] = src;
+      return {pics: reOrderPics}
+    });
+  }
+
   render() {
+    const {pics} = this.state
     return (
       <GalleryContainer>
-        <MainImg src='https://user-images.githubusercontent.com/28222381/45268801-1163b100-b48b-11e8-85b0-d32b09a111e3.jpg' alt="main image"/>
-        <Img1 src='https://user-images.githubusercontent.com/28222381/45268805-1c1e4600-b48b-11e8-932f-ddae68a9bd3c.jpg' alt="alternate image 1"/>
-        <Img2 src='https://user-images.githubusercontent.com/28222381/45268810-37895100-b48b-11e8-8b5d-c6e8964b4f2b.jpg' alt="alternate image 2"/>
-        <Img3 src='https://user-images.githubusercontent.com/28222381/45268814-4ff96b80-b48b-11e8-88ba-f9e7fa57dc22.jpg' alt="alternate image 3"/>
+        <MainImg src={pics[0]} alt="main image"/>
+        <Img1 onClick={this.switchPictures} src={pics[1]} id={1} alt="alternate image 1"/>
+        <Img2 onClick={this.switchPictures} src={pics[2]} id={2} alt="alternate image 2"/>
+        <Img3 onClick={this.switchPictures} src={pics[3]} id={3} alt="alternate image 3"/>
       </GalleryContainer>
     );
   }
 }
+
+Gallery.propTypes = {
+  images: PropTypes.array,
+};
+
+export default Gallery;
