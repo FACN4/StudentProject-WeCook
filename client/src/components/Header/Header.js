@@ -1,10 +1,10 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 import { H1, StyledHeader, User, ShoppingBasket } from "./Header.style";
 import logo from "../../assets/logo.png";
 import userIcon from "../../assets/profile.png";
 import basketIcon from "../../assets/empty-shopping-basket.png";
 
-const { Link } = require("react-router-dom");
 
 export default class Header extends Component {
   render() {
