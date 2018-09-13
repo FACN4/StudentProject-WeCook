@@ -36,8 +36,8 @@ class Gallery extends Component {
     const {pics} = this.state
     return (
       <GalleryContainer>
-        <MainImg src={pics[0]} alt="main image"/>
-        <Img1 onClick={this.switchPictures} src={pics[1]} id={1} alt="alternate image 1"/>
+        <MainImg src={pics[0]} alt="main image" data-testid="largeImg"/>
+        <Img1 onClick={this.switchPictures} src={pics[1]} id={1} alt="alternate image 1" data-testid="smallImg"/>
         <Img2 onClick={this.switchPictures} src={pics[2]} id={2} alt="alternate image 2"/>
         <Img3 onClick={this.switchPictures} src={pics[3]} id={3} alt="alternate image 3"/>
       </GalleryContainer>
