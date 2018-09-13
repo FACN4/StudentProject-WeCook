@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from 'prop-types';
-import {Header, MoneyButton} from '../../components'
+import {Header, MoneyButton, Stars} from '../../components'
 import MealInfo from './sections/MealInfo/MealInfo'
 
 const MealPage = (props) => {
@@ -9,6 +9,7 @@ const MealPage = (props) => {
       <Header />
       <MealInfo mealId={props.match.params.mealId}/>
       <MoneyButton />
+      <Stars />
     </React.Fragment>
   );
 }
