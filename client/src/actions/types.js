@@ -1,4 +1,7 @@
-const ADD_TO_BASKET = 'ADD_TO_BASKET';
+export const GET_MEAL_INFO = 'GET_MEAL_INFO';
 
-// eslint-disable-next-line import/prefer-default-export
-export {ADD_TO_BASKET};
+export const GET_MEAL_INFO_PENDING = 'GET_MEAL_INFO_PENDING';
+export const GET_MEAL_INFO_FULFILLED = 'GET_MEAL_INFO_FULFILLED';
+export const GET_MEAL_INFO_REJECTED = 'GET_MEAL_INFO_REJECTED';
+
+export const ADD_TO_BASKET = 'ADD_TO_BASKET';
