@@ -1,9 +1,9 @@
 import React from "react";
 import PropTypes from "prop-types";
-import {StarCreator} from './Stars.style.js'
+import {StarCreator} from './Stars.style'
 
 const Stars = props => {
-  const StarNumber = StarCreator(50);
+  const StarNumber = StarCreator(props.rating);
 
   return (
     <React.Fragment>
@@ -13,7 +13,7 @@ const Stars = props => {
 };
 
 Stars.propTypes = {
-  starCount: PropTypes.number
+  rating: PropTypes.number
 };
 
 
