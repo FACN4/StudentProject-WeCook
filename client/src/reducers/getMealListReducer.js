@@ -9,7 +9,7 @@ const initialState = {};
 export default function(state = initialState, action) {
   switch (action.type) {
     case GET_MEAL_LIST_FULFILLED:
-      return { mealData: action.payload.data, status: "Fulfilled" };
+      return { mealList: action.payload.data, status: "Fulfilled" };
     case GET_MEAL_LIST_PENDING:
       return { status: "Pending" };
     case GET_MEAL_LIST_REJECTED:

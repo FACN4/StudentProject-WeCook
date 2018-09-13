@@ -35,6 +35,8 @@ export const CookDetails = styled.section`
   img {
     border: 10px #fff solid;
     border-radius: 50%;
+    width: 65px;
+    height: 65px;
     display: block;
     margin: 0 auto;
   }
