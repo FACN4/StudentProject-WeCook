@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import { Header, Footer, MoneyButton, MealCard } from "../../components";
+import { Footer, MealCard } from "../../components";
 import {
   MealList,
   MealDetails,
@@ -18,7 +18,6 @@ export default class MealListPage extends Component {
   render() {
     return (
       <React.Fragment>
-        <Header />
         <h1>23 menus available in your local area for this date</h1>
         <MealList>
           <MealCard mealImage={mealImage}>
@@ -38,7 +37,6 @@ export default class MealListPage extends Component {
             </MealSection>
           </MealCard>
         </MealList>
-        <MoneyButton />
         <Footer />
       </React.Fragment>
     );
