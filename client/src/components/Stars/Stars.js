@@ -1,14 +1,20 @@
 import React from "react";
 import PropTypes from "prop-types";
-import './Stars.style.css'
+import {StarCreator} from './Stars.style.js'
 
 const Stars = props => {
+  const StarNumber = StarCreator(50);
 
-  return (<span className="rating-static rating-25"></span>);
+  return (
+    <React.Fragment>
+    <StarNumber />
+  </React.Fragment>
+  );
 };
 
 Stars.propTypes = {
   starCount: PropTypes.number
 };
+
 
 export default Stars;
