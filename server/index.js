@@ -2,8 +2,8 @@ const fs = require("fs");
 const https = require("https");
 const app = require("./app");
 
-const privateKey = fs.readFileSync("./secure/server.key");
-const certificate = fs.readFileSync("./secure/server.crt");
+const privateKey = fs.readFileSync("./security/server.key");
+const certificate = fs.readFileSync("./security/server.crt");
 
 https
   .createServer(
