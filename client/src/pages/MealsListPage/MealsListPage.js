@@ -31,7 +31,7 @@ class MealListPage extends Component {
       cook_firstname,
       cook_image_url,
       count_reviews
-    } = this.props.mealList.mealList;
+    } = this.props.mealList.mealList[0];
     const deadline = timeRemaining(new Date(final_booking_at) - Date.now());
     const meal_link = `/mealInfo/${id}`;
     const mealCount = this.props.mealList.mealList.length;
