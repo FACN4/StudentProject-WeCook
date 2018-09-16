@@ -10,8 +10,7 @@ class MealInfo extends Component {
     this.props.getMealInfo(this.props.mealId);
   }
   render() {
-    if (this.props.mealInfo.status !== "Fulfilled") return <h1>Loading</h1>;
-
+    if (!this.props.mealInfo.isFulfilled) return <h1>Loading</h1>;
     const {
       meal_title,
       description,
@@ -22,7 +21,7 @@ class MealInfo extends Component {
       ingredients,
       tags,
       meal_image_url
-    } = this.props.mealInfo.mealData;
+    } = this.props.mealInfo.data;
 
     const deadline = timeRemaining(new Date(final_booking_at) - Date.now());
     // changed object key mealUrl to imageUrl in order to make gallery re-usable for cooks
@@ -50,7 +49,7 @@ class MealInfo extends Component {
 MealInfo.propTypes = {
   getMealInfo: PropTypes.func,
   mealInfo: PropTypes.shape({
-    mealData: PropTypes.shape({
+    data: PropTypes.shape({
       meal_title: PropTypes.string,
       price: PropTypes.string,
       meal_scheduled_at: PropTypes.string,
