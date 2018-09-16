@@ -7,9 +7,9 @@ export default function(state = initialState, action) {
     case `${GET_MEAL_LIST}_PENDING`:
       return { isPending: true };
     case `${GET_MEAL_LIST}_FULFILLED`:
-      return { data: action.payload.data, isFulfilled: true};
+      return { data: action.payload.data, isFulfilled: true };
     case `${GET_MEAL_LIST}_REJECTED`:
-      return { isRejected: true, error: action.payload};
+      return { isRejected: true, error: action.payload };
     default:
       return state;
   }
