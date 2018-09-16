@@ -9,9 +9,9 @@ app.set('PORT', process.env.PORT || 5000);
 app.use(controllers);
 
 if (process.env.NODE_ENV !== 'development') {
-  app.use(express.static(path.join(__dirname, '..', 'client', 'dist')));
+  app.use(express.static(path.join(__dirname, '..', 'dist')));
   app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, '..', 'client', 'dist', 'index.html'));
+    res.sendFile(path.join(__dirname, '..', 'dist', 'index.html'));
   });
 }
 
