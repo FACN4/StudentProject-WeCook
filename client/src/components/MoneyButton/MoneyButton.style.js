@@ -4,7 +4,6 @@ import addToBasket from "../../assets/addToBasket.png";
 export const Order = styled.section`
   z-index: 2;
   background: ${props => props.theme.lightGrey};
-  margin-top: 1003px;
   position: fixed;
   bottom: 0;
   font-size: 18px;
