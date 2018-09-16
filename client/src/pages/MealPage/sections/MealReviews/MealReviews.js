@@ -1,4 +1,4 @@
-import React, {Component} from "react";
+import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import getMealReviews from "../../../../actions/getMealReviews";
@@ -7,43 +7,67 @@ class MealPage extends Component {
   componentDidMount() {
     this.props.getMealReviews(this.props.mealId);
   }
-  render() {
-    if (!this.props.mealReviews.isFulfilled) return <h1>Loading</h1>;
-
-    let mealReviews = [];
-    let cookReviews = [];
-    this.props.mealReviews.data.forEach((reviewEle,index)=> {
-      let {mealId, star_rating, username, reviewed_at, review_msg} = reviewEle;
-      let Review =
-      (
+  organiseReviews = (reviewsArray, pageMealId) => {
+    return reviewsArray.reduce((acc,reviewEle, index) => {
+      let {
+        meal_id: mealId,
+        star_rating,
+        username,
+        reviewed_at,
+        review_msg
+      } = reviewEle;
+      let Review = (
         <article key={index}>
           <h2>{username}</h2>
           <h3>{star_rating}</h3>
           <div>{reviewed_at}</div>
           <div>{review_msg}</div>
         </article>
-      )
-      if (mealId === this.props.mealId){
-        mealReviews = [...mealReviews, Review];
+      );
+      if (mealId === Number(pageMealId)) {
+        console.log(acc);
+        return {...acc, mealReviews:[...acc.mealReviews, Review]};
       } else {
-        cookReviews = [...cookReviews,Review]
+        console.log(acc);
+        return {...acc, cookReviews:[...acc.cookReviews, Review]};
       }
+    },{mealReviews:[], cookReviews:[]});
+  }
+  render() {
+    if (!this.props.mealReviews.isFulfilled) return <h1>Loading</h1>;
+    const {mealReviews, cookReviews} = this.organiseReviews(this.props.mealReviews.data, this.props.mealId);
 
-    })
-
+    let MealReviews = null;
+    let CookReviews = null;
+    if (mealReviews.length>0) {
+      MealReviews = (
+        <React.Fragment>
+          <h1>Meal Reviews</h1>
+          {mealReviews}
+        </React.Fragment>
+      );
+    }
+    if (cookReviews.length>0) {
+      CookReviews = (
+        <React.Fragment>
+          <h1>Cook Reviews</h1>
+          {cookReviews}
+        </React.Fragment>
+      );
+    }
     return (
-      <React.Fragment>
-        <h1>Meal Reviews</h1>
-        <div>{mealReviews}</div>
-      </React.Fragment>
+      <section>
+        {MealReviews}
+        {CookReviews}
+      </section>
     );
   }
 }
 
-MealPage.propTypes ={
+MealPage.propTypes = {
   getMealReviews: PropTypes.func,
   mealId: PropTypes.string
-}
+};
 
 const mapStateToProps = ({ mealReviews }) => ({
   mealReviews: mealReviews
