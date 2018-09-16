@@ -25,10 +25,8 @@ class MealPage extends Component {
         </article>
       );
       if (mealId === Number(pageMealId)) {
-        console.log(acc);
         return {...acc, mealReviews:[...acc.mealReviews, Review]};
       } else {
-        console.log(acc);
         return {...acc, cookReviews:[...acc.cookReviews, Review]};
       }
     },{mealReviews:[], cookReviews:[]});
@@ -66,7 +64,11 @@ class MealPage extends Component {
 
 MealPage.propTypes = {
   getMealReviews: PropTypes.func,
-  mealId: PropTypes.string
+  mealId: PropTypes.string,
+  mealReviews: PropTypes.shape({
+    data: PropTypes.array,
+    isFulfilled: PropTypes.bool
+  })
 };
 
 const mapStateToProps = ({ mealReviews }) => ({
