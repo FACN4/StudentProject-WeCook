@@ -12,12 +12,12 @@ export const StarCreator = rating => {
     vertical = -48;
   }
   const Stars = styled.span`
-    background-position: ${horizontal}px ${vertical}px;
     width: 180px;
     height: 48px;
     display: block;
     background: url("https://user-images.githubusercontent.com/28222381/45497282-10c76500-b780-11e8-93f9-1a58add8fc4f.png")
       0 0 no-repeat;
+    background-position: ${horizontal}px ${vertical}px;
   `;
   return Stars;
 };
