@@ -19,6 +19,9 @@ const getMealInfo = (mealId) => {
   ;`;
 
   const flattenRows = rows => new Promise((resolve, reject) => {
+    if (rows.length === 0) {
+      reject(new Error('getMealInfo did not return any meals'));
+    }
     try {
       let flatRow = { ...rows[0], meal_image_url: [] };
       delete flatRow.is_thumbnail;

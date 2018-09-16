@@ -12,7 +12,7 @@ export default class Router extends Component {
           <Header />
           <Switch>
             <Route exact path="/" component={MealsListPage} />
-            <Route exact path="/mealInfo" component={MealPage} />
+            <Route exact path="/mealInfo/:mealId" component={MealPage} />
             <Route exact path="/basket" component={BasketPage} />
           </Switch>
         </React.Fragment>
