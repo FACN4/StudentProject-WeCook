@@ -28,21 +28,17 @@ const testImages = [
   }
 ];
 
-test("Jest is working", () => {
-  expect(1).toBe(1);
-});
-
 test("Clicking the small gallery image replaces it with a larger image", () => {
   const { getByTestId } = render(<Gallery images={testImages} />);
 
-  const mainImage = getByTestId('largeImg');
-  const smallImage = getByTestId('smallImg');
+  const mainImage = getByTestId("largeImg");
+  const smallImage = getByTestId("smallImg");
 
-  const mainImageSrc = mainImage.src
-  const smallImageSrc = smallImage.src
-  fireEvent.click(smallImage)
+  const mainImageSrc = mainImage.src;
+  const smallImageSrc = smallImage.src;
+  fireEvent.click(smallImage);
   expect(mainImage.src).toEqual(smallImageSrc);
   expect(smallImage.src).toEqual(mainImageSrc);
-  fireEvent.click(smallImage)
+  fireEvent.click(smallImage);
   expect(mainImage.src).toEqual(mainImageSrc);
 });

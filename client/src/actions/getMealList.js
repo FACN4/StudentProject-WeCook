@@ -1,5 +1,5 @@
 import axios from "axios";
-import { GET_MEAL_LIST } from "./types";
+import { GET_MEAL_LIST } from "./actionTypes";
 
 const getMealList = () => {
   return dispatch => {

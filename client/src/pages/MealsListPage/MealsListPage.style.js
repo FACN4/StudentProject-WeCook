@@ -33,7 +33,7 @@ export const CookDetails = styled.section`
   font-family: ${props => props.theme.bodyFont};
   font-size: 12px;
   img {
-    border: 10px #fff solid;
+    border: 10px #ffffff solid;
     border-radius: 50%;
     width: 65px;
     height: 65px;

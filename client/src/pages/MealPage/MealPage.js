@@ -15,3 +15,5 @@ const MealPage = props => {
 MealPage.propTypes = {
   match: PropTypes.object
 };
+
+export default MealPage;
