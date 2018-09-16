@@ -21,7 +21,7 @@ class MealListPage extends Component {
     this.props.getMealList();
   }
   render() {
-    if (this.props.mealList.status !== "Fulfilled") return <h1>Loading</h1>;
+    if (!this.props.mealList.isFulfilled) return <h1>Loading</h1>;
     const {
       id,
       meal_image_url,
@@ -31,10 +31,10 @@ class MealListPage extends Component {
       cook_firstname,
       cook_image_url,
       count_reviews
-    } = this.props.mealList.mealList[0];
+    } = this.props.mealList.data[0];
     const deadline = timeRemaining(new Date(final_booking_at) - Date.now());
     const meal_link = `/mealInfo/${id}`;
-    const mealCount = this.props.mealList.mealList.length;
+    const mealCount = this.props.mealList.data.length;
     return (
       <React.Fragment>
         <h1>{mealCount} menus available in your local area for this date</h1>
@@ -65,12 +65,16 @@ class MealListPage extends Component {
 MealListPage.propTypes = {
   getMealList: PropTypes.func,
   mealList: PropTypes.shape({
-    mealList: propTypeLol,
+    data: mealPropType,
     status: PropTypes.string
-  })
+  }),
+  isRejected: PropTypes.bool,
+  isFulfilled: PropTypes.bool,
+  isPending: PropTypes.bool,
+  error: PropTypes.string
 };
 
-const propTypeLol = PropTypes.shape({
+const mealPropType = PropTypes.shape({
   id: PropTypes.string,
   meal_title: PropTypes.string,
   count_review: PropTypes.string,
