@@ -1,13 +1,19 @@
 import React, { Component } from "react";
 import { MoneyButton, MealCard } from "../../components";
-import { MealName, Delivery, OrderInfo, Cost } from "./BasketPage.style";
+import {
+  MealName,
+  Delivery,
+  OrderInfo,
+  Cost,
+  BasketWrapper
+} from "./BasketPage.style";
 
 import mealImage from "../../assets/meal_image.png";
 
 export default class MealListPage extends Component {
   render() {
     return (
-      <React.Fragment>
+      <BasketWrapper>
         <h1>Your Basket</h1>
         <MealCard mealImage={mealImage}>
           <MealName>Russian tomato sauce with shashlikee</MealName>
@@ -21,7 +27,7 @@ export default class MealListPage extends Component {
           </OrderInfo>
         </MealCard>
         <MoneyButton />
-      </React.Fragment>
+      </BasketWrapper>
     );
   }
 }
