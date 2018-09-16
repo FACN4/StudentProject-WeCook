@@ -1,5 +1,5 @@
 import axios from "axios";
-import { GET_MEAL_INFO } from "./constants";
+import { GET_MEAL_INFO } from "./actionTypes";
 
 const getMealInfo = mealId => {
   return dispatch => {

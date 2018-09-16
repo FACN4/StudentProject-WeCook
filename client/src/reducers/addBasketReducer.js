@@ -1,4 +1,4 @@
-import { ADD_TO_BASKET } from "../actions/constants";
+import { ADD_TO_BASKET } from "../actions/actionTypes";
 
 const initialState = {
   basket: []

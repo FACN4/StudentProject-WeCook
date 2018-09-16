@@ -1,4 +1,4 @@
-import { ADD_TO_BASKET } from "./constants";
+import { ADD_TO_BASKET } from "./actionTypes";
 
 const addToBasket = () => dispatch => {
   dispatch({

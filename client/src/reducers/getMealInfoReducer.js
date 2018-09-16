@@ -1,4 +1,4 @@
-import { GET_MEAL_INFO } from "../actions/constants";
+import { GET_MEAL_INFO } from "../actions/actionTypes";
 
 const initialState = {};
 
