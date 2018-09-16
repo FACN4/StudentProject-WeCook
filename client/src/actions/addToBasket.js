@@ -1,9 +1,9 @@
-import { ADD_TO_BASKET } from './types';
+import { ADD_TO_BASKET } from "./constants";
 
-const addToBasket = () => (dispatch) => {
+const addToBasket = () => dispatch => {
   dispatch({
     type: ADD_TO_BASKET,
-    payload: { title: 'Jerk Chicken' },
+    payload: { title: "Jerk Chicken" }
   });
 };
 
