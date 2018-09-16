@@ -1,11 +1,21 @@
 import React from "react";
-import { StyledMealCard, MealDescription } from "./MealCard.style";
+import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
+import { StyledMealCard, MealDescription, MealImage } from "./MealCard.style";
 
 const MealCard = props => (
   <StyledMealCard>
-    <img src={props.mealImage} alt="Meal Image" />
+    <Link to={props.link}>
+      <MealImage src={props.mealImage} alt="Meal Image" />
+    </Link>
     <MealDescription>{props.children}</MealDescription>
   </StyledMealCard>
 );
+
+MealCard.propTypes = {
+  link: PropTypes.string,
+  mealImage: PropTypes.string,
+  children: PropTypes.string
+};
 
 export default MealCard;

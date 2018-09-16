@@ -4,13 +4,16 @@ export const StyledMealCard = styled.section`
   width: 345px;
   margin: 0 0 20px 0px;
   padding: 0;
-  img {
-    border-top-right-radius: 10px;
-    border-top-left-radius: 10px;
-    padding: 0;
-    margin: 0;
-    display: block;
-  }
+`;
+
+export const MealImage = styled.img`
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
+  padding: 0;
+  margin: 0;
+  display: block;
+  width: 345px;
+  height: 135px;
 `;
 
 export const MealDescription = styled.section`
