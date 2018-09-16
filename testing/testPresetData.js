@@ -56,7 +56,7 @@ const cookInfoResult = {
   cook_image_url: 'https://user-images.githubusercontent.com/28222381/45268630-08251500-b488-11e8-94c4-7e664f5d45c9.jpg',
   count_reviews: '3',
 };
-const cookReviewsResult = [{
+const mealReviewsResult = [{
   meal_id: 1,
   username: 'testUser2',
   star_rating: 5,
@@ -80,5 +80,5 @@ const userDetails = {
 
 
 module.exports = {
-  mealCardResult, mealInfoResult, cookInfoResult, cookReviewsResult, userDetails,
+  mealCardResult, mealInfoResult, cookInfoResult, mealReviewsResult, userDetails,
 };
