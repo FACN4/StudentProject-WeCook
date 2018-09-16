@@ -25,6 +25,8 @@ const getCookReviews = (mealId) => {
     users
   ON
     cook_reviews.customer_user_id = users.id
+  ORDER BY
+    cook_reviews.reviewed_at DESC
   ;`;
 
   return db.any(queryString, [mealId]);

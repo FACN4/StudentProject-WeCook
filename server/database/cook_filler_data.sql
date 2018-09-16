@@ -10,7 +10,7 @@ INSERT INTO meals (meal_title, cook_user_id, max_portions, remaining_portions, i
 
 INSERT INTO meal_orders(cook_user_id, customer_user_id, meal_id, portion_count, delivery_house_no, delivery_post_code) VALUES (1,2,1,1,14,'N2 0EZ'),(1,2,1,1,14,'N2 0EZ');
 
-INSERT INTO reviews (meal_order_id, cook_user_id, customer_user_id, meal_id, star_rating, review_msg) VALUES (1,1,2,1,5,'I love Mama Afifi’s food. This dish is one of my favourites. A lovely member of our community. Will definitely be going back!'),(2,1,2,1,4,'I love Mama Afifi’s food. This dish is one of my favourites. A lovely member of our community. Will definitely be going back!');
+INSERT INTO reviews (meal_order_id, cook_user_id, customer_user_id, meal_id,reviewed_at, star_rating, review_msg) VALUES (1,1,2,1,NOW(),5,'I love Mama Afifi’s food. This dish is one of my favourites. A lovely member of our community. Will definitely be going back!'),(2,1,2,1,NOW() - INTERVAL '1 DAY',4,'I love Mama Afifi’s food. This dish is one of my favourites. A lovely member of our community. Will definitely be going back!');
 
 INSERT INTO meal_images (meal_id, meal_image_url, is_thumbnail) VALUES (1,'https://user-images.githubusercontent.com/28222381/45268801-1163b100-b48b-11e8-85b0-d32b09a111e3.jpg',true),(1,'https://user-images.githubusercontent.com/28222381/45268805-1c1e4600-b48b-11e8-932f-ddae68a9bd3c.jpg',false),(1,'https://user-images.githubusercontent.com/28222381/45268810-37895100-b48b-11e8-8b5d-c6e8964b4f2b.jpg',false),(1,'https://user-images.githubusercontent.com/28222381/45268814-4ff96b80-b48b-11e8-88ba-f9e7fa57dc22.jpg',false);
 
