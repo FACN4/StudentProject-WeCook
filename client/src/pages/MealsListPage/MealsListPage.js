@@ -66,12 +66,12 @@ MealListPage.propTypes = {
   getMealList: PropTypes.func,
   mealList: PropTypes.shape({
     data: mealPropType,
-    status: PropTypes.string
-  }),
-  isRejected: PropTypes.bool,
-  isFulfilled: PropTypes.bool,
-  isPending: PropTypes.bool,
-  error: PropTypes.string
+    status: PropTypes.string,
+    isRejected: PropTypes.bool,
+    isFulfilled: PropTypes.bool,
+    isPending: PropTypes.bool,
+    error: PropTypes.string
+  })
 };
 
 const mealPropType = PropTypes.shape({

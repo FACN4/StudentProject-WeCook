@@ -1,10 +1,11 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
 import { MoneyButton, MealCard } from "../../components";
 import { MealName, Delivery, OrderInfo, Cost } from "./BasketPage.style";
 
 import mealImage from "../../assets/meal_image.png";
 
-export default class MealListPage extends Component {
+class BasketPage extends Component {
   render() {
     return (
       <React.Fragment>
@@ -25,3 +26,9 @@ export default class MealListPage extends Component {
     );
   }
 }
+
+const mapStateToProps = ({ addToBasket }) => ({
+  addToBasket: addToBasket
+});
+
+export default connect(mapStateToProps)(BasketPage);
