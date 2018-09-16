@@ -60,7 +60,10 @@ MealInfo.propTypes = {
       tags: PropTypes.arr,
       meal_image_url: PropTypes.arr
     }),
-    status: PropTypes.string
+    isRejected: PropTypes.bool,
+    isFulfilled: PropTypes.bool,
+    isPending: PropTypes.bool,
+    error: PropTypes.string
   }),
   mealId: PropTypes.string
 };
