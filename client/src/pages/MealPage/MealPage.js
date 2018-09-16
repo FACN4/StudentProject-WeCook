@@ -7,7 +7,7 @@ const MealPage = props => {
   return (
     <React.Fragment>
       <MealInfo mealId={props.match.params.mealId} />
-      <MoneyButton />
+      <MoneyButton mealId={props.match.params.mealId} />
     </React.Fragment>
   );
 };

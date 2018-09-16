@@ -24,7 +24,7 @@ class BasketPage extends Component {
           </React.Fragment>
         ) : (
           <React.Fragment>
-            <h1>Your Basket</h1>
+            <h1>Your Basket..</h1>
             <MealCard mealImage={mealImage}>
               <MealName>Russian tomato sauce with shashlikee</MealName>
               <Delivery>For delivery for 7pm on 22/09/18</Delivery>

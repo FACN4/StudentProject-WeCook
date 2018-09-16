@@ -2,6 +2,7 @@ import styled from "styled-components";
 import addToBasket from "../../assets/addToBasket.png";
 
 export const Order = styled.section`
+  margin-top: 700px;
   z-index: 2;
   background: ${props => props.theme.lightGrey};
   position: fixed;
