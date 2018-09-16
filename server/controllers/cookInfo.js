@@ -1,8 +1,8 @@
-const { getCookInfo } = require('../database/getQueries/getMealInfo');
+const { getCookInfo } = require('../database/getQueries/getCookInfo');
 
 exports.get = (req, res) => {
   const { mealId } = req.params;
-  getMealInfo(mealId)
+  getCookInfo(mealId)
     .then(row => res.send(row))
-    .catch(() => res.send('Could not find meal'));
+    .catch(() => res.send('Could not find cook'));
 };

@@ -6,7 +6,7 @@ const getCookInfo = mealId => {
   return dispatch => {
     dispatch({
       type: GET_COOK_INFO,
-      payload: axios.get(`/api/cookInfo/${mealId}`)
+      payload: axios.get(`/api/mealCookInfo/${mealId}`)
     });
   };
 };
