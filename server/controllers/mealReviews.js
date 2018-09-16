@@ -1,8 +1,8 @@
-const { getCookReviews } = require('../database/getQueries/getCookReviews');
+const { getMealReviews } = require('../database/getQueries/getMealReviews');
 
 exports.get = (req, res) => {
   const { mealId } = req.params;
-  getCookReviews(mealId)
+  getMealReviews(mealId)
     .then(row => res.send(row))
     .catch(() => res.status(500).send('Could not find cook reviews'));
 };

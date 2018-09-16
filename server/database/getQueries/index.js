@@ -1,8 +1,8 @@
 const { getMealInfo } = require('./getMealInfo');
 const { getCookInfo } = require('./getCookInfo');
 const { getMealCard } = require('./getMealCard');
-const { getCookReviews } = require('./getCookReviews');
+const { getMealReviews } = require('./getMealReviews');
 
 module.exports = {
-  getMealInfo, getCookInfo, getMealCard, getCookReviews,
+  getMealInfo, getCookInfo, getMealCard, getMealReviews,
 };
