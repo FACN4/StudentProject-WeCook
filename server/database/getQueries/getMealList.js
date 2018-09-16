@@ -1,9 +1,9 @@
 const { db } = require('../db_connection');
 
-const getMealCard = (mealId) => {
+const getMealList = () => {
   const queryString = `
   SELECT
-    meal.id, meal.meal_title, meal.price, meal.meal_scheduled_at, meal.final_booking_at, meal.remaining_portions, meal_thumbnails.meal_image_url, cook_info.cook_firstname, cook_thumbnails.cook_image_url, av_review.av_star_rating, av_review.count_reviews
+    meal.id, meal.meal_title, meal.price, meal.final_booking_at, meal.remaining_portions, meal_thumbnails.meal_image_url, cook_info.cook_firstname, cook_thumbnails.cook_image_url, av_review.av_star_rating, av_review.count_reviews
   FROM
     (SELECT * FROM meals) AS meal
   LEFT JOIN
@@ -30,8 +30,7 @@ const getMealCard = (mealId) => {
   ON
     meal.cook_user_id = av_review.cook_user_id;
     `;
-
-  return db.one(queryString, [mealId]);
+  return db.any(queryString);
 };
 
-module.exports = { getMealCard };
+module.exports = { getMealList };
