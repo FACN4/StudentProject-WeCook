@@ -1,6 +1,5 @@
 import React from "react";
 import HomeHeader from './sections/HomeHeader/HomeHeader';
-import AboutTheCompany from './sections/AboutTheCompany/AboutTheCompany';
 import MealSearchForm from './sections/MealSearchForm/MealSearchForm'
 import {Footer} from '../../components'
 import {FooterWrapper} from '../../components/Footer/FooterWrapper'

@@ -4,9 +4,9 @@
   "parserOptions": {
     "sourceType": "module",
     "allowImportExportEverywhere": false,
+    "import/prefer-default-export": false,
     "codeFrame": true
   },
-  "rules": {"import/prefer-default-export": false},
   "env": {
     "es6": true,
     "browser": true,
