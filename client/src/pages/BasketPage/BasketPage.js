@@ -34,7 +34,6 @@ class BasketPage extends Component {
                   mealImage={basketItems.mealId.meal_image_url[0].mealUrl}
                   key={basketItemId}
                 >
-                  {console.log("Basket Items", basketItemId)};
                   <MealName>{basketItems.mealId.meal_title}</MealName>
                   <Delivery>For delivery for 7pm on 22/09/18</Delivery>
                   <OrderInfo>
