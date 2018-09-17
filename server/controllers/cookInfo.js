@@ -4,5 +4,5 @@ exports.get = (req, res) => {
   const { mealId } = req.params;
   getCookInfo(mealId)
     .then(row => res.send(row))
-    .catch(() => res.send('Could not find cook'));
+    .catch(() => res.status(500).res.send('Could not find cook'));
 };

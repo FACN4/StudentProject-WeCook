@@ -8,8 +8,8 @@ const MealPage = props => {
   return (
     <React.Fragment>
       <MealInfo mealId={props.match.params.mealId} />
+      <CookInfo cookMealId={props.match.params.mealId} />
       <MoneyButton />
-      <CookInfo mealId={props.match.params.mealId} />
     </React.Fragment>
   );
 };

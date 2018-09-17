@@ -1,29 +1,30 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import getCookInfo from "../../../../actions/getCookInfo";
+import getCookMealInfo from "../../../../actions/getCookInfo";
 
-class CookInfo extends Component {
+class mealCookInfo extends Component {
   componentDidMount() {
-    this.props.getCookInfo(this.props.mealId);
+    this.props.getCookMealInfo(this.props.mealId);
   }
   render() {
-    console.log(this.props);
     if (!this.props.cookInfo.isFulfilled) return <h1>Loading</h1>;
     const {
       cook_firstname,
       cook_lastname,
       cook_summary,
       cook_description,
-      is_thumbnail
+      is_thumbnail: cookThumbnail
     } = this.props.cookInfo.data;
-    const cookThumbnail = is_thumbnail;
+
     return (
       <section>
         <h1>About The Cook</h1>
         <div>
           <img src={cookThumbnail} alt="cook image" />
-          <span>{(cook_firstname, cook_lastname)}</span>
+          <span>
+            {cook_firstname},{cook_lastname}
+          </span>
           <span>{cook_summary}</span>
           <span>{cook_description}</span>
         </div>
@@ -32,8 +33,8 @@ class CookInfo extends Component {
     );
   }
 }
-CookInfo.propTypes = {
-  getCookInfo: PropTypes.func,
+mealCookInfo.propTypes = {
+  getCookMealInfo: PropTypes.func,
   mealId: PropTypes.string,
   cookInfo: PropTypes.shape({
     data: PropTypes.shape({
@@ -53,9 +54,9 @@ const mapStateToProps = ({ cookData }) => ({
   cookInfo: cookData
 });
 const mapDispatchToProps = {
-  getCookInfo
+  getCookMealInfo
 };
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(CookInfo);
+)(mealCookInfo);
