@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import { Order, Price } from "./MoneyButton.style";
+import { Order, Price, MoneyButtonWrapper } from "./MoneyButton.style";
 
 import addToBasket from "../../actions/addToBasket";
 
