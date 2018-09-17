@@ -24,6 +24,6 @@ We all seperately found a number of designs that inspired us. The clear consensu
 
 a) A clean interface - one that is easy to use, well structued and also gives the user a sense of 'cleanliness'.
 b) Images at the heart of the design - our hypothesis is that making pictures of the meal and the cooks center to the design gives a better UX and builds a better brand than flashy animations
-c) ...
+c) ....
 
 ### Schema

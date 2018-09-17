@@ -68,13 +68,13 @@ MealInfo.propTypes = {
   mealId: PropTypes.string
 };
 
-const mapDispatchToProps = {
-  getMealInfo
-};
-
 const mapStateToProps = ({ mealData }) => ({
   mealInfo: mealData
 });
+
+const mapDispatchToProps = {
+  getMealInfo
+};
 
 export default connect(
   mapStateToProps,
