@@ -33,6 +33,6 @@ export const Price = styled.section`
   padding-left: 20px;
 `;
 
-export const MoneyButtonWrapper = styled.setion`
+export const MoneyButtonWrapper = styled.section`
   margin-top: 70px;
 `;
