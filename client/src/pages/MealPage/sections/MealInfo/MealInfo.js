@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import { Gallery, MoneyButton } from "../../../../components";
+import { Gallery } from "../../../../components";
 import getMealInfo from "../../../../actions/getMealInfo";
 import timeRemaining from "../../../../utils/formatingLogic";
 
@@ -43,10 +43,6 @@ class MealInfo extends Component {
           <div>{ingredients.join(", ")}</div>
           <div> {tags.join(", ")}</div>
         </section>
-        <MoneyButton
-          mealInfo={this.props.mealInfo.data}
-          mealId={this.props.mealId}
-        />
       </React.Fragment>
     );
   }
