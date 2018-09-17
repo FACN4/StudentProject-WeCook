@@ -65,6 +65,7 @@ typings/
 
 # ignore dist
 client/dist
+/dist
 
 # Security
 security/

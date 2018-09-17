@@ -33,3 +33,7 @@ export const Price = styled.section`
   line-height: 53px;
   padding-left: 20px;
 `;
+
+export const MoneyButtonWrapper = styled.section`
+  margin-top: 70px;
+`;

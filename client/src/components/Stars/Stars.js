@@ -4,12 +4,7 @@ import { StarCreator } from "./Stars.style";
 
 const Stars = props => {
   const StarNumber = StarCreator(props.rating);
-
-  return (
-    <React.Fragment>
-      <StarNumber />
-    </React.Fragment>
-  );
+  return <StarNumber />;
 };
 
 Stars.propTypes = {

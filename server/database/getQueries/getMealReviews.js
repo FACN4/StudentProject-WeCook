@@ -1,6 +1,6 @@
 const { db } = require('../db_connection');
 
-const getCookReviews = (mealId) => {
+const getMealReviews = (mealId) => {
   const queryString = `
   SELECT
     cook_reviews.meal_id, users.username, cook_reviews.star_rating, cook_reviews.reviewed_at, cook_reviews.review_msg
@@ -25,9 +25,11 @@ const getCookReviews = (mealId) => {
     users
   ON
     cook_reviews.customer_user_id = users.id
+  ORDER BY
+    cook_reviews.reviewed_at DESC
   ;`;
 
   return db.any(queryString, [mealId]);
 };
 
-module.exports = { getCookReviews };
+module.exports = { getMealReviews };

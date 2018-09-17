@@ -1,19 +1,19 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import { Order, Price } from "./MoneyButton.style";
+import { Order, Price, MoneyButtonWrapper } from "./MoneyButton.style";
 
 import addToBasket from "../../actions/addToBasket";
 
 const MoneyButton = props => (
-  <React.Fragment>
+  <MoneyButtonWrapper>
     <Order>
       <Price>Price: £{props.mealInfo.price}.</Price>
       <button onClick={() => props.addToBasket(props.mealId, props.mealInfo)}>
         Add to Basket item
       </button>
     </Order>
-  </React.Fragment>
+  </MoneyButtonWrapper>
 );
 
 MoneyButton.propTypes = {
