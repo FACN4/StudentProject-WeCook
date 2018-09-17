@@ -9,8 +9,8 @@ const MealPage = props => {
   return (
     <React.Fragment>
       <MealInfo mealId={props.match.params.mealId} />
-      <MealCookInfo cookMealId={props.match.params.mealId} />
-      <MealReviews reviewsMealId={props.match.params.mealId} />
+      <MealCookInfo mealId={props.match.params.mealId} />
+      <MealReviews mealId={props.match.params.mealId} />
       <MoneyButton />
     </React.Fragment>
   );

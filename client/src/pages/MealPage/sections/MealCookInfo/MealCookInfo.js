@@ -49,8 +49,8 @@ MealCookInfo.propTypes = {
     error: PropTypes.string
   })
 };
-const mapStateToProps = ({ cookData }) => ({
-  cookInfo: cookData
+const mapStateToProps = ({ mealCookData }) => ({
+  mealCookInfo: mealCookData
 });
 const mapDispatchToProps = {
   getMealCookInfo
