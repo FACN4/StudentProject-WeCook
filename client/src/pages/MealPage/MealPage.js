@@ -1,15 +1,14 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { MoneyButton } from "../../components";
-import { MealPageWrapper } from "./MealPage.style";
 import MealInfo from "./sections/MealInfo/MealInfo";
 
 const MealPage = props => {
   return (
-    <MealPageWrapper>
+    <React.Fragment>
       <MealInfo mealId={props.match.params.mealId} />
       <MoneyButton />
-    </MealPageWrapper>
+    </React.Fragment>
   );
 };
 
