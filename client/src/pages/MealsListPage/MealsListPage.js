@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import timeRemaining from "../../utils/formatingLogic";
 import getMealList from "../../actions/getMealList";
-import { Footer, MealCard } from "../../components";
+import { Footer, MealCard, Header } from "../../components";
 import {
   MealList,
   MealDetails,
@@ -25,6 +25,7 @@ class MealListPage extends Component {
     const mealCount = this.props.mealList.data.length;
     return (
       <React.Fragment>
+        <Header />
         <h1>{mealCount} menus available in your local area for this date</h1>
         <MealList>
           {this.props.mealList.data.map(meal => {

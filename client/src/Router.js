@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import { hot } from 'react-hot-loader'
-import { Header } from "./components";
 
 import { MealPage, MealsListPage, BasketPage, HomePage } from "./pages";
 
@@ -10,7 +9,6 @@ class Router extends Component {
     return (
       <BrowserRouter>
         <React.Fragment>
-          <Header />
           <Switch>
             <Route exact path="/" component={HomePage} />
             <Route exact path="/mealList" component={MealsListPage} />

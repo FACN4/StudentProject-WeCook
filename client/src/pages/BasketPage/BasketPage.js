@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { MoneyButton, MealCard } from "../../components";
+import { MoneyButton, MealCard, Header } from "../../components";
 import { MealName, Delivery, OrderInfo, Cost } from "./BasketPage.style";
 
 import mealImage from "../../assets/meal_image.png";
@@ -8,6 +8,7 @@ export default class MealListPage extends Component {
   render() {
     return (
       <React.Fragment>
+        <Header />
         <h1>Your Basket</h1>
         <MealCard mealImage={mealImage}>
           <MealName>Russian tomato sauce with shashlikee</MealName>
