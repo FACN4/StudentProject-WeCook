@@ -18,10 +18,11 @@ export const Title = styled.h1`
 
 export const Tagline = styled.p`
   color: black;
-  margin: 0% 20%;
+  width: 60%;
+  margin: auto;
   font-size: 20px;
 `
 export const Logo = styled.img`
   height: 60px;
-  margin: -12px 12px;
+  margin: -12px 12px -12px 0px;
 `;

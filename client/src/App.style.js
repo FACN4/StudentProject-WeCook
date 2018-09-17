@@ -7,6 +7,16 @@ export const GlobalStyle = injectGlobal`
   padding: 0;
 }
 
+html, body {
+  height: 100%;
+}
+
+#app{
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
 body {
   margin: 0;
   padding: 0;

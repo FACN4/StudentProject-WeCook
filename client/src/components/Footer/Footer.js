@@ -12,7 +12,6 @@ export default class Footer extends Component {
         <Icons>
           <img src={instaIcon} />
           <img src={FBIcon} />
-          <img src={healthOrgIcon} />
         </Icons>
       </StyledFooter>
     );
