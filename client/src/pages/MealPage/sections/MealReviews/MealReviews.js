@@ -5,7 +5,6 @@ import getMealReviews from "../../../../actions/getMealReviews";
 
 class MealPage extends Component {
   componentDidMount() {
-    console.log(this.props);
     this.props.getMealReviews(this.props.mealId);
   }
   organiseReviews = (reviewsArray, pageMealId) => {
