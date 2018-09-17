@@ -2,15 +2,11 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import removeBasketItem from "../../actions/removeBasketItem";
-import getBasket from "../../actions/getBasket";
-import { MealCard, Footer } from "../../components";
+import { MealCard } from "../../components";
 import { MealName, Delivery, OrderInfo, Cost } from "./BasketPage.style";
-
-import mealImage from "../../assets/meal_image.png";
 
 class BasketPage extends Component {
   basketIsEmpty = () => Object.keys(this.props.basket).length === 0;
-  componentDidMount() {}
   render() {
     return (
       <React.Fragment>
@@ -74,7 +70,6 @@ const mapStateToProps = ({ basket }) => ({
 });
 
 const mapDispatchToProps = {
-  getBasket,
   removeBasketItem
 };
 
