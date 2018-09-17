@@ -22,39 +22,40 @@ class MealListPage extends Component {
   }
   render() {
     if (!this.props.mealList.isFulfilled) return <h1>Loading</h1>;
-    const {
-      id,
-      meal_image_url,
-      meal_title,
-      price,
-      final_booking_at,
-      cook_firstname,
-      cook_image_url,
-      count_reviews
-    } = this.props.mealList.data[0];
-    const deadline = timeRemaining(new Date(final_booking_at) - Date.now());
-    const meal_link = `/mealInfo/${id}`;
     const mealCount = this.props.mealList.data.length;
     return (
       <React.Fragment>
         <h1>{mealCount} menus available in your local area for this date</h1>
         <MealList>
-          <MealCard mealImage={meal_image_url} link={meal_link}>
-            <MealSection>
-              <MealDetails>
-                <Link to={meal_link}>{meal_title}</Link>
-                <MealCardReview>
-                  <img src={reviewImage} alt="Review Image" />
-                  {count_reviews} reviews
-                </MealCardReview>
-                £{price}/serving <TimeRemaning>{deadline}</TimeRemaning>
-              </MealDetails>
-              <CookDetails>
-                <img src={cook_image_url} alt={cook_firstname} />
-                By {cook_firstname}
-              </CookDetails>
-            </MealSection>
-          </MealCard>
+          {this.props.mealList.data.map(meal => {
+            const deadline = timeRemaining(
+              new Date(meal.final_booking_at) - Date.now()
+            );
+            const meal_link = `/mealInfo/${meal.id}`;
+            return (
+              <MealCard
+                key={meal.id}
+                mealImage={meal.meal_image_url}
+                link={meal_link}
+              >
+                <MealSection>
+                  <MealDetails>
+                    <Link to={meal_link}>{meal.meal_title}</Link>
+                    <MealCardReview>
+                      <img src={reviewImage} alt="Review Image" />
+                      {meal.count_reviews} reviews
+                    </MealCardReview>
+                    £{meal.price}/serving{" "}
+                    <TimeRemaning>{deadline}</TimeRemaning>
+                  </MealDetails>
+                  <CookDetails>
+                    <img src={meal.cook_image_url} alt={meal.cook_firstname} />
+                    By {meal.cook_firstname}
+                  </CookDetails>
+                </MealSection>
+              </MealCard>
+            );
+          })};
         </MealList>
         <Footer />
       </React.Fragment>
@@ -66,7 +67,8 @@ MealListPage.propTypes = {
   getMealList: PropTypes.func,
   mealList: PropTypes.shape({
     data: mealPropType,
-    status: PropTypes.string
+    isFulfilled: PropTypes.bool
+
   }),
   isRejected: PropTypes.bool,
   isFulfilled: PropTypes.bool,

@@ -8,8 +8,8 @@ const mealCardResult = {
   meal_image_url: 'https://user-images.githubusercontent.com/28222381/45268801-1163b100-b48b-11e8-85b0-d32b09a111e3.jpg',
   cook_firstname: 'Samiyah',
   cook_image_url: 'https://user-images.githubusercontent.com/28222381/45268630-08251500-b488-11e8-94c4-7e664f5d45c9.jpg',
-  av_star_rating: '4.5000000000000000',
-  count_reviews: '2',
+  av_star_rating: '4.0000000000000000',
+  count_reviews: '3',
 };
 
 const mealInfoResult = {
@@ -54,9 +54,9 @@ const cookInfoResult = {
   cook_firstname: 'Samiyah',
   cook_summary: 'Delicious recipies passed down 3 generations of Afifi',
   cook_image_url: 'https://user-images.githubusercontent.com/28222381/45268630-08251500-b488-11e8-94c4-7e664f5d45c9.jpg',
-  count_reviews: '2',
+  count_reviews: '3',
 };
-const cookReviewsResult = [{
+const mealReviewsResult = [{
   meal_id: 1,
   username: 'testUser2',
   star_rating: 5,
@@ -69,6 +69,9 @@ const cookReviewsResult = [{
   star_rating: 4,
   reviewed_at: 'Date Not Static',
   review_msg: 'I love Mama Afifi’s food. This dish is one of my favourites. A lovely member of our community. Will definitely be going back!',
+},
+{
+  meal_id: 2, username: 'testUser2', star_rating: 3, reviewed_at: 'Date Not Static', review_msg: 'What a meal!!!',
 }];
 
 const userDetails = {
@@ -77,5 +80,5 @@ const userDetails = {
 
 
 module.exports = {
-  mealCardResult, mealInfoResult, cookInfoResult, cookReviewsResult, userDetails,
+  mealCardResult, mealInfoResult, cookInfoResult, mealReviewsResult, userDetails,
 };
