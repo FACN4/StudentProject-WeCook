@@ -1,11 +1,11 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import getCookMealInfo from "../../../../actions/getCookInfo";
+import getMealCookInfo from "../../../../actions/getMealCookInfo";
 
 class mealCookInfo extends Component {
   componentDidMount() {
-    this.props.getCookMealInfo(this.props.mealId);
+    this.props.getMealCookInfo(this.props.mealId);
   }
   render() {
     if (!this.props.cookInfo.isFulfilled) return <h1>Loading</h1>;
@@ -34,7 +34,7 @@ class mealCookInfo extends Component {
   }
 }
 mealCookInfo.propTypes = {
-  getCookMealInfo: PropTypes.func,
+  getMealCookInfo: PropTypes.func,
   mealId: PropTypes.string,
   cookInfo: PropTypes.shape({
     data: PropTypes.shape({
@@ -54,7 +54,7 @@ const mapStateToProps = ({ cookData }) => ({
   cookInfo: cookData
 });
 const mapDispatchToProps = {
-  getCookMealInfo
+  getMealCookInfo
 };
 export default connect(
   mapStateToProps,

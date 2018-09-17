@@ -7,7 +7,7 @@ const mealInfo = require('./mealInfo');
 const mealReviews = require('./mealReviews');
 const mealList = require('./mealList');
 
-const mealCookInfo = require('./cookInfo');
+const mealCookInfo = require('./mealCookInfo');
 
 // GET routes
 router.get('/api/mealInfo/:mealId', mealInfo.get);
