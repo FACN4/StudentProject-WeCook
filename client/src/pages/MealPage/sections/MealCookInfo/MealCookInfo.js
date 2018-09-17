@@ -3,20 +3,19 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import getMealCookInfo from "../../../../actions/getMealCookInfo";
 
-class mealCookInfo extends Component {
+class MealCookInfo extends Component {
   componentDidMount() {
     this.props.getMealCookInfo(this.props.mealId);
   }
   render() {
-    if (!this.props.cookInfo.isFulfilled) return <h1>Loading</h1>;
+    if (!this.props.mealCookInfo.isFulfilled) return <h1>Loading</h1>;
     const {
       cook_firstname,
       cook_lastname,
       cook_summary,
       cook_description,
       is_thumbnail: cookThumbnail
-    } = this.props.cookInfo.data;
-
+    } = this.props.mealCookInfo.data;
     return (
       <section>
         <h1>About The Cook</h1>
@@ -33,10 +32,10 @@ class mealCookInfo extends Component {
     );
   }
 }
-mealCookInfo.propTypes = {
+MealCookInfo.propTypes = {
   getMealCookInfo: PropTypes.func,
   mealId: PropTypes.string,
-  cookInfo: PropTypes.shape({
+  mealCookInfo: PropTypes.shape({
     data: PropTypes.shape({
       cook_firstname: PropTypes.string,
       cook_lastname: PropTypes.string,
@@ -59,4 +58,4 @@ const mapDispatchToProps = {
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(mealCookInfo);
+)(MealCookInfo);

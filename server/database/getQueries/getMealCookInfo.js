@@ -30,4 +30,4 @@ const getMealCookInfo = (mealId) => {
   return db.one(queryString, [mealId]);
 };
 
-module.exports = { getCookInfo };
+module.exports = { getMealCookInfo };
