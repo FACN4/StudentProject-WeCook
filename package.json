@@ -47,7 +47,6 @@
     "jest": "^23.5.0",
     "nodemon": "^1.18.4",
     "nyc": "^13.0.1",
-    "react-hot-loader": "^4.3.6",
     "react-testing-library": "^5.0.1",
     "style-loader": "^0.23.0",
     "supertest": "^3.3.0",

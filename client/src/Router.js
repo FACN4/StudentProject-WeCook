@@ -1,10 +1,11 @@
 import React, { Component } from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
+import { hot } from 'react-hot-loader'
 import { Header } from "./components";
 
 import { MealPage, MealsListPage, BasketPage } from "./pages";
 
-export default class Router extends Component {
+class Router extends Component {
   render() {
     return (
       <BrowserRouter>
@@ -20,3 +21,5 @@ export default class Router extends Component {
     );
   }
 }
+
+export default hot(module)(Router)
