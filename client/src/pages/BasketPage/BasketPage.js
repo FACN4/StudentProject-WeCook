@@ -28,7 +28,6 @@ class BasketPage extends Component {
         ) : (
           <React.Fragment>
             <h1>Your Basket..</h1>
-            {console.log(this.props)}
             {Object.keys(this.props.basket).map(itemId => {
               const {
                 meal_title,
