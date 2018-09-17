@@ -6,14 +6,17 @@ import { Order, Price } from "./MoneyButton.style";
 import addToBasket from "../../actions/addToBasket";
 
 const MoneyButton = props => (
-  <Order>
-    <Price>Price: £10.00</Price>
-    <button onClick={props.addToBasket(props.mealId)}>Add to Basket</button>
-  </Order>
+  <React.Fragment>
+    <Order>
+      <Price>Price: £10.00</Price>
+      <button onClick={props.addToBasket(props.mealInfo)}>Add to Basket</button>
+    </Order>
+  </React.Fragment>
 );
 
 MoneyButton.propTypes = {
-  addToBasket: PropTypes.func.isRequired
+  addToBasket: PropTypes.func.isRequired,
+  mealId: PropTypes.number
 };
 
 export default connect(

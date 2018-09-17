@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import { Gallery } from "../../../../components";
+import { Gallery, MoneyButton } from "../../../../components";
 import getMealInfo from "../../../../actions/getMealInfo";
 import timeRemaining from "../../../../utils/formatingLogic";
 
@@ -29,19 +29,22 @@ class MealInfo extends Component {
       return { ...obj, imageUrl: obj.mealUrl };
     });
     return (
-      <section>
-        <h1>{meal_title}</h1>
-        <div>
-          <span>{meal_scheduled_at}</span>
-          <span>{"£" + price + "per serving"}</span>
-          <span>{deadline}</span>
-          <span>{remaining_portions} servings left</span>
-        </div>
-        <Gallery images={mealImages} />
-        <p>{description}</p>
-        <div>{ingredients.join(", ")}</div>
-        <div> {tags.join(", ")}</div>
-      </section>
+      <React.Fragment>
+        <section>
+          <h1>{meal_title}</h1>
+          <div>
+            <span>{meal_scheduled_at}</span>
+            <span>{"£" + price + "per serving"}</span>
+            <span>{deadline}</span>
+            <span>{remaining_portions} servings left</span>
+          </div>
+          <Gallery images={mealImages} />
+          <p>{description}</p>
+          <div>{ingredients.join(", ")}</div>
+          <div> {tags.join(", ")}</div>
+        </section>
+        <MoneyButton mealInfo={this.props.mealInfo.data} />
+      </React.Fragment>
     );
   }
 }

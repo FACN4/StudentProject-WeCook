@@ -1,13 +1,15 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
-import { MoneyButton, MealCard } from "../../components";
+import getBasket from "../../actions/getBasket";
+import { MealCard, Footer } from "../../components";
 import { MealName, Delivery, OrderInfo, Cost } from "./BasketPage.style";
 
 import mealImage from "../../assets/meal_image.png";
 
 class BasketPage extends Component {
   basketIsEmpty = () => this.props.addToBasket.basket.length === 0;
+  componentDidMount() {}
   render() {
     return (
       <React.Fragment>
@@ -25,18 +27,26 @@ class BasketPage extends Component {
         ) : (
           <React.Fragment>
             <h1>Your Basket..</h1>
-            <MealCard mealImage={mealImage}>
-              <MealName>Russian tomato sauce with shashlikee</MealName>
-              <Delivery>For delivery for 7pm on 22/09/18</Delivery>
-              <OrderInfo>
-                <Cost>Cost: £5.00</Cost>
-                <select>
-                  <option value="">1 Portion</option>
-                </select>
-                <button>Delete</button>
-              </OrderInfo>
-            </MealCard>
-            <MoneyButton />
+            {console.log(this.props.addToBasket.basket)}
+            {this.props.addToBasket.basket.map(basketItems => {
+              return (
+                <MealCard
+                  mealImage={basketItems.mealId.meal_image_url[0].mealUrl}
+                  key={basketItems.mealId.meal_id}
+                >
+                  <MealName>{basketItems.mealId.meal_title}</MealName>
+                  <Delivery>For delivery for 7pm on 22/09/18</Delivery>
+                  <OrderInfo>
+                    <Cost>Cost: £{basketItems.mealId.price}</Cost>
+                    <select>
+                      <option value="">1 Portion</option>
+                    </select>
+                    <button>Delete</button>
+                  </OrderInfo>
+                </MealCard>
+              );
+            })};
+            <Footer />
           </React.Fragment>
         )};
       </React.Fragment>
@@ -48,4 +58,11 @@ const mapStateToProps = ({ addToBasket }) => ({
   addToBasket: addToBasket
 });
 
-export default connect(mapStateToProps)(BasketPage);
+const mapDispatchToProps = {
+  getBasket
+};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(BasketPage);
