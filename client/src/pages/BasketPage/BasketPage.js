@@ -32,7 +32,7 @@ class BasketPage extends Component {
               return (
                 <MealCard
                   mealImage={basketItems.mealId.meal_image_url[0].mealUrl}
-                  key={basketItems.mealId.meal_id}
+                  key={basketItemId}
                 >
                   {console.log("Basket Items", basketItemId)};
                   <MealName>{basketItems.mealId.meal_title}</MealName>
@@ -42,7 +42,9 @@ class BasketPage extends Component {
                     <select>
                       <option value="">1 Portion</option>
                     </select>
-                    <button onClick={() => this.props.removeBasketItem()}>
+                    <button
+                      onClick={() => this.props.removeBasketItem(basketItemId)}
+                    >
                       Delete
                     </button>
                   </OrderInfo>
