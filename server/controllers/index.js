@@ -1,7 +1,7 @@
 const express = require('express');
-
+const app = express();
 const router = express.Router();
-
+const user = require('./login.js')
 // Import controllers
 const mealInfo = require('./mealInfo');
 const mealList = require('./mealList');
@@ -9,5 +9,6 @@ const mealList = require('./mealList');
 // GET routes
 router.get('/api/mealInfo/:mealId', mealInfo.get);
 router.get('/api/mealList/', mealList.get);
-
+//use
+app.use('/user', user);
 module.exports = router;
