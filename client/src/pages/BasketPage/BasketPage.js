@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
+import removeBasketItem from "../../actions/removeBasketItem";
 import getBasket from "../../actions/getBasket";
 import { MealCard, Footer } from "../../components";
 import { MealName, Delivery, OrderInfo, Cost } from "./BasketPage.style";
@@ -27,7 +28,6 @@ class BasketPage extends Component {
         ) : (
           <React.Fragment>
             <h1>Your Basket..</h1>
-            {console.log(this.props.addToBasket.basket)}
             {this.props.addToBasket.basket.map(basketItems => {
               return (
                 <MealCard
@@ -41,7 +41,9 @@ class BasketPage extends Component {
                     <select>
                       <option value="">1 Portion</option>
                     </select>
-                    <button>Delete</button>
+                    <button onClick={this.props.removeBasketItem}>
+                      Delete
+                    </button>
                   </OrderInfo>
                 </MealCard>
               );
@@ -59,7 +61,8 @@ const mapStateToProps = ({ addToBasket }) => ({
 });
 
 const mapDispatchToProps = {
-  getBasket
+  getBasket,
+  removeBasketItem
 };
 
 export default connect(
