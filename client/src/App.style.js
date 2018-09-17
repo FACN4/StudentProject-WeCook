@@ -18,5 +18,6 @@ h1 {
   font-family: 'Crete Round', serif;
   font-size: 24px;
   margin: 10px 0;
+  font-weight: normal;
 }
 `;
