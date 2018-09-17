@@ -5,16 +5,16 @@ const initialState = {};
 export default function(state = initialState, action) {
   if (action.type == ADD_TO_BASKET || action.type == REMOVE_BASKET_ITEM) {
     var { mealId, quantity, mealInfo } = action.payload;
-    var acc = 0;
+    var currentQuantity = 0;
     if (state.hasOwnProperty(mealId)) {
-      acc = state[mealId].quantity;
+      currentQuantity = state[mealId].quantity;
     }
   }
   switch (action.type) {
     case ADD_TO_BASKET:
       return {
         ...state,
-        [mealId]: { quantity: quantity + acc, mealInfo }
+        [mealId]: { quantity: quantity + currentQuantity, mealInfo }
       };
     case REMOVE_BASKET_ITEM: {
       const { [mealId]: value, ...stateWithoutMeal } = state;
