@@ -19,7 +19,7 @@ const MealCard = props => (
 MealCard.propTypes = {
   link: PropTypes.string,
   mealImage: PropTypes.string,
-  children: PropTypes.object
+  children: PropTypes.any.isRequired
 };
 
 export default MealCard;

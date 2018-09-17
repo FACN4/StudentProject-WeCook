@@ -18,7 +18,7 @@ const MoneyButton = props => (
 
 MoneyButton.propTypes = {
   addToBasket: PropTypes.func.isRequired,
-  mealId: PropTypes.number
+  mealId: PropTypes.string
 };
 
 export default connect(
