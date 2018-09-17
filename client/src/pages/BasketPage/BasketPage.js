@@ -28,12 +28,13 @@ class BasketPage extends Component {
         ) : (
           <React.Fragment>
             <h1>Your Basket..</h1>
-            {this.props.addToBasket.basket.map(basketItems => {
+            {this.props.addToBasket.basket.map((basketItems, basketItemId) => {
               return (
                 <MealCard
                   mealImage={basketItems.mealId.meal_image_url[0].mealUrl}
                   key={basketItems.mealId.meal_id}
                 >
+                  {console.log("Basket Items", basketItemId)};
                   <MealName>{basketItems.mealId.meal_title}</MealName>
                   <Delivery>For delivery for 7pm on 22/09/18</Delivery>
                   <OrderInfo>
@@ -41,7 +42,7 @@ class BasketPage extends Component {
                     <select>
                       <option value="">1 Portion</option>
                     </select>
-                    <button onClick={this.props.removeBasketItem}>
+                    <button onClick={() => this.props.removeBasketItem()}>
                       Delete
                     </button>
                   </OrderInfo>

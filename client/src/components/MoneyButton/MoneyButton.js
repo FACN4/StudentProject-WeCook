@@ -9,7 +9,9 @@ const MoneyButton = props => (
   <React.Fragment>
     <Order>
       <Price>Price: £10.00</Price>
-      <button onClick={props.addToBasket(props.mealInfo)}>Add to Basket</button>
+      <button onClick={() => props.addToBasket(props.mealInfo)}>
+        Add to Basket
+      </button>
     </Order>
   </React.Fragment>
 );
