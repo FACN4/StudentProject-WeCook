@@ -8,9 +8,9 @@ import addToBasket from "../../actions/addToBasket";
 const MoneyButton = props => (
   <React.Fragment>
     <Order>
-      <Price>Price: £{props.mealInfo.price}</Price>
-      <button onClick={() => props.addToBasket(props.mealInfo)}>
-        Add to Basket
+      <Price>Price: £{props.mealInfo.price}.</Price>
+      <button onClick={() => props.addToBasket(props.mealId, props.mealInfo)}>
+        Add to Basket item
       </button>
     </Order>
   </React.Fragment>

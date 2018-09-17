@@ -1,9 +1,9 @@
 import { ADD_TO_BASKET } from "./actionTypes";
 
-const addToBasket = mealId => dispatch => {
+const addToBasket = (mealId, mealInfo, quantity = 1) => dispatch => {
   dispatch({
     type: ADD_TO_BASKET,
-    payload: { mealId: mealId }
+    payload: { mealId, mealInfo, quantity }
   });
 };
 

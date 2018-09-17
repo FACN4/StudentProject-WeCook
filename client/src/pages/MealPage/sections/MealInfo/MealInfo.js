@@ -43,7 +43,10 @@ class MealInfo extends Component {
           <div>{ingredients.join(", ")}</div>
           <div> {tags.join(", ")}</div>
         </section>
-        <MoneyButton mealInfo={this.props.mealInfo.data} />
+        <MoneyButton
+          mealInfo={this.props.mealInfo.data}
+          mealId={this.props.mealId}
+        />
       </React.Fragment>
     );
   }
