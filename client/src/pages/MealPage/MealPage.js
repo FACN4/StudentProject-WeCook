@@ -9,7 +9,6 @@ class MealPage extends Component {
   render() {
     return (
       <React.Fragment>
-        {console.log(this.props)}
         <MealInfo mealId={this.props.match.params.mealId} />
         <MealReviews mealId={this.props.match.params.mealId} />
         {this.props.mealInfo.isFulfilled && (

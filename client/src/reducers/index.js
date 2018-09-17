@@ -5,7 +5,7 @@ import getMealReviewsReducer from "./getMealReviewsReducer";
 import getMealListReducer from "./getMealListReducer";
 
 export default combineReducers({
-  addToBasket: basketReducer,
+  basket: basketReducer,
   mealData: getMealInfoReducer,
   mealReviews: getMealReviewsReducer,
   mealList: getMealListReducer

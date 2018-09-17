@@ -9,7 +9,7 @@ import { MealName, Delivery, OrderInfo, Cost } from "./BasketPage.style";
 import mealImage from "../../assets/meal_image.png";
 
 class BasketPage extends Component {
-  basketIsEmpty = () => Object.keys(this.props.addToBasket).length === 0;
+  basketIsEmpty = () => Object.keys(this.props.basket).length === 0;
   componentDidMount() {}
   render() {
     return (
@@ -28,7 +28,8 @@ class BasketPage extends Component {
         ) : (
           <React.Fragment>
             <h1>Your Basket..</h1>
-            {Object.keys(this.props.addToBasket).map(itemId => {
+            {console.log(this.props)}
+            {Object.keys(this.props.basket).map(itemId => {
               const {
                 meal_title,
                 description,
@@ -39,7 +40,7 @@ class BasketPage extends Component {
                 ingredients,
                 tags,
                 meal_image_url
-              } = this.props.addToBasket[itemId].mealInfo;
+              } = this.props.basket[itemId].mealInfo;
               return (
                 <MealCard
                   mealImage={meal_image_url[0].mealUrl}
@@ -69,8 +70,8 @@ class BasketPage extends Component {
   }
 }
 
-const mapStateToProps = ({ addToBasket }) => ({
-  addToBasket: addToBasket
+const mapStateToProps = ({ basket }) => ({
+  basket: basket
 });
 
 const mapDispatchToProps = {
