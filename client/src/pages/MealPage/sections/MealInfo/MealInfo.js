@@ -10,6 +10,7 @@ class MealInfo extends Component {
     this.props.getMealInfo(this.props.mealId);
   }
   render() {
+    console.log(this.props);
     if (!this.props.mealInfo.isFulfilled) return <h1>Loading</h1>;
     const {
       meal_title,
