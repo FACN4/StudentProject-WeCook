@@ -9,7 +9,7 @@ import { MealName, Delivery, OrderInfo, Cost } from "./BasketPage.style";
 import mealImage from "../../assets/meal_image.png";
 
 class BasketPage extends Component {
-  basketIsEmpty = () => this.props.addToBasket.basket.length === 0;
+  basketIsEmpty = () => Object.keys(this.props.addToBasket).length === 0;
   componentDidMount() {}
   render() {
     return (
@@ -19,7 +19,7 @@ class BasketPage extends Component {
             <h1>Your Basket is empty!</h1>
             <p>
               Your Shopping Basket lives to serve. Give it purpose--fill it with
-              declicous meals.
+              delicious meals.
             </p>
             <p>
               Continue shopping on the <Link to="/">WeCook homepage</Link>
@@ -28,29 +28,40 @@ class BasketPage extends Component {
         ) : (
           <React.Fragment>
             <h1>Your Basket..</h1>
-            {this.props.addToBasket.basket.map((basketItems, basketItemId) => {
+            {Object.keys(this.props.addToBasket).map(itemId => {
+              const {
+                meal_title,
+                description,
+                price,
+                meal_scheduled_at,
+                remaining_portions,
+                final_booking_at,
+                ingredients,
+                tags,
+                meal_image_url
+              } = this.props.addToBasket[itemId].mealInfo;
               return (
                 <MealCard
-                  mealImage={basketItems.mealId.meal_image_url[0].mealUrl}
-                  key={basketItemId}
+                  mealImage={meal_image_url[0].mealUrl}
+                  key={meal_title}
                 >
-                  <MealName>{basketItems.mealId.meal_title}</MealName>
+                  <MealName>{meal_title}</MealName>
                   <Delivery>For delivery for 7pm on 22/09/18</Delivery>
                   <OrderInfo>
-                    <Cost>Cost: £{basketItems.mealId.price}</Cost>
+                    <Cost>Cost: £{price}</Cost>
                     <select>
                       <option value="">1 Portion</option>
+                      <option value="">2 Portions</option>
+                      <option value="">3 Portions</option>
+                      <option value="">4 Portions</option>
                     </select>
-                    <button
-                      onClick={() => this.props.removeBasketItem(basketItemId)}
-                    >
+                    <button onClick={() => this.props.removeBasketItem(itemId)}>
                       Delete
                     </button>
                   </OrderInfo>
                 </MealCard>
               );
             })};
-            <Footer />
           </React.Fragment>
         )};
       </React.Fragment>
