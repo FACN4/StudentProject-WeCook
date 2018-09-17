@@ -1,10 +1,12 @@
 import React, { Component } from "react";
 import { render } from "react-dom";
 
+import { PersistGate } from 'redux-persist/integration/react'
+
 import { Provider } from "react-redux";
 import { ThemeProvider } from "styled-components";
 
-import store from "./store";
+import {store, persistor} from "./store";
 
 import { GlobalStyle } from "./App.style"; // eslint-disable-line no-unused-vars
 import wecookTheme from "./themes/weCookv1";
@@ -16,7 +18,9 @@ class App extends Component {
     return (
       <Provider store={store}>
         <ThemeProvider theme={wecookTheme}>
-          <Router />
+          <PersistGate loading={null} persistor={persistor}>
+            <Router />
+          </PersistGate>
         </ThemeProvider>
       </Provider>
     );
