@@ -22,7 +22,6 @@ class MealPage extends Component {
     );
   }
 }
->>>>>>> master
 
 MealPage.propTypes = {
   match: PropTypes.object
