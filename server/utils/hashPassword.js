@@ -18,4 +18,17 @@ const hashPassword = password => {
   });
 };
 
-module.exports = hashPassword;
+const compareHash = (password, hashedRow) =>
+  new Promise((resolve, reject) => {
+    bcrypt.compare(password, hashedRow.password, (error, same) => {
+      if (error) {
+        reject(error);
+      } else if (!same) {
+        reject(new Error("Password do not match"));
+      } else if (same) {
+        resolve(hashedRow);
+      }
+    });
+  });
+
+module.exports = { hashPassword, compareHash };
