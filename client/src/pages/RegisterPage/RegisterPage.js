@@ -24,7 +24,7 @@ class RegisterPage extends React.Component {
           <Field component="input" type="email" name="email" />
           <Field component="input" type="password" name="password" />
           <Field component="input" type="password" name="passwordConfirm" />
-          <button>Login</button>
+          <button>Sign up</button>
           <Link to="/login">Login</Link>
         </form>
       </React.Fragment>
