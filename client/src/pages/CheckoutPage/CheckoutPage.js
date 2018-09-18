@@ -1,33 +1,22 @@
 import React, { Component } from "react";
-import { CardElement, Elements, StripeProvider } from "react-stripe-elements";
+import { Elements, StripeProvider } from "react-stripe-elements";
 import { CookDetails } from "./CheckoutPage.style";
-import Card from "./sections/Card/Card";
 
-export default class CheckoutForm extends Component {
-  constructor(props) {
-    super(props);
-    this.state = { complete: false };
-    this.submit = this.submit.bind(this);
-  }
+import CheckoutForm from "./sections/CheckoutForm/CheckoutForm";
 
-  async submit(ev) {
-    let { token } = await this.props.stripe.createToken({ name: "Name" });
-    let response = await fetch("/charge", {
-      method: "POST",
-      headers: { "Content-Type": "text/plain" },
-      body: token.id
-    });
-    if (response.ok) console.log("Purchase Complete!");
-    if (response.ok) this.setState({ complete: true });
-  }
-
+class CheckoutPage extends Component {
   render() {
     return (
       <StripeProvider apiKey="pk_test_VBXwCb3z3gLk9sqeWpPfeFLA">
-        <Elements>
-          <Card />
-        </Elements>
+        <div className="example">
+          <h1>React Stripe Elements Example</h1>
+          <Elements>
+            <CheckoutForm />
+          </Elements>
+        </div>
       </StripeProvider>
     );
   }
 }
+
+export default CheckoutPage;

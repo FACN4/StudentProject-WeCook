@@ -1,6 +1,7 @@
 const express = require('express');
 const path = require('path');
-const stripe = require('stripe')('sk_test_lGPPEIO6rGdfnCkltmSFckvF');
+const fs = require('fs');
+const morgan = require('morgan');
 
 const controllers = require('./controllers/index.js');
 
@@ -8,6 +9,10 @@ const app = express();
 app.use(require('body-parser').text());
 
 app.set('port', process.env.PORT || 5000);
+
+const accessLogStream = fs.createWriteStream(path.join(__dirname, 'access.log'), { flags: 'a' });
+
+app.use(morgan('combined', { stream: accessLogStream }));
 
 app.use(controllers);
 
@@ -18,4 +23,4 @@ if (process.env.NODE_ENV !== 'development') {
   });
 }
 
-module.exports = { app, stripe };
+module.exports = app;

@@ -15,6 +15,6 @@ router.get('/api/mealInfo/:mealId', mealInfo.get);
 router.get('/api/mealCookInfo/:mealId', mealCookInfo.get);
 router.get('/api/mealReviews/:mealId', mealReviews.get);
 router.get('/api/mealList/', mealList.get);
-router.post('/charge', stripeCharge.post);
+router.post('/api/charge', stripeCharge.post);
 
 module.exports = router;
