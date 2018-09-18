@@ -13,16 +13,6 @@ import {
 import { StyledForm } from "./MealSearchForm.style";
 
 class MealSearchForm extends Component {
-  state = {
-    startDate: moment()
-  };
-  changeDate = date => {
-    console.log(date);
-    this.setState({
-      startDate: date
-    });
-  };
-
   render() {
     return (
       <StyledForm onSubmit={this.props.handleSubmit}>
@@ -34,11 +24,9 @@ class MealSearchForm extends Component {
         />
         <DateInput
           name="delivery-date"
+          type="text"
           component={RenderDatePicker}
-          selected={this.state.startDate}
-          onChangeFunc={this.changeDate}
           placeholder="Delivery Date"
-          dateFormat="DD/MM/YYYY"
         />
         <Search type="submit">Submit</Search>
       </StyledForm>
