@@ -7,7 +7,8 @@ import { ThemeProvider } from "styled-components";
 import { store, persistor } from "./store";
 import { GlobalStyle } from "./App.style"; // eslint-disable-line no-unused-vars
 import wecookTheme from "./themes/weCookv1";
-import {Loading} from "./components"
+import { Loading } from "./components";
+import "./assets/global.css";
 
 import Router from "./Router";
 
