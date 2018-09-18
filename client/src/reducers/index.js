@@ -4,12 +4,8 @@ import basketReducer from "./basketReducer";
 import getMealInfoReducer from "./getMealInfoReducer";
 import getMealReviewsReducer from "./getMealReviewsReducer";
 import getMealListReducer from "./getMealListReducer";
-import userRegiterReducer from "./userRegisterReducer"
-
-// import { alertReducer } from "./alertReducer";
-// import { registrationReducer } from "./registrationReducer";
-// import { authenticationReducer } from "./authenticationReducer";
-// import { usersReducer } from "./usersReducer";
+import userRegisterReducer from "./userRegisterReducer"
+import getMealCookInfoReducer from "./getMealCookInfoReducer";
 
 export default combineReducers({
   basket: basketReducer,
@@ -17,9 +13,6 @@ export default combineReducers({
   form: formReducer,
   mealReviews: getMealReviewsReducer,
   mealList: getMealListReducer,
-  userRegister: userRegiterReducer
+  userRegister: userRegisterReducer,
+  mealCookData: getMealCookInfoReducer
 });
-// authentication,
-// registration,
-// users,
-// alert
