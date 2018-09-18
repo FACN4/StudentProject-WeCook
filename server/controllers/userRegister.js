@@ -1,9 +1,10 @@
-const { postCreateUser } = require('../database/postQueries/postCreateUser');
+const { postCreateUser } = require("../database/postQueries/postCreateUser");
+const hashPassword = require("../utils/hashPassword");
 
 exports.post = (req, res) => {
-  console.log(req.body);
-  //hashPassword
-  postCreateUser(req.body)
+  const { password } = req.body;
+  hashPassword(password)
+    .then(hash => postCreateUser({ ...req.body, password: hash }))
     .then(row => res.send(row))
-    .catch(() => res.status('500').send('Sorry, could not fetch meals'));
+    .catch(() => res.status("500").send("Sorry, could not create account"));
 };

@@ -4,6 +4,7 @@ import basketReducer from "./basketReducer";
 import getMealInfoReducer from "./getMealInfoReducer";
 import getMealReviewsReducer from "./getMealReviewsReducer";
 import getMealListReducer from "./getMealListReducer";
+import userRegiterReducer from "./userRegisterReducer"
 
 // import { alertReducer } from "./alertReducer";
 // import { registrationReducer } from "./registrationReducer";
@@ -15,7 +16,8 @@ export default combineReducers({
   mealData: getMealInfoReducer,
   form: formReducer,
   mealReviews: getMealReviewsReducer,
-  mealList: getMealListReducer
+  mealList: getMealListReducer,
+  userRegister: userRegiterReducer
 });
 // authentication,
 // registration,
