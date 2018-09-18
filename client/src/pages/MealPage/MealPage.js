@@ -9,18 +9,19 @@ import { SectionDivider } from "./MealPageStyle";
 
 class MealPage extends Component {
   render() {
+    const {match:{params:{mealId}}} = this.props
     return (
       <React.Fragment>
         <Header />
-        <MealInfo mealId={this.props.match.params.mealId} />
+        <MealInfo mealId={mealId} />
         <SectionDivider />
-        <MealCookInfo mealId={this.props.match.params.mealId} />
+        <MealCookInfo mealId={mealId} />
         <SectionDivider />
-        <MealReviews mealId={this.props.match.params.mealId} />
+        <MealReviews mealId={mealId} />
         {this.props.mealInfo.isFulfilled && (
           <MoneyButton
             mealInfo={this.props.mealInfo.data}
-            mealId={this.props.match.params.mealId}
+            mealId={mealId}
           />
         )}
       </React.Fragment>
@@ -29,7 +30,15 @@ class MealPage extends Component {
 }
 
 MealPage.propTypes = {
-  match: PropTypes.object
+  match: PropTypes.shape({
+    params: PropTypes.shape({
+      mealId: PropTypes.string
+    })
+  }),
+  mealInfo: PropTypes.shape({
+    data: PropTypes.object,
+    isFulfilled: PropTypes.bool
+  })
 };
 
 const mapStateToProps = ({ mealData }) => ({

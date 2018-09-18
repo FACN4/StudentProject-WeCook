@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import { MealCard} from "../../components";
@@ -24,7 +25,7 @@ class BasketPage extends Component {
       return (
         <React.Fragment>
           <h1>Your Basket..</h1>
-          {Object.keys(this.props.basket).map(itemId => {
+          {Object.keys(this.props.basket).map((itemId,index) => {
             const {
               meal_title,
               description,
@@ -37,7 +38,7 @@ class BasketPage extends Component {
               meal_image_url
             } = this.props.basket[itemId].mealInfo;
             return (
-              <MealCard mealImage={meal_image_url[0].mealUrl} key={meal_title}>
+              <MealCard mealImage={meal_image_url[0].mealUrl} key={index}>
                 <MealName>{meal_title}</MealName>
                 <Delivery>For delivery for 7pm on 22/09/18</Delivery>
                 <OrderInfo>
@@ -60,6 +61,20 @@ class BasketPage extends Component {
     }
   }
 }
+
+BasketPage.propTypes = {
+  basket: PropTypes.object,
+  meal_title: PropTypes.string,
+  description: PropTypes.string,
+  price: PropTypes.string,
+  meal_scheduled_at: PropTypes.string,
+  remaining_portions: PropTypes.string,
+  final_booking_at: PropTypes.string,
+  ingredients: PropTypes.string,
+  tags: PropTypes.string,
+  meal_image_url: PropTypes.string,
+  removeBasketItem: PropTypes.func
+};
 
 const mapStateToProps = ({ basket }) => ({
   basket: basket
