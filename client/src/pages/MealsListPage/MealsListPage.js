@@ -3,7 +3,6 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import timeRemaining from "../../utils/formatingLogic";
-import getMealList from "../../actions/getMealList";
 import { Footer, MealCard, Header } from "../../components";
 import {
   MealList,
@@ -17,9 +16,7 @@ import {
 import reviewImage from "../../assets/stars.png";
 
 class MealListPage extends Component {
-  componentDidMount() {
-    this.props.getMealList();
-  }
+
   render() {
     if (!this.props.mealList.isFulfilled) return <h1>Loading</h1>;
     const mealCount = this.props.mealList.data.length;
@@ -85,9 +82,6 @@ const mealPropType = PropTypes.shape({
   meal_image_url: PropTypes.arr
 });
 
-const mapDispatchToProps = {
-  getMealList
-};
 
 const mapStateToProps = ({ mealList }) => ({
   mealList: mealList
@@ -95,5 +89,5 @@ const mapStateToProps = ({ mealList }) => ({
 
 export default connect(
   mapStateToProps,
-  mapDispatchToProps
+  null
 )(MealListPage);

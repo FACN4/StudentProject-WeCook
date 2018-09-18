@@ -18,6 +18,8 @@ class RenderDatePicker extends Component {
     return (
       <div>
         <DatePicker
+          minDate={moment()}
+          maxDate={moment().add(2, "months")}
           customInput=<input className='date-picker-home'/>
           dateFormat="DD/MM/YYYY"
           onChange={(date) => {
