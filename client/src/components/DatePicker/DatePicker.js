@@ -1,21 +1,20 @@
 import React, {Component} from "react";
 import DatePicker from "react-datepicker";
+import PropTypes from "prop-types";
 import moment from "moment";
 
 
 class RenderDatePicker extends Component {
   state = {
-    startDate: moment()
+    startDate: moment().add(1, 'days')
   };
   changeDate = date => {
-    console.log(date);
     this.setState({
       startDate: date
     });
   };
   render () {
-    const {input} = this.props;
-    const formChange = input.onChange;
+    const {input: {onChange: formChange}} = this.props;
     return (
       <div>
         <DatePicker
@@ -31,5 +30,11 @@ class RenderDatePicker extends Component {
     );
   }
 }
+
+RenderDatePicker.propTypes = {
+  input: PropTypes.shape({
+    onChange: PropTypes.func
+  })
+};
 
 export default RenderDatePicker;

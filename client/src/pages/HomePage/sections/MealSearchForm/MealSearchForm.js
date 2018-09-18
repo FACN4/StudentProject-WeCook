@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { reduxForm } from "redux-form";
-import moment from "moment";
 import "react-datepicker/dist/react-datepicker.css";
 import {RenderDatePicker} from "../../../../components"
 import "./MealSearchForm.css"

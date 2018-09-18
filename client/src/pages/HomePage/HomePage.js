@@ -7,8 +7,7 @@ import {StyledPara} from './HomePage.style'
 
 const HomePage = () => {
   const submit = values => {
-    // print the form values to the console
-    console.log(values)
+    // TODO
   }
   return (
     <React.Fragment>
