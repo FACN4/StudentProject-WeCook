@@ -7,7 +7,7 @@ const controllers = require('./controllers/index.js');
 const app = express();
 app.use(require('body-parser').text());
 
-app.set('PORT', process.env.PORT || 5000);
+app.set('port', process.env.PORT || 5000);
 
 app.use(controllers);
 

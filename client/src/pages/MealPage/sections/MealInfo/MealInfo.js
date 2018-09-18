@@ -4,6 +4,16 @@ import { connect } from "react-redux";
 import { Gallery, Loading } from "../../../../components";
 import getMealInfo from "../../../../actions/getMealInfo";
 import timeRemaining from "../../../../utils/formatingLogic";
+import {
+  MealLogistics,
+  Price,
+  Deadline,
+  RemainingPortions,
+  MealScheduled,
+  Description,
+  H2,
+  Tag
+} from "./MealInfo.style";
 
 class MealInfo extends Component {
   componentDidMount() {
@@ -30,19 +40,21 @@ class MealInfo extends Component {
     });
     return (
       <React.Fragment>
-        <section>
-          <h1>{meal_title}</h1>
-          <div>
-            <span>{meal_scheduled_at}</span>
-            <span>{"£" + price + "per serving"}</span>
-            <span>{deadline}</span>
-            <span>{remaining_portions} servings left</span>
-          </div>
-          <Gallery images={mealImages} />
-          <p>{description}</p>
-          <div>{ingredients.join(", ")}</div>
-          <div> {tags.join(", ")}</div>
-        </section>
+        <h1>{meal_title}</h1>
+        <MealLogistics>
+          <MealScheduled>{meal_scheduled_at}</MealScheduled>
+          <Price>{"£" + price + "per serving"}</Price>
+          <Deadline>{deadline}</Deadline>
+          <RemainingPortions>
+            {remaining_portions} servings left
+          </RemainingPortions>
+        </MealLogistics>
+        <Gallery images={mealImages} />
+        <Description>{description}</Description>
+        <H2>Ingredients</H2>
+        <Description>{ingredients.join(", ")}</Description>
+        <H2>Tags</H2>
+        <Tag> {tags.join(", ")}</Tag>
       </React.Fragment>
     );
   }
