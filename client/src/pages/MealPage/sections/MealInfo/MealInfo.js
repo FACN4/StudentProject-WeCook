@@ -1,16 +1,26 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import { Gallery } from "../../../../components";
+import { Gallery, Loading } from "../../../../components";
 import getMealInfo from "../../../../actions/getMealInfo";
 import timeRemaining from "../../../../utils/formatingLogic";
+import {
+  MealLogistics,
+  Price,
+  Deadline,
+  RemainingPortions,
+  MealScheduled,
+  Description,
+  H2,
+  Tag
+} from "./MealInfo.style";
 
 class MealInfo extends Component {
   componentDidMount() {
     this.props.getMealInfo(this.props.mealId);
   }
   render() {
-    if (!this.props.mealInfo.isFulfilled) return <h1>Loading</h1>;
+    if (!this.props.mealInfo.isFulfilled) return <Loading />;
     const {
       meal_title,
       description,
@@ -29,19 +39,23 @@ class MealInfo extends Component {
       return { ...obj, imageUrl: obj.mealUrl };
     });
     return (
-      <section>
+      <React.Fragment>
         <h1>{meal_title}</h1>
-        <div>
-          <span>{meal_scheduled_at}</span>
-          <span>{"£" + price + "per serving"}</span>
-          <span>{deadline}</span>
-          <span>{remaining_portions} servings left</span>
-        </div>
+        <MealLogistics>
+          <MealScheduled>{meal_scheduled_at}</MealScheduled>
+          <Price>{"£" + price + "per serving"}</Price>
+          <Deadline>{deadline}</Deadline>
+          <RemainingPortions>
+            {remaining_portions} servings left
+          </RemainingPortions>
+        </MealLogistics>
         <Gallery images={mealImages} />
-        <p>{description}</p>
-        <div>{ingredients.join(", ")}</div>
-        <div> {tags.join(", ")}</div>
-      </section>
+        <Description>{description}</Description>
+        <H2>Ingredients</H2>
+        <Description>{ingredients.join(", ")}</Description>
+        <H2>Tags</H2>
+        <Tag> {tags.join(", ")}</Tag>
+      </React.Fragment>
     );
   }
 }

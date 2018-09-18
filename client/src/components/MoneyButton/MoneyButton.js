@@ -8,14 +8,17 @@ import addToBasket from "../../actions/addToBasket";
 const MoneyButton = props => (
   <MoneyButtonWrapper>
     <Order>
-      <Price>Price: £10.00</Price>
-      <button onClick={props.addToBasket}>Add to Basket</button>
+      <Price>Price: £{props.mealInfo.price}.</Price>
+      <button onClick={() => props.addToBasket(props.mealId, props.mealInfo)}>
+        Add to Basket item
+      </button>
     </Order>
   </MoneyButtonWrapper>
 );
 
 MoneyButton.propTypes = {
-  addToBasket: PropTypes.func.isRequired
+  addToBasket: PropTypes.func.isRequired,
+  mealId: PropTypes.string
 };
 
 export default connect(

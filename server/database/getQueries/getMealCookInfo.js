@@ -1,6 +1,6 @@
 const { db } = require('../db_connection');
 
-const getCookInfo = (mealId) => {
+const getMealCookInfo = (mealId) => {
   const queryString = `
   SELECT
     cook_info.cook_firstname, cook_info.cook_summary, cook_thumbnails.cook_image_url, cnt_reviews.count_reviews
@@ -30,4 +30,4 @@ const getCookInfo = (mealId) => {
   return db.one(queryString, [mealId]);
 };
 
-module.exports = { getCookInfo };
+module.exports = { getMealCookInfo };

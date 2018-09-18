@@ -69,7 +69,6 @@ MealListPage.propTypes = {
   mealList: PropTypes.shape({
     data: mealPropType,
     isFulfilled: PropTypes.bool
-
   }),
   isRejected: PropTypes.bool,
   isFulfilled: PropTypes.bool,

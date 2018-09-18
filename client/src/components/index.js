@@ -5,5 +5,6 @@ import MoneyButton from './MoneyButton/MoneyButton'
 import Gallery from './Gallery/Gallery'
 import Stars from './Stars/Stars'
 import RenderDatePicker from './DatePicker/DatePicker'
+import Loading from './Loading/Loading'
 
-export {Header, MoneyButton, Gallery, Footer, MealCard, Stars, RenderDatePicker};
+export {Header, MoneyButton, Gallery, Footer, MealCard, Stars, Loading, RenderDatePicker};

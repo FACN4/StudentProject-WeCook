@@ -1,11 +1,19 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import { H1, StyledHeader, User, ShoppingBasket } from "./Header.style";
+import { connect } from "react-redux";
+import {
+  H1,
+  StyledHeader,
+  User,
+  EmptyShoppingBasket,
+  ShoppingBasket
+} from "./Header.style";
 import logo from "../../assets/logo.png";
 import userIcon from "../../assets/profile.png";
-import basketIcon from "../../assets/empty-shopping-basket.png";
+import emptyBasketIcon from "../../assets/empty-shopping-basket.png";
 
-export default class Header extends Component {
+class Header extends Component {
+  basketIsEmpty = () => Object.keys(this.props.basket).length === 0;
   render() {
     return (
       <StyledHeader>
@@ -16,9 +24,27 @@ export default class Header extends Component {
           </Link>
         </H1>
         <Link to="/basket">
-          <ShoppingBasket src={basketIcon} alt="ShoppingBasket" />
+          {this.basketIsEmpty() ? (
+            <EmptyShoppingBasket
+              src={emptyBasketIcon}
+              alt="Empty ShoppingBasket"
+            />
+          ) : (
+            <ShoppingBasket>
+              {Object.keys(this.props.basket).length}
+            </ShoppingBasket>
+          )}
         </Link>
       </StyledHeader>
     );
   }
 }
+
+const mapStateToProps = ({ basket }) => ({
+  basket: basket
+});
+
+export default connect(
+  mapStateToProps,
+  null
+)(Header);
