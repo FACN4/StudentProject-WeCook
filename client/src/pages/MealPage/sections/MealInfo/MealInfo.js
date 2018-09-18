@@ -4,6 +4,16 @@ import { connect } from "react-redux";
 import { Gallery } from "../../../../components";
 import getMealInfo from "../../../../actions/getMealInfo";
 import timeRemaining from "../../../../utils/formatingLogic";
+import {
+  MealLogistics,
+  Price,
+  Deadline,
+  RemainingPortions,
+  MealScheduled,
+  Description,
+  H2,
+  Tag
+} from "./MealInfo.style";
 
 class MealInfo extends Component {
   componentDidMount() {
@@ -31,16 +41,20 @@ class MealInfo extends Component {
     return (
       <section>
         <h1>{meal_title}</h1>
-        <div>
-          <span>{meal_scheduled_at}</span>
-          <span>{"£" + price + "per serving"}</span>
-          <span>{deadline}</span>
-          <span>{remaining_portions} servings left</span>
-        </div>
+        <MealLogistics>
+          <MealScheduled>{meal_scheduled_at}</MealScheduled>
+          <Price>{"£" + price + "per serving"}</Price>
+          <Deadline>{deadline}</Deadline>
+          <RemainingPortions>
+            {remaining_portions} servings left
+          </RemainingPortions>
+        </MealLogistics>
         <Gallery images={mealImages} />
-        <p>{description}</p>
-        <div>{ingredients.join(", ")}</div>
-        <div> {tags.join(", ")}</div>
+        <Description>{description}</Description>
+        <H2>Ingredients</H2>
+        <Description>{ingredients.join(", ")}</Description>
+        <H2>Tags</H2>
+        <Tag> {tags.join(", ")}</Tag>
       </section>
     );
   }

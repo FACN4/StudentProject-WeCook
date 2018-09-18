@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import getMealCookInfo from "../../../../actions/getMealCookInfo";
+import { H2, Contact } from "./MealCookInfo.style";
 
 class MealCookInfo extends Component {
   componentDidMount() {
@@ -18,7 +19,7 @@ class MealCookInfo extends Component {
     } = this.props.mealCookInfo.data;
     return (
       <section>
-        <h1>About The Cook</h1>
+        <H2>About The Cook</H2>
         <div>
           <img src={cookThumbnail} alt="cook image" />
           <span>
@@ -27,7 +28,7 @@ class MealCookInfo extends Component {
           <span>{cook_summary}</span>
           <span>{cook_description}</span>
         </div>
-        <button type="button">Contact The Cook </button>
+        <Contact>Contact The Cook </Contact>
       </section>
     );
   }
