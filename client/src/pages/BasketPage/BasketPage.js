@@ -6,9 +6,8 @@ import { MealCard } from "../../components";
 import { MealName, Delivery, OrderInfo, Cost } from "./BasketPage.style";
 
 class BasketPage extends Component {
-  basketIsEmpty = () => Object.keys(this.props.basket).length === 0;
   render() {
-    if (this.basketIsEmpty()) {
+    if (Object.keys(this.props.basket).length === 0) {
       return (
         <React.Fragment>
           <h1>Your Basket is empty!</h1>
