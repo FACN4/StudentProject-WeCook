@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import fullBasketIcon from "../../assets/full-shopping-basket.png";
 
 export const H1 = styled.h1`
   font-family: ${props => props.theme.headerFont};
@@ -16,10 +17,21 @@ export const User = styled.img`
   padding: 18px 0 0 20px;
 `;
 
-export const ShoppingBasket = styled.img`
-  height: 20px;
-  padding: 18px 20px 0 0px;
+export const EmptyShoppingBasket = styled.img`
+  width: 20px;
+  margin: 18px 20px 0 0px;
   text-align: right;
+`;
+
+export const ShoppingBasket = styled.section`
+  background: url(${fullBasketIcon});
+  width: 20px;
+  height: 30px;
+  margin: 13px 20px 0 0px;
+  text-align: center;
+  line-height: 1;
+  font-size: 12px;
+  font-family: ${props => props.theme.headerFont};
 `;
 
 export const StyledHeader = styled.header`
@@ -28,9 +40,11 @@ export const StyledHeader = styled.header`
   font-family: ${props => props.theme.headerFont};
   height: 56px;
   font-style: Regular;
-  line-height: 56px;
   text-align: center;
   display: flex;
   justify-content: space-between;
   text-align: center;
+  a {
+    text-decoration: none;
+  }
 `;
