@@ -2,7 +2,15 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import getMealCookInfo from "../../../../actions/getMealCookInfo";
-import { H2, Contact } from "./MealCookInfo.style";
+import {
+  H2,
+  Contact,
+  Description,
+  CookInfo,
+  Details,
+  CookImage,
+  CookName
+} from "./MealCookInfo.style";
 
 class MealCookInfo extends Component {
   componentDidMount() {
@@ -10,25 +18,26 @@ class MealCookInfo extends Component {
   }
   render() {
     if (!this.props.mealCookInfo.isFulfilled) return <h1>Loading</h1>;
+    console.log(this.props.mealCookInfo);
     const {
       cook_firstname,
       cook_lastname,
       cook_summary,
       cook_description,
-      is_thumbnail: cookThumbnail
+      cook_image_url
     } = this.props.mealCookInfo.data;
     return (
       <section>
         <H2>About The Cook</H2>
-        <div>
-          <img src={cookThumbnail} alt="cook image" />
-          <span>
-            {cook_firstname},{cook_lastname}
-          </span>
-          <span>{cook_summary}</span>
-          <span>{cook_description}</span>
-        </div>
-        <Contact>Contact The Cook </Contact>
+        <CookInfo>
+          <CookImage src={cook_image_url} alt="cook image" />
+          <Details>
+            <CookName>{cook_firstname}</CookName>
+            <Description>{cook_summary}</Description>
+          </Details>
+        </CookInfo>
+        <span>{cook_description}</span>
+        <Contact>Contact Cook</Contact>
       </section>
     );
   }

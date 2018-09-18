@@ -29,3 +29,24 @@ export const Contact = styled.button`
   border: 0;
   border-radius: 10px;
 `;
+
+export const CookInfo = styled.section`
+  display: grid;
+  grid-template-columns: 120px auto;
+  margin: 10px 0px;
+`;
+
+export const Details = styled.section``;
+
+export const CookName = styled.h2`
+  font-family: ${props => props.theme.headerFont};
+  color: ${props => props.theme.darkBlue};
+  font-size: 18px;
+  margin: 10px 0px;
+`;
+
+export const CookImage = styled.img`
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+`;
