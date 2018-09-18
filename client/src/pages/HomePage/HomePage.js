@@ -14,7 +14,7 @@ const HomePage = () => {
     <React.Fragment>
       <FooterWrapper>
         <HomeHeader/>
-        <StyledPara>Home cooked food made next door, delivered by your neighbout. Book ahead for your next meal</StyledPara>
+        <StyledPara>Home cooked food made next door, delivered by your neighbour. Book ahead for your next meal</StyledPara>
         <MealSearchForm onSubmit={submit}/>
       </FooterWrapper>
       <Footer />

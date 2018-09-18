@@ -1,11 +1,8 @@
 import styled from "styled-components";
 
 export const StyledHeader = styled.header`
- background-image: url(https://user-images.githubusercontent.com/28222381/45626954-72961080-ba99-11e8-9215-538504f985ea.jpg);
- background-repeat: no-repeat;
- background-size: cover;
  height: 250px;
- background-position: bottom;
+ background: url(https://user-images.githubusercontent.com/28222381/45626954-72961080-ba99-11e8-9215-538504f985ea.jpg) bottom cover no-repeat;
 `;
 
 export const Title = styled.h1`
