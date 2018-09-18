@@ -1,12 +1,11 @@
 import { combineReducers } from "redux";
-
-import addBasketReducer from "./addBasketReducer";
+import basketReducer from "./basketReducer";
 import getMealInfoReducer from "./getMealInfoReducer";
-import getMealReviewsReducer from "./getMealReviewsReducer"
+import getMealReviewsReducer from "./getMealReviewsReducer";
 import getMealListReducer from "./getMealListReducer";
 
 export default combineReducers({
-  addToBasket: addBasketReducer,
+  basket: basketReducer,
   mealData: getMealInfoReducer,
   mealReviews: getMealReviewsReducer,
   mealList: getMealListReducer
