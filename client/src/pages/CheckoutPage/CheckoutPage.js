@@ -1,13 +1,9 @@
 import React, { Component } from "react";
-import {
-  CardElement,
-  injectStripe,
-  Elements,
-  StripeProvider
-} from "react-stripe-elements";
+import { CardElement, Elements, StripeProvider } from "react-stripe-elements";
 import { CookDetails } from "./CheckoutPage.style";
+import Card from "./sections/Card/Card";
 
-class CheckoutForm extends Component {
+export default class CheckoutForm extends Component {
   constructor(props) {
     super(props);
     this.state = { complete: false };
@@ -29,15 +25,9 @@ class CheckoutForm extends Component {
     return (
       <StripeProvider apiKey="pk_test_VBXwCb3z3gLk9sqeWpPfeFLA">
         <Elements>
-          <div className="checkout">
-            <p>Would you like to complete the purchase?</p>
-            <CardElement />
-            <button onClick={this.submit}>Send</button>
-          </div>
+          <Card />
         </Elements>
       </StripeProvider>
     );
   }
 }
-
-export default injectStripe(CheckoutForm);
