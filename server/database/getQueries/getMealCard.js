@@ -5,7 +5,7 @@ const getMealCard = (mealId) => {
   SELECT
     meal.id, meal.meal_title, meal.price, meal.meal_scheduled_at, meal.final_booking_at, meal.remaining_portions, meal_thumbnails.meal_image_url, cook_info.cook_firstname, cook_thumbnails.cook_image_url, av_review.av_star_rating, av_review.count_reviews
   FROM
-    (SELECT * FROM meals) AS meal
+    (SELECT * FROM meals WHERE meals.id = $1) AS meal
   LEFT JOIN
     (SELECT * FROM meal_images WHERE is_thumbnail=true) AS meal_thumbnails
   ON

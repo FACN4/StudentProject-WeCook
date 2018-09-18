@@ -4,13 +4,13 @@ const { db } = require('./../server/database/db_connection');
 
 const { emptyTables, cookFillerData } = require('./../server/database/db_build');
 const {
-  getMealCard, getMealInfo, getCookInfo, getCookReviews,
+  getMealCard, getMealInfo, getCookInfo, getMealReviews,
 } = require('../server/database/getQueries');
 
 const { postCreateUser } = require('../server/database/postQueries');
 
 const {
-  mealCardResult, mealInfoResult, cookInfoResult, cookReviewsResult, userDetails,
+  mealCardResult, mealInfoResult, cookInfoResult, mealReviewsResult, userDetails,
 } = require('./testPresetData');
 
 let counter = 0;
@@ -46,10 +46,10 @@ test('getQueries are working', (t) => {
     .then(row => t.deepEqual(row, mealInfoResult, 'getMealInfo should return preset data'))
     .then(() => getCookInfo(1))
     .then(row => t.deepEqual(row, cookInfoResult, 'getCookInfo should return preset data'))
-    .then(() => getCookReviews(1))
+    .then(() => getMealReviews(1))
     .then((rows) => {
       const removedStaticDates = rows.map(row => ({ ...row, reviewed_at: 'Date Not Static' }));
-      t.deepEqual(removedStaticDates, cookReviewsResult, 'getCookReviews should return preset data');
+      t.deepEqual(removedStaticDates, mealReviewsResult, 'getMealReviews should return preset data');
     })
     .catch(t.fail)
     .then(disconnectPG)
