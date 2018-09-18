@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { CardElement, injectStripe } from "react-stripe-elements";
 import axios from "axios";
+import ThankYou from "../ThankYou/ThankYou";
 
 class CheckoutForm extends Component {
   constructor(props) {
@@ -29,7 +30,7 @@ class CheckoutForm extends Component {
       });
   }
   render() {
-    if (this.state.complete) return <h1>Order Succesful</h1>;
+    if (this.state.complete) return <ThankYou />;
     return (
       <div className="checkout">
         <p>Would you like to complete the purchase?</p>
