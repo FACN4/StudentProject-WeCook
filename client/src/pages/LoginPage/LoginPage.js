@@ -3,48 +3,22 @@ import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import { Field, reduxForm } from "redux-form";
-import { userActions } from "../../actions/user";
+import userLogin from "../../actions/userLogin";
 
 class LoginPage extends React.Component {
-  state = {
-    username: "",
-    password: "",
-    submitted: false
-  };
-
-  handleChange = e => {
-    const { name, value } = e.target;
-    this.setState({ [name]: value });
-  };
-
-  handleSubmit = e => {
-    e.preventDefault();
-    this.setState({ submitted: true });
-    const { username, password } = this.state;
-    if (username && password) {
-      //do an action to login
-    }
+  handleSubmit = event => {
+    const {username, password} = this.props
+    event.preventDefault();
+    this.props.userLogin({username,password});
   };
 
   render() {
-    const { username, password} = this.state;
     return (
       <React.Fragment>
         <h1>Login</h1>
         <form onSubmit={this.handleSubmit}>
-          <Field
-            component="input"
-            type="text"
-            name="username"
-            value={username}
-            onChange={this.handleChange}
-          />
-          <Field
-            type="password"
-            name="password"
-            value={password}
-            onChange={this.handleChange}
-          />
+          <Field component="input" type="text" name="username" />
+          <Field component="input" type="password" name="password" />
           <button>Login</button>
           <Link to="/register">Register</Link>
         </form>
@@ -52,19 +26,33 @@ class LoginPage extends React.Component {
     );
   }
 }
-// const mapDispatchToProps = {
-//   userActions
-// };
 
-LoginPage.propTypes = {
-  userActions: PropTypes.func,
+const mapDispatchToProps = {
+  userLogin
 };
 
-export default reduxForm({
-  form:"loginForm"
-})(LoginPage)
+LoginPage.propTypes = {
+  userLogin: PropTypes.func,
+  username: PropTypes.string,
+  password: PropTypes.string
+};
 
-// export default connect(
-//   null,
-//   mapDispatchToProps
-// )(LoginPage);
+const mapStateToProps = ({form:{loginForm:{values}}}) => {
+  return {
+    username: values.username,
+    password: values.password
+  };
+};
+
+const ConnectedLoginPage = connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(LoginPage);
+
+export default reduxForm({
+  form: "loginForm",
+  initialValues: {
+    username:"",
+    password:""
+  }
+})(ConnectedLoginPage);
