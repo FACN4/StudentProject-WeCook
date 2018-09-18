@@ -1,26 +1,41 @@
-import React from "react";
+import React, { Component } from "react";
 import PropTypes from "prop-types";
+import { connect } from "react-redux";
 import { MoneyButton } from "../../components";
 import MealInfo from "./sections/MealInfo/MealInfo";
 import MealCookInfo from "./sections/MealCookInfo/MealCookInfo";
 import MealReviews from "./sections/MealReviews/MealReviews";
 import { SectionDivider } from "./MealPageStyle";
 
-const MealPage = props => {
-  return (
-    <React.Fragment>
-      <MealInfo mealId={props.match.params.mealId} />
-      <SectionDivider />
-      <MealCookInfo mealId={props.match.params.mealId} />
-      <SectionDivider />
-      <MealReviews mealId={props.match.params.mealId} />
-      <MoneyButton />
-    </React.Fragment>
-  );
-};
+class MealPage extends Component {
+  render() {
+    return (
+      <React.Fragment>
+        <MealInfo mealId={this.props.match.params.mealId} />
+        <SectionDivider />
+        <MealCookInfo mealId={this.props.match.params.mealId} />
+        <SectionDivider />
+        <MealReviews mealId={this.props.match.params.mealId} />
+        {this.props.mealInfo.isFulfilled && (
+          <MoneyButton
+            mealInfo={this.props.mealInfo.data}
+            mealId={this.props.match.params.mealId}
+          />
+        )}
+      </React.Fragment>
+    );
+  }
+}
 
 MealPage.propTypes = {
   match: PropTypes.object
 };
 
-export default MealPage;
+const mapStateToProps = ({ mealData }) => ({
+  mealInfo: mealData
+});
+
+export default connect(
+  mapStateToProps,
+  null
+)(MealPage);

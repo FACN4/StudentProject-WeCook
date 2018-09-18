@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import { Gallery } from "../../../../components";
+import { Gallery, Loading } from "../../../../components";
 import getMealInfo from "../../../../actions/getMealInfo";
 import timeRemaining from "../../../../utils/formatingLogic";
 import {
@@ -20,7 +20,7 @@ class MealInfo extends Component {
     this.props.getMealInfo(this.props.mealId);
   }
   render() {
-    if (!this.props.mealInfo.isFulfilled) return <h1>Loading</h1>;
+    if (!this.props.mealInfo.isFulfilled) return <Loading />;
     const {
       meal_title,
       description,
@@ -39,7 +39,7 @@ class MealInfo extends Component {
       return { ...obj, imageUrl: obj.mealUrl };
     });
     return (
-      <section>
+      <React.Fragment>
         <h1>{meal_title}</h1>
         <MealLogistics>
           <MealScheduled>{meal_scheduled_at}</MealScheduled>
@@ -55,7 +55,7 @@ class MealInfo extends Component {
         <Description>{ingredients.join(", ")}</Description>
         <H2>Tags</H2>
         <Tag> {tags.join(", ")}</Tag>
-      </section>
+      </React.Fragment>
     );
   }
 }

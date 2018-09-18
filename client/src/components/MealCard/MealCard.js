@@ -1,13 +1,17 @@
 import React from "react";
-import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
+import PropTypes from "prop-types";
 import { StyledMealCard, MealDescription, MealImage } from "./MealCard.style";
 
 const MealCard = props => (
   <StyledMealCard>
-    <Link to={props.link}>
+    {props.link ? (
+      <Link to={props.link}>
+        <MealImage src={props.mealImage} alt="Meal Image" />
+      </Link>
+    ) : (
       <MealImage src={props.mealImage} alt="Meal Image" />
-    </Link>
+    )}
     <MealDescription>{props.children}</MealDescription>
   </StyledMealCard>
 );
@@ -15,7 +19,7 @@ const MealCard = props => (
 MealCard.propTypes = {
   link: PropTypes.string,
   mealImage: PropTypes.string,
-  children: PropTypes.object
+  children: PropTypes.any.isRequired
 };
 
 export default MealCard;
