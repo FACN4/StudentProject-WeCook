@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import getMealReviews from "../../../../actions/getMealReviews";
+import { H2, H3, ReviewDate, Description } from "./MealReview.style";
 
 class MealPage extends Component {
   componentDidMount() {
@@ -19,10 +20,10 @@ class MealPage extends Component {
         } = reviewEle;
         let Review = (
           <article key={index}>
-            <h2>{username}</h2>
+            <H3>{username}</H3>
             <h3>{star_rating}</h3>
-            <div>{reviewed_at}</div>
-            <div>{review_msg}</div>
+            <ReviewDate>{reviewed_at}</ReviewDate>
+            <Description>{review_msg}</Description>
           </article>
         );
         if (mealId === Number(pageMealId)) {
@@ -46,7 +47,7 @@ class MealPage extends Component {
     if (mealReviews.length > 0) {
       MealReviews = (
         <React.Fragment>
-          <h1>Meal Reviews</h1>
+          <H2>Meal Reviews</H2>
           {mealReviews}
         </React.Fragment>
       );
@@ -54,7 +55,7 @@ class MealPage extends Component {
     if (cookReviews.length > 0) {
       CookReviews = (
         <React.Fragment>
-          <h1>Cook Reviews</h1>
+          <H2>Cook Reviews</H2>
           {cookReviews}
         </React.Fragment>
       );

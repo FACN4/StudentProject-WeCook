@@ -1,49 +1,29 @@
 import styled from "styled-components";
 
-export const MealDetails = styled.section`
+export const H2 = styled.h2`
   font-family: ${props => props.theme.headerFont};
   color: ${props => props.theme.darkBlue};
-  font-size: 16px;
-  a {
-    color: ${props => props.theme.darkBlue};
-    text-decoration: none;
-    font-size: 18px;
-  }
+  font-size: 20px;
+  margin: 10px 0px;
 `;
 
-export const MealSection = styled.section`
-  display: grid;
-  grid-template-columns: 235px 90px;
-`;
-
-export const MealCardReview = styled.section`
-  display: flex;
+export const Description = styled.span`
   font-family: ${props => props.theme.bodyFont};
+  color: ${props => props.theme.darkBlue};
   font-size: 14px;
-  margin-top: 5px;
 `;
 
-export const TimeRemaning = styled.span`
-  color: ${props => props.theme.green};
+export const H3 = styled.h3`
+  font-family: ${props => props.theme.headerFont};
+  color: ${props => props.theme.darkBlue};
+  font-size: 18px;
+  margin: 5px 0px;
 `;
 
-export const CookDetails = styled.section`
-  margin-top: -40px;
-  text-align: center;
+export const ReviewDate = styled.span`
   font-family: ${props => props.theme.bodyFont};
-  font-size: 12px;
-  img {
-    border: 10px #ffffff solid;
-    border-radius: 50%;
-    width: 65px;
-    height: 65px;
-    display: block;
-    margin: 0 auto;
-  }
-`;
-
-export const MealList = styled.section`
-  display: flex;
-  justify-content: space-evenly;
-  flex-wrap: wrap;
+  color: ${props => props.theme.darkBlue};
+  font-size: 14px;
+  margin: 10px 0px;
+  display: block;
 `;

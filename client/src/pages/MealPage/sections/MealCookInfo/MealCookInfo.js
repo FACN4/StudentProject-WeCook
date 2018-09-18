@@ -18,10 +18,8 @@ class MealCookInfo extends Component {
   }
   render() {
     if (!this.props.mealCookInfo.isFulfilled) return <h1>Loading</h1>;
-    console.log(this.props.mealCookInfo);
     const {
       cook_firstname,
-      cook_lastname,
       cook_summary,
       cook_description,
       cook_image_url
