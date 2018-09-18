@@ -5,7 +5,7 @@ import axios from "axios";
 class CheckoutForm extends Component {
   constructor(props) {
     super(props);
-    this.state = { complete: false };
+    this.state = { complete: false, error: "" };
     this.submit = this.submit.bind(this);
   }
   submit(event) {
@@ -21,12 +21,15 @@ class CheckoutForm extends Component {
       })
       .then(res => {
         if (res.statusText === "OK") {
-          console.log("Purchase Complete!");
           this.setState({ complete: true });
         }
+      })
+      .catch(err => {
+        this.setState({ error: err });
       });
+  }
   render() {
-    if (this.state.complete) return <h1>Purchase Complete</h1>;
+    if (this.state.complete) return <h1>Order Succesful</h1>;
     return (
       <div className="checkout">
         <p>Would you like to complete the purchase?</p>
