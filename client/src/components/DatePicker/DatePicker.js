@@ -19,6 +19,7 @@ class RenderDatePicker extends Component {
     return (
       <div>
         <DatePicker
+          customInput=<input className='date-picker-home'/>
           dateFormat="DD/MM/YYYY"
           onChange={(date) => {
             this.changeDate(date)
