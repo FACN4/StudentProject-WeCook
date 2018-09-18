@@ -1,4 +1,4 @@
-import { USER_LOGIN, USER_REGISTER  } from "../actions/actionTypes";
+import { USER_LOGIN, USER_REGISTER, USER_LOGOUT } from "../actions/actionTypes";
 
 const initialState = {
   loggedIn: false,
@@ -11,11 +11,16 @@ const initialState = {
     isPending: false,
     isFulfilled: false,
     isRejected: false
+  },
+  loggingOut: {
+    isPending: false,
+    isFulfilled: false,
+    isRejected: false
   }
 };
 
 const userStatusReducer = (state = initialState, action) => {
-  const { loggingIn, registration } = state;
+  const { loggingIn, registration, loggingOut } = state;
   switch (action.type) {
     case `${USER_LOGIN}_PENDING`:
       return { ...state, loggingIn: { ...loggingIn, isPending: true } };
@@ -30,6 +35,7 @@ const userStatusReducer = (state = initialState, action) => {
         ...state,
         loggingIn: { ...loggingIn, isRejected: true, error: action.payload }
       };
+
     case `${USER_REGISTER}_PENDING`:
       return { ...state, registration: { ...registration, isPending: true } };
     case `${USER_REGISTER}_FULFILLED`:
@@ -47,6 +53,24 @@ const userStatusReducer = (state = initialState, action) => {
           error: action.payload
         }
       };
+
+      case `${USER_LOGOUT}_PENDING`:
+        return { ...state, loggingOut: { ...loggingOut, isPending: true } };
+      case `${USER_LOGOUT}_FULFILLED`:
+        return {
+          ...state,
+          loggedIn: false,
+          loggingOut: { ...loggingOut, isFulfilled: true }
+        };
+      case `${USER_LOGOUT}_REJECTED`:
+        return {
+          ...state,
+          loggingOut: {
+            ...loggingOut,
+            isRejected: true,
+            error: action.payload
+          }
+        };
     default:
       return state;
   }

@@ -7,6 +7,7 @@ export const GET_BASKET = "GET_BASKET";
 export const REMOVE_BASKET_ITEM = "REMOVE_BASKET_ITEM";
 export const USER_LOGIN = "USER_LOGIN";
 export const USER_REGISTER = "USER_REGISTER";
+export const USER_LOGOUT = "USER_LOGOUT";
 
 // export const userConstants = {
 // REGISTER_REQUEST: 'USERS_REGISTER_REQUEST',

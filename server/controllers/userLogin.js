@@ -13,8 +13,7 @@ exports.post = (req, res) => {
       });
       res.send();
     })
-    .catch((err) => {
-      console.log(err);
+    .catch(() => {
       res.status('500').send('Sorry, could not login');
     });
 };
