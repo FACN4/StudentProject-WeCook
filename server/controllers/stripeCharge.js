@@ -1,4 +1,7 @@
-const stripe = require('stripe')('sk_test_lGPPEIO6rGdfnCkltmSFckvF');
+require('env2')('./.env');
+
+const { STRIPE_KEY } = process.env;
+const stripe = require('stripe')(STRIPE_KEY);
 
 exports.post = (req, res) => {
   stripe.charges
