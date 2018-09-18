@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import { Gallery } from "../../../../components";
+import { Gallery, Loading } from "../../../../components";
 import getMealInfo from "../../../../actions/getMealInfo";
 import timeRemaining from "../../../../utils/formatingLogic";
 
@@ -10,7 +10,7 @@ class MealInfo extends Component {
     this.props.getMealInfo(this.props.mealId);
   }
   render() {
-    if (!this.props.mealInfo.isFulfilled) return <h1>Loading</h1>;
+    if (!this.props.mealInfo.isFulfilled) return <Loading />;
     const {
       meal_title,
       description,
