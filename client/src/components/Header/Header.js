@@ -1,11 +1,16 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
-import { H1, StyledHeader, User, ShoppingBasket } from "./Header.style";
+import {
+  H1,
+  StyledHeader,
+  User,
+  EmptyShoppingBasket,
+  ShoppingBasket
+} from "./Header.style";
 import logo from "../../assets/logo.png";
 import userIcon from "../../assets/profile.png";
 import emptyBasketIcon from "../../assets/empty-shopping-basket.png";
-import fullBasketIcon from "../../assets/full-shopping-basket.png";
 
 class Header extends Component {
   basketIsEmpty = () => Object.keys(this.props.basket).length === 0;
@@ -20,9 +25,14 @@ class Header extends Component {
         </H1>
         <Link to="/basket">
           {this.basketIsEmpty() ? (
-            <ShoppingBasket src={emptyBasketIcon} alt="Empty ShoppingBasket" />
+            <EmptyShoppingBasket
+              src={emptyBasketIcon}
+              alt="Empty ShoppingBasket"
+            />
           ) : (
-            <ShoppingBasket src={fullBasketIcon} alt="Full ShoppingBasket" />
+            <ShoppingBasket>
+              {Object.keys(this.props.basket).length}
+            </ShoppingBasket>
           )}
         </Link>
       </StyledHeader>
