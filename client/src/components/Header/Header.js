@@ -1,12 +1,14 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import { connect } from "react-redux";
 import { H1, StyledHeader, User, ShoppingBasket } from "./Header.style";
 import logo from "../../assets/logo.png";
 import userIcon from "../../assets/profile.png";
 import basketIcon from "../../assets/empty-shopping-basket.png";
 
-export default class Header extends Component {
+class Header extends Component {
   render() {
+    console.log("Header:", this.props);
     return (
       <StyledHeader>
         <User src={userIcon} alt="userIcon" />
@@ -22,3 +24,12 @@ export default class Header extends Component {
     );
   }
 }
+
+const mapStateToProps = ({ basket }) => ({
+  basket: basket
+});
+
+export default connect(
+  mapStateToProps,
+  null
+)(Header);
