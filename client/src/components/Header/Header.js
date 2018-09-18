@@ -19,7 +19,6 @@ class Header extends Component {
 
   userIconClicked = () => {
     this.props.userLogout();
-    console.log("icon has been clicked");
   };
 
   render() {
