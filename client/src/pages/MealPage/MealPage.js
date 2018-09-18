@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { MoneyButton } from "../../components";
 import MealInfo from "./sections/MealInfo/MealInfo";
+import MealCookInfo from "./sections/MealCookInfo/MealCookInfo";
 import MealReviews from "./sections/MealReviews/MealReviews";
 
 class MealPage extends Component {
@@ -10,6 +11,7 @@ class MealPage extends Component {
     return (
       <React.Fragment>
         <MealInfo mealId={this.props.match.params.mealId} />
+        <MealCookInfo mealId={this.props.match.params.mealId} />
         <MealReviews mealId={this.props.match.params.mealId} />
         {this.props.mealInfo.isFulfilled && (
           <MoneyButton
