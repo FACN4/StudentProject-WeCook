@@ -38,7 +38,7 @@ class MealPage extends Component {
     );
   };
   render() {
-    if (!this.props.mealReviews.isFulfilled) <Loading />;
+    if (!this.props.mealReviews.isFulfilled) return <Loading />;
     const { mealReviews, cookReviews } = this.organiseReviews(
       this.props.mealReviews.data,
       this.props.mealId
