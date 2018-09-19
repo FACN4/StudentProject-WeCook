@@ -7,7 +7,7 @@ export const StarCreator = rating => {
   const Stars = styled.span`
     width: 100px;
     height: 27px;
-    display: block;
+    display: inline-block;
     background: url("https://user-images.githubusercontent.com/28222381/45741660-d424bf00-bc00-11e8-8c4f-fa2d63587006.jpg")
       0 0 no-repeat;
     background-position: ${horizontal}px ${vertical}px;

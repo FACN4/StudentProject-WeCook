@@ -44,7 +44,7 @@ class MealListPage extends Component {
                     <Link to={meal_link}>{meal.meal_title}</Link>
                     <MealCardReview>
                       <Stars rating={rating}/>
-                      {meal.count_reviews} reviews
+                      <span>{meal.count_reviews} reviews</span>
                     </MealCardReview>
                     £{meal.price}/serving{" "}
                     <TimeRemaning>{deadline}</TimeRemaning>

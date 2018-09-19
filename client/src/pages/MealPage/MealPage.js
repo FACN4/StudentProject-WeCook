@@ -28,7 +28,11 @@ class MealPage extends Component {
 }
 
 MealPage.propTypes = {
-  match: PropTypes.object
+  match: PropTypes.object,
+  mealInfo: PropTypes.shape({
+    isFulfilled: PropTypes.bool,
+    data: PropTypes.object
+  })
 };
 
 const mapStateToProps = ({ mealData }) => ({
