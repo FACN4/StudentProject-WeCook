@@ -9,6 +9,7 @@ const mealList = require('./mealList');
 const userRegister = require('./userRegister');
 const userLogin = require('./userLogin');
 const userLogout = require('./userLogout');
+const stripeCharge = require('./stripeCharge');
 const mealCookInfo = require('./mealCookInfo');
 
 // GET routes
@@ -21,5 +22,6 @@ router.get('/api/userLogout', userLogout.get);
 // POST routes
 router.post('/api/userLogin', userLogin.post);
 router.post('/api/userRegister', userRegister.post);
+router.post('/api/charge', stripeCharge.post);
 
 module.exports = router;

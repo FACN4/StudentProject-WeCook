@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import { Header } from "./components";
 
-import { MealPage, MealsListPage, BasketPage, LoginPage, RegisterPage } from "./pages";
+import { MealPage, MealsListPage, BasketPage, LoginPage, RegisterPage, CheckoutPage } from "./pages";
 
 export default class Router extends Component {
   render() {
@@ -16,6 +16,7 @@ export default class Router extends Component {
             <Route exact path="/basket" component={BasketPage} />
             <Route exact path="/login" component={LoginPage}/>
             <Route exact path="/register" component={RegisterPage}/>
+            <Route exact path="/checkout" component={CheckoutPage} />
           </Switch>
         </React.Fragment>
       </BrowserRouter>
