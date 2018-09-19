@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import timeRemaining from "../../utils/formatingLogic";
 import getMealList from "../../actions/getMealList";
-import { Footer, MealCard, Header } from "../../components";
+import { Footer, MealCard, Header, Stars } from "../../components";
 import {
   MealList,
   MealDetails,
@@ -13,8 +13,6 @@ import {
   MealSection,
   CookDetails
 } from "./MealsListPage.style";
-
-import reviewImage from "../../assets/stars.png";
 
 class MealListPage extends Component {
   componentDidMount() {
@@ -32,6 +30,7 @@ class MealListPage extends Component {
             const deadline = timeRemaining(
               new Date(meal.final_booking_at) - Date.now()
             );
+            const rating = Number(meal.avg_star_rating) * 10;
             const meal_link = `/mealInfo/${meal.id}`;
             return (
               <MealCard
@@ -43,8 +42,8 @@ class MealListPage extends Component {
                   <MealDetails>
                     <Link to={meal_link}>{meal.meal_title}</Link>
                     <MealCardReview>
-                      <img src={reviewImage} alt="Review Image" />
-                      {meal.count_reviews} reviews
+                      <Stars rating={rating} />
+                      <span>{meal.count_reviews} reviews</span>
                     </MealCardReview>
                     £{meal.price}/serving{" "}
                     <TimeRemaning>{deadline}</TimeRemaning>
@@ -82,7 +81,8 @@ const mealPropType = PropTypes.shape({
   count_review: PropTypes.string,
   price: PropTypes.string,
   final_booking_at: PropTypes.string,
-  meal_image_url: PropTypes.arr
+  meal_image_url: PropTypes.arr,
+  avg_star_rating: PropTypes.string
 });
 
 const mapDispatchToProps = {

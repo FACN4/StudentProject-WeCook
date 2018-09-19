@@ -3,11 +3,11 @@ const starHelper = rating => {
   let horizontal;
   let vertical;
   if (rating % 10 === 0) {
-    horizontal = -180 + rating * 3.6;
+    horizontal = -100 + rating * 2;
     vertical = 0;
   } else {
-    horizontal = -180 + (rating + 5) * 3.6;
-    vertical = -48;
+    horizontal = -100 + (rating + 5) * 2;
+    vertical = -27;
   }
   return {horizontal, vertical};
 }

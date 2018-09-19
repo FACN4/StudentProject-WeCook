@@ -3,7 +3,7 @@ const { db } = require('../db_connection');
 const getMealList = () => {
   const queryString = `
   SELECT
-    meal.id, meal.meal_title, meal.price, meal.final_booking_at, meal.remaining_portions, meal_thumbnails.meal_image_url, cook_info.cook_firstname, cook_thumbnails.cook_image_url, av_review.av_star_rating, av_review.count_reviews
+    meal.id, meal.meal_title, meal.price, meal.final_booking_at, meal.remaining_portions, meal_thumbnails.meal_image_url, cook_info.cook_firstname, cook_thumbnails.cook_image_url, av_review.avg_star_rating, av_review.count_reviews
   FROM
     (SELECT * FROM meals) AS meal
   LEFT JOIN
@@ -21,7 +21,7 @@ const getMealList = () => {
   LEFT JOIN
     (
       SELECT
-        reviews.cook_user_id, AVG(reviews.star_rating) AS av_star_rating, COUNT(reviews.star_rating) AS count_reviews
+        reviews.cook_user_id, AVG(reviews.star_rating) AS avg_star_rating, COUNT(reviews.star_rating) AS count_reviews
       FROM
         reviews
       GROUP BY
