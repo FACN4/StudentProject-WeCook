@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
+import priceFormat from "../../utils/priceFormat";
 import {
   Order,
   Price,
@@ -28,7 +29,7 @@ class MoneyButton extends Component {
           </Order>
         ) : (
           <Order>
-            <Price>Total: £</Price>
+            <Price>Total: £{priceFormat(this.props.total)}</Price>
             <Checkout onClick={() => this.props.checkout()}>Checkout</Checkout>
           </Order>
         )}
