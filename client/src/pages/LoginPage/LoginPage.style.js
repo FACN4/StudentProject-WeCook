@@ -11,7 +11,7 @@ export const LoginWrapper = styled.section`
 `;
 
 export const Form = styled.form`
-  margin-top: 20px;
+  margin-top: 0px;
 `;
 
 export const InputField = styled.input`
@@ -25,7 +25,7 @@ export const InputField = styled.input`
   color: #474747;
   font-family: ${props => props.theme.bodyFont};
   width: 100%;
-  margin: auto;
+  margin: 0 auto;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
@@ -37,6 +37,7 @@ export const LoginInput = styled(InputField)`
   background-repeat: no-repeat;
   background-position: 97% 50%;
   background-size: auto 27px;
+  margin-top: 20px;
 `;
 
 export const PasswordInput = styled(InputField)`
@@ -67,14 +68,14 @@ export const StyledLink = styled(Link)`
   line-height: 45px;
   text-align: center;
   text-decoration: none;
-  margin-top: 20px;
+  margin-top: 0px;
   font-size: 17px;
   color: #fff;
   font-family: ${props => props.theme.bodyFont};
-  margin-bottom: 20px;
+  margin-bottom: 25px;
 `;
 
 export const Or = styled.p`
   text-align: center;
-  margin: 20px 0;
+  margin: 25px 0;
 `;
