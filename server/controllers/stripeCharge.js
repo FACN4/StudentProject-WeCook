@@ -11,10 +11,6 @@ exports.post = (req, res) => {
       description: 'An example charge',
       source: req.body,
     })
-    .then((result) => {
-      res.status(200).send(result.status);
-    })
-    .catch((err) => {
-      res.status(500).end(err);
-    });
+    .then(result => res.status(200).send(result.status))
+    .catch(err => res.status(500).end(err));
 };
