@@ -2,8 +2,8 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
+import { MealCard, MoneyButton} from "../../components";
 import removeBasketItem from "../../actions/removeBasketItem";
-import { MealCard, MoneyButton } from "../../components";
 import { MealName, Delivery, OrderInfo, Cost } from "./BasketPage.style";
 
 class BasketPage extends Component {
@@ -35,7 +35,7 @@ class BasketPage extends Component {
       return (
         <React.Fragment>
           <h1>Your Basket..</h1>
-          {Object.keys(this.props.basket).map((itemId, index) => {
+          {Object.keys(this.props.basket).map((itemId,index) => {
             const {
               meal_title,
               description,

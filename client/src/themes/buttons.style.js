@@ -10,12 +10,12 @@ export const Search = styled.button`
   font-family: ${props => props.theme.bodyFont};
   padding: 0px 20px;
   width: 100%;
-  margin: auto;
-  border: none;
+  margin:auto;
+  border:none;
 `;
 
 export const InputField = styled(Field)`
-  border: 0.5px solid #b6b6b6;
+  border: 0.5px solid #B6B6B6;
   border-radius: 10px;
   height: 40px;
   font-size: 17px;
