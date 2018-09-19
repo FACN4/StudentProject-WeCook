@@ -18,6 +18,7 @@ class MealPage extends Component {
         <MealReviews mealId={this.props.match.params.mealId} />
         {this.props.mealInfo.isFulfilled && (
           <MoneyButton
+            type="add"
             mealInfo={this.props.mealInfo.data}
             mealId={this.props.match.params.mealId}
           />
