@@ -7,7 +7,7 @@ import { MealName, Delivery, OrderInfo, Cost } from "./BasketPage.style";
 
 class BasketPage extends Component {
   orderSum = () => {
-    const basket = this.props.basket;
+    const { basket } = this.props;
     return Object.keys(basket).reduce(function(previous, key) {
       return (
         previous +
