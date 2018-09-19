@@ -7,6 +7,11 @@ export const MealName = styled.h2`
   margin: 0px 0px 5px 0px;
 `;
 
+export const BasketPageWrapper = styled.section`
+  padding: 0 ${props => props.theme.mobilePadding};
+  margin: 0 auto;
+`;
+
 export const Delivery = styled.span`
   color: ${props => props.theme.green};
   font: ${props => props.theme.headerFont};
