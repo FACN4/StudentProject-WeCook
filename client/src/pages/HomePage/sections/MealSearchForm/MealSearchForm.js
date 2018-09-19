@@ -2,8 +2,8 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { reduxForm } from "redux-form";
 import "react-datepicker/dist/react-datepicker.css";
-import {RenderDatePicker} from "../../../../components"
-import "./MealSearchForm.css"
+import { RenderDatePicker } from "../../../../components";
+import "./MealSearchForm.css";
 
 import {
   DateInput,
@@ -16,13 +16,17 @@ class MealSearchForm extends Component {
   render() {
     return (
       <StyledForm onSubmit={this.props.handleSubmit}>
+        <label htmlFor="postcode">Enter your postcode</label>
         <LocationInput
+          id="postcode"
           name="postcode"
           component="input"
           type="text"
           placeholder="Enter your postcode"
         />
+        <label htmlFor="delivery-date">Choose your delivery date</label>
         <DateInput
+          id="delivery-date"
           name="delivery-date"
           type="text"
           component={RenderDatePicker}
