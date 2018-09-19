@@ -7,7 +7,8 @@ const wecookTheme = {
   white: "#fff",
   headerFont: "'Crete Round', serif",
   bodyFont: "'Raleway', sans-serif",
-  desktopWidth: "80%"
+  desktopWidth: "80%",
+  mobilePadding: "20px"
 };
 
 export default wecookTheme;
