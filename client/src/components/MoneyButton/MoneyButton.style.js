@@ -28,14 +28,8 @@ export const AddToBasket = styled.button`
   }
 `;
 
-export const Checkout = styled.button`
+export const Checkout = styled(AddToBasket)`
     background: ${props => props.theme.lightBlue} url(${checkout});
-    color: transparent;
-    width: 184px;
-    height: 53px;
-    border: 0;
-    padding: 0;
-    margin: 0;
   }
 `;
 
