@@ -11,12 +11,9 @@ class CheckoutPage extends Component {
   render() {
     return (
       <StripeProvider apiKey={STRIPE_API_KEY}>
-        <div className="example">
-          <h1>React Stripe Elements Example</h1>
-          <Elements>
-            <CheckoutForm />
-          </Elements>
-        </div>
+        <Elements>
+          <CheckoutForm />
+        </Elements>
       </StripeProvider>
     );
   }
