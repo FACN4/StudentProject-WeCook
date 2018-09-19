@@ -12,11 +12,6 @@ class LoginPage extends React.Component {
     event.preventDefault();
     this.props.userLogin({username,password});
   };
-  //
-  // componentDidUpdate() {
-	// 	if(this.props.match.params.id && !this.props.initialized)
-	// 		this.props.initialize(this.props.initialValues);
-	// }
 
   render() {
     return (
