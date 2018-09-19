@@ -14,5 +14,7 @@ exports.post = (req, res) => {
       const mealList = filterLocalMeals(mealArray, { latitude, longitude });
       res.send(mealList);
     })
-    .catch(() => res.status('500').send('Sorry, could not find any meals'));
+    .catch((err) => {
+      res.status('500').send('Sorry, could not find any meals');
+    });
 };

@@ -3,11 +3,7 @@ const { db } = require('../db_connection');
 const getAvailableMeals = (mealDate) => {
   const queryString = `
   SELECT
-<<<<<<< HEAD:server/database/getQueries/getMealList.js
-    meal.id, meal.meal_title, meal.price, meal.final_booking_at, meal.remaining_portions, meal_thumbnails.meal_image_url, cook_info.cook_firstname, cook_thumbnails.cook_image_url, av_review.avg_star_rating, av_review.count_reviews
-=======
-    meal.id, meal.meal_title, meal.price, meal.final_booking_at, meal.remaining_portions, date_trunc('day',meal.meal_scheduled_at), meal_thumbnails.meal_image_url, cook_info.cook_firstname, cook_info.kitchen_lat_long, cook_info.delivery_range_m, cook_thumbnails.cook_image_url, av_review.av_star_rating, av_review.count_reviews
->>>>>>> 0bdf2aaa024e5b733367ddfc9d9161b896a53f53:server/database/getQueries/getAvailableMeals.js
+    meal.id, meal.meal_title, meal.price, meal.final_booking_at, meal.remaining_portions, date_trunc('day',meal.meal_scheduled_at), meal_thumbnails.meal_image_url, cook_info.cook_firstname, cook_info.kitchen_lat_long, cook_info.delivery_range_m, cook_thumbnails.cook_image_url, av_review.avg_star_rating, av_review.count_reviews
   FROM
     (SELECT * FROM meals WHERE final_booking_at > NOW() AND date_trunc('day',meal_scheduled_at) = date_trunc('day',$1::timestamp)) AS meal
   LEFT JOIN
