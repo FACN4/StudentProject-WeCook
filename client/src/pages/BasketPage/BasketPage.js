@@ -1,11 +1,22 @@
 import React, { Component } from "react";
+import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import removeBasketItem from "../../actions/removeBasketItem";
-import { MealCard } from "../../components";
+import { MealCard, MoneyButton } from "../../components";
 import { MealName, Delivery, OrderInfo, Cost } from "./BasketPage.style";
 
 class BasketPage extends Component {
+  orderSum = () => {
+    const { basket } = this.props;
+    return Object.keys(basket).reduce(function(previous, key) {
+      return (
+        previous +
+        parseFloat(basket[key].mealInfo.price) *
+          parseFloat(basket[key].quantity)
+      );
+    }, 0);
+  };
   render() {
     if (Object.keys(this.props.basket).length === 0) {
       return (
@@ -24,7 +35,7 @@ class BasketPage extends Component {
       return (
         <React.Fragment>
           <h1>Your Basket..</h1>
-          {Object.keys(this.props.basket).map(itemId => {
+          {Object.keys(this.props.basket).map((itemId, index) => {
             const {
               meal_title,
               description,
@@ -37,7 +48,7 @@ class BasketPage extends Component {
               meal_image_url
             } = this.props.basket[itemId].mealInfo;
             return (
-              <MealCard mealImage={meal_image_url[0].mealUrl} key={meal_title}>
+              <MealCard mealImage={meal_image_url[0].mealUrl} key={index}>
                 <MealName>{meal_title}</MealName>
                 <Delivery>For delivery for 7pm on 22/09/18</Delivery>
                 <OrderInfo>
@@ -55,11 +66,26 @@ class BasketPage extends Component {
               </MealCard>
             );
           })};
+          <MoneyButton type="checkout" total={this.orderSum()} />
         </React.Fragment>
       );
     }
   }
 }
+
+BasketPage.propTypes = {
+  basket: PropTypes.object,
+  meal_title: PropTypes.string,
+  description: PropTypes.string,
+  price: PropTypes.string,
+  meal_scheduled_at: PropTypes.string,
+  remaining_portions: PropTypes.string,
+  final_booking_at: PropTypes.string,
+  ingredients: PropTypes.string,
+  tags: PropTypes.string,
+  meal_image_url: PropTypes.string,
+  removeBasketItem: PropTypes.func
+};
 
 const mapStateToProps = ({ basket }) => ({
   basket: basket

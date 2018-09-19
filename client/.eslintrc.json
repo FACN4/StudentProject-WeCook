@@ -4,6 +4,7 @@
   "parserOptions": {
     "sourceType": "module",
     "allowImportExportEverywhere": false,
+    "import/prefer-default-export": false,
     "codeFrame": true
   },
   "env": {

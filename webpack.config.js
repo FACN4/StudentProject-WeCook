@@ -1,6 +1,7 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+const Dotenv = require('dotenv-webpack');
 
 module.exports = {
   entry: './client/src/index.js',
@@ -37,6 +38,7 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: './client/src/index.html',
     }),
+    new Dotenv(),
   ],
   optimization: {
     minimizer: [new UglifyJsPlugin()],

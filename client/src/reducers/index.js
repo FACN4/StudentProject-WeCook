@@ -1,4 +1,5 @@
 import { combineReducers } from "redux";
+import { reducer as formReducer } from 'redux-form'
 import basketReducer from "./basketReducer";
 import getMealInfoReducer from "./getMealInfoReducer";
 import getMealReviewsReducer from "./getMealReviewsReducer";
@@ -10,5 +11,6 @@ export default combineReducers({
   mealData: getMealInfoReducer,
   mealList: getMealListReducer,
   mealReviews: getMealReviewsReducer,
+  form: formReducer,
   mealCookData: getMealCookInfoReducer
 });

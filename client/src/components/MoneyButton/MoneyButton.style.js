@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import addToBasket from "../../assets/addToBasket.png";
+import checkout from "../../assets/checkout.png";
 
 export const Order = styled.section`
   z-index: 2;
@@ -12,7 +13,11 @@ export const Order = styled.section`
   margin: 0;
   width: 100%;
   height: 53px;
-  button {
+  display: flex;
+  justify-content: space-between;
+`;
+
+export const AddToBasket = styled.button`
     background: ${props => props.theme.lightBlue} url(${addToBasket});
     color: transparent;
     width: 184px;
@@ -21,8 +26,11 @@ export const Order = styled.section`
     padding: 0;
     margin: 0;
   }
-  display: flex;
-  justify-content: space-between;
+`;
+
+export const Checkout = styled(AddToBasket)`
+    background: ${props => props.theme.lightBlue} url(${checkout});
+  }
 `;
 
 export const Price = styled.section`

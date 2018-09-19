@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import timeRemaining from "../../utils/formatingLogic";
 import getMealList from "../../actions/getMealList";
-import { Footer, MealCard, Stars } from "../../components";
+import { Footer, MealCard, Header, Stars } from "../../components";
 import {
   MealList,
   MealDetails,
@@ -13,8 +13,6 @@ import {
   MealSection,
   CookDetails
 } from "./MealsListPage.style";
-
-import reviewImage from "../../assets/stars.png";
 
 class MealListPage extends Component {
   componentDidMount() {
@@ -25,6 +23,7 @@ class MealListPage extends Component {
     const mealCount = this.props.mealList.data.length;
     return (
       <React.Fragment>
+        <Header />
         <h1>{mealCount} menus available in your local area for this date</h1>
         <MealList>
           {this.props.mealList.data.map(meal => {
