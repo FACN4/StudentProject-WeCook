@@ -5,7 +5,7 @@ import { MoneyButton, Header } from "../../components";
 import MealInfo from "./sections/MealInfo/MealInfo";
 import MealCookInfo from "./sections/MealCookInfo/MealCookInfo";
 import MealReviews from "./sections/MealReviews/MealReviews";
-import { SectionDivider, MealPageWrapper } from "./MealPageStyle";
+import { SectionDivider, MealPageWrapper } from "./MealPage.style";
 
 class MealPage extends Component {
   render() {

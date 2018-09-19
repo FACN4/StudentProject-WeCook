@@ -2,7 +2,8 @@ import React, { Component } from "react";
 import { CardElement, injectStripe } from "react-stripe-elements";
 import axios from "axios";
 import ThankYou from "../ThankYou/ThankYou";
-
+import { Header } from "../../../../components";
+import { CheckoutWrapper } from "./CheckoutForm.style";
 
 class CheckoutForm extends Component {
   state = {
@@ -32,11 +33,14 @@ class CheckoutForm extends Component {
   render() {
     if (this.state.complete) return <ThankYou />;
     return (
-      <div className="checkout">
-        <p>Would you like to complete the purchase?</p>
-        <CardElement />
-        <button onClick={this.submit}>Send</button>
-      </div>
+      <React.Fragment>
+        <Header />
+        <CheckoutWrapper>
+          <p>Would you like to complete the purchase?</p>
+          <CardElement />
+          <button onClick={this.submit}>Send</button>
+        </CheckoutWrapper>
+      </React.Fragment>
     );
   }
 }
