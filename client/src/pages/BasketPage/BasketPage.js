@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import { MealCard} from "../../components";
 import removeBasketItem from "../../actions/removeBasketItem";
+import { MealCard, MoneyButton } from "../../components";
 import { MealName, Delivery, OrderInfo, Cost } from "./BasketPage.style";
 
 class BasketPage extends Component {
@@ -56,6 +57,7 @@ class BasketPage extends Component {
               </MealCard>
             );
           })};
+          <MoneyButton type="checkout" />
         </React.Fragment>
       );
     }
