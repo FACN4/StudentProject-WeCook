@@ -4,7 +4,15 @@ import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import { MealCard, MoneyButton} from "../../components";
 import removeBasketItem from "../../actions/removeBasketItem";
-import { MealName, Delivery, OrderInfo, Cost } from "./BasketPage.style";
+
+import { MealCard, MoneyButton, Header } from "../../components";
+import {
+  MealName,
+  Delivery,
+  OrderInfo,
+  Cost,
+  BasketPageWrapper
+} from "./BasketPage.style";
 
 class BasketPage extends Component {
   orderSum = () => {
@@ -21,51 +29,57 @@ class BasketPage extends Component {
     if (Object.keys(this.props.basket).length === 0) {
       return (
         <React.Fragment>
-          <h1>Your Basket is empty!</h1>
-          <p>
-            Your Shopping Basket lives to serve. Give it purpose--fill it with
-            delicious meals.
-          </p>
-          <p>
-            Continue shopping on the <Link to="/">WeCook homepage</Link>
-          </p>
+          <Header />
+          <BasketPageWrapper>
+            <h1>Your Basket is empty!</h1>
+            <p>
+              Your Shopping Basket lives to serve. Give it purpose--fill it with
+              delicious meals.
+            </p>
+            <p>
+              Continue shopping on the <Link to="/">WeCook homepage</Link>
+            </p>
+          </BasketPageWrapper>
         </React.Fragment>
       );
     } else {
       return (
         <React.Fragment>
-          <h1>Your Basket..</h1>
-          {Object.keys(this.props.basket).map((itemId,index) => {
-            const {
-              meal_title,
-              description,
-              price,
-              meal_scheduled_at,
-              remaining_portions,
-              final_booking_at,
-              ingredients,
-              tags,
-              meal_image_url
-            } = this.props.basket[itemId].mealInfo;
-            return (
-              <MealCard mealImage={meal_image_url[0].mealUrl} key={index}>
-                <MealName>{meal_title}</MealName>
-                <Delivery>For delivery for 7pm on 22/09/18</Delivery>
-                <OrderInfo>
-                  <Cost>Cost: £{price}</Cost>
-                  <select>
-                    <option value="">1 Portion</option>
-                    <option value="">2 Portions</option>
-                    <option value="">3 Portions</option>
-                    <option value="">4 Portions</option>
-                  </select>
-                  <button onClick={() => this.props.removeBasketItem(itemId)}>
-                    Delete
-                  </button>
-                </OrderInfo>
-              </MealCard>
-            );
-          })};
+          <Header />
+          <BasketPageWrapper>
+            <h1>Your Basket..</h1>
+            {Object.keys(this.props.basket).map((itemId, index) => {
+              const {
+                meal_title,
+                description,
+                price,
+                meal_scheduled_at,
+                remaining_portions,
+                final_booking_at,
+                ingredients,
+                tags,
+                meal_image_url
+              } = this.props.basket[itemId].mealInfo;
+              return (
+                <MealCard mealImage={meal_image_url[0].mealUrl} key={index}>
+                  <MealName>{meal_title}</MealName>
+                  <Delivery>For delivery for 7pm on 22/09/18</Delivery>
+                  <OrderInfo>
+                    <Cost>Cost: £{price}</Cost>
+                    <select>
+                      <option value="">1 Portion</option>
+                      <option value="">2 Portions</option>
+                      <option value="">3 Portions</option>
+                      <option value="">4 Portions</option>
+                    </select>
+                    <button onClick={() => this.props.removeBasketItem(itemId)}>
+                      Delete
+                    </button>
+                  </OrderInfo>
+                </MealCard>
+              );
+            })};
+          </BasketPageWrapper>
           <MoneyButton type="checkout" total={this.orderSum()} />
         </React.Fragment>
       );
