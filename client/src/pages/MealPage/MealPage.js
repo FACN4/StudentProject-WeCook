@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import { MoneyButton } from "../../components";
+import { MoneyButton, Header } from "../../components";
 import MealInfo from "./sections/MealInfo/MealInfo";
 import MealCookInfo from "./sections/MealCookInfo/MealCookInfo";
 import MealReviews from "./sections/MealReviews/MealReviews";
@@ -9,18 +9,20 @@ import { SectionDivider } from "./MealPageStyle";
 
 class MealPage extends Component {
   render() {
+    const {match:{params:{mealId}}} = this.props
     return (
       <React.Fragment>
-        <MealInfo mealId={this.props.match.params.mealId} />
+        <Header />
+        <MealInfo mealId={mealId} />
         <SectionDivider />
-        <MealCookInfo mealId={this.props.match.params.mealId} />
+        <MealCookInfo mealId={mealId} />
         <SectionDivider />
-        <MealReviews mealId={this.props.match.params.mealId} />
+        <MealReviews mealId={mealId} />
         {this.props.mealInfo.isFulfilled && (
           <MoneyButton
             type="add"
             mealInfo={this.props.mealInfo.data}
-            mealId={this.props.match.params.mealId}
+            mealId={mealId}
           />
         )}
       </React.Fragment>
@@ -29,7 +31,15 @@ class MealPage extends Component {
 }
 
 MealPage.propTypes = {
-  match: PropTypes.object
+  match: PropTypes.shape({
+    params: PropTypes.shape({
+      mealId: PropTypes.string
+    })
+  }),
+  mealInfo: PropTypes.shape({
+    data: PropTypes.object,
+    isFulfilled: PropTypes.bool
+  })
 };
 
 const mapStateToProps = ({ mealData }) => ({

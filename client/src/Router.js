@@ -1,17 +1,23 @@
 import React, { Component } from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
-import { Header } from "./components";
+import { hot } from "react-hot-loader";
 
-import { MealPage, MealsListPage, BasketPage, CheckoutPage } from "./pages";
+import {
+  MealPage,
+  MealsListPage,
+  BasketPage,
+  HomePage,
+  CheckoutPage
+} from "./pages";
 
-export default class Router extends Component {
+class Router extends Component {
   render() {
     return (
       <BrowserRouter>
         <React.Fragment>
-          <Header />
           <Switch>
-            <Route exact path="/" component={MealsListPage} />
+            <Route exact path="/" component={HomePage} />
+            <Route exact path="/mealList" component={MealsListPage} />
             <Route exact path="/mealInfo/:mealId" component={MealPage} />
             <Route exact path="/basket" component={BasketPage} />
             <Route exact path="/checkout" component={CheckoutPage} />
@@ -21,3 +27,5 @@ export default class Router extends Component {
     );
   }
 }
+
+export default hot(module)(Router);
