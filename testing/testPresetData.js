@@ -10,7 +10,7 @@ const mealCardResult = {
   cook_firstname: 'Samiyah',
   cook_image_url:
     'https://user-images.githubusercontent.com/28222381/45268630-08251500-b488-11e8-94c4-7e664f5d45c9.jpg',
-  av_star_rating: '4.0000000000000000',
+  avg_star_rating: '4.0000000000000000',
   count_reviews: '3',
 };
 
