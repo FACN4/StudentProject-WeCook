@@ -65,7 +65,7 @@ const cookInfoResult = {
   cook_image_url:
     'https://user-images.githubusercontent.com/28222381/45268630-08251500-b488-11e8-94c4-7e664f5d45c9.jpg',
   count_reviews: '3',
-  avg_reviews: '4.0000000000000000',
+  av_reviews: '4.0000000000000000',
 };
 const mealReviewsResult = [
   {
