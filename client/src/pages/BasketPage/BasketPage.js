@@ -2,10 +2,9 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
-import { MealCard, MoneyButton} from "../../components";
+import { MealCard, MoneyButton, Header} from "../../components";
 import removeBasketItem from "../../actions/removeBasketItem";
 
-import { MealCard, MoneyButton, Header } from "../../components";
 import {
   MealName,
   Delivery,
