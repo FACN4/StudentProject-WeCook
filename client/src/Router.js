@@ -1,13 +1,14 @@
 import React, { Component } from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
-import { hot } from 'react-hot-loader'
-
+import { hot } from "react-hot-loader";
 import {
   MealPage,
   MealsListPage,
   BasketPage,
-  HomePage,
-  CheckoutPage
+  LoginPage,
+  RegisterPage,
+  CheckoutPage,
+  HomePage
 } from "./pages";
 
 class Router extends Component {
@@ -20,6 +21,8 @@ class Router extends Component {
             <Route exact path="/mealList" component={MealsListPage} />
             <Route exact path="/mealInfo/:mealId" component={MealPage} />
             <Route exact path="/basket" component={BasketPage} />
+            <Route exact path="/login" component={LoginPage} />
+            <Route exact path="/register" component={RegisterPage} />
             <Route exact path="/checkout" component={CheckoutPage} />
           </Switch>
         </React.Fragment>
