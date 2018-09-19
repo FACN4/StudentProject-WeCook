@@ -7,7 +7,14 @@ import { MealName, Delivery, OrderInfo, Cost } from "./BasketPage.style";
 
 class BasketPage extends Component {
   orderSum = () => {
-    return 5.0;
+    const basket = this.props.basket;
+    return Object.keys(basket).reduce(function(previous, key) {
+      return (
+        previous +
+        parseFloat(basket[key].mealInfo.price) *
+          parseFloat(basket[key].quantity)
+      );
+    }, 0);
   };
   render() {
     if (Object.keys(this.props.basket).length === 0) {
