@@ -76,14 +76,3 @@ export default reduxForm({
     passwordConfirm:"1234"
   }
 })(ConnectedRegisterPage);
-
-
-
-
-
-
-
-
-
-
-
