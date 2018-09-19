@@ -28,7 +28,7 @@ class MoneyButton extends Component {
           </Order>
         ) : (
           <Order>
-            <Price>Total: £</Price>
+            <Price>Total: £{this.props.total}</Price>
             <Checkout onClick={() => this.props.checkout()}>Checkout</Checkout>
           </Order>
         )}
