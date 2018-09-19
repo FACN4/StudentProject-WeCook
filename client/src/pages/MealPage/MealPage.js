@@ -37,14 +37,10 @@ class MealPage extends Component {
 }
 
 MealPage.propTypes = {
-  match: PropTypes.shape({
-    params: PropTypes.shape({
-      mealId: PropTypes.string
-    })
-  }),
+  match: PropTypes.object,
   mealInfo: PropTypes.shape({
-    data: PropTypes.object,
-    isFulfilled: PropTypes.bool
+    isFulfilled: PropTypes.bool,
+    data: PropTypes.object
   })
 };
 

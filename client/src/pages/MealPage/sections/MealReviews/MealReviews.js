@@ -2,7 +2,8 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import getMealReviews from "../../../../actions/getMealReviews";
-import { H2, H3, ReviewDate, Description } from "./MealReview.style";
+import { H2, H3, ReviewDate, Description } from "./MealReview.style"
+import { Stars } from "../../../../components";
 
 class MealPage extends Component {
   componentDidMount() {
@@ -18,10 +19,11 @@ class MealPage extends Component {
           reviewed_at,
           review_msg
         } = reviewEle;
+        const rating = Number(star_rating)*10
         let Review = (
           <article key={index}>
             <H3>{username}</H3>
-            <h3>{star_rating}</h3>
+            <Stars rating={rating}/>
             <ReviewDate>{reviewed_at}</ReviewDate>
             <Description>{review_msg}</Description>
           </article>
