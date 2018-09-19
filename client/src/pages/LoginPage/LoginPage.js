@@ -20,9 +20,9 @@ class LoginPage extends React.Component {
         <h1>Login</h1>
         <form onSubmit={this.handleSubmit}>
           <label htmlFor="username">username</label>
-          <Field component="input" type="text" name="username" />
+          <Field component="input" type="text" name="username" id="username"/>
           <label htmlFor="password">password</label>
-          <Field component="input" type="password" name="password" />
+          <Field component="input" type="password" name="password" id="password"/>
           <button>Login</button>
         </form>
         <Link to="/register">Register</Link>

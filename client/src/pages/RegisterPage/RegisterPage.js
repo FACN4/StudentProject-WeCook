@@ -20,19 +20,19 @@ class RegisterPage extends React.Component {
         <h1>Register</h1>
         <form onSubmit={this.handleSubmit}>
           <label htmlFor="username">username</label>
-          <Field component="input" type="text" name="username" />
+          <Field component="input" type="text" name="username" id="username"/>
           <label htmlFor="postCode">post code</label>
-          <Field component="input" type="text" name="postCode" />
+          <Field component="input" type="text" name="postCode" id="postCode"/>
           <label htmlFor="houseNo">house number</label>
-          <Field component="input" type="number" name="houseNo" />
+          <Field component="input" type="number" name="houseNo" id="houseNo"/>
           <label htmlFor="phoneNo">phone number</label>
-          <Field component="input" type="text" name="phoneNo" />
+          <Field component="input" type="text" name="phoneNo" id="phoneNo"/>
           <label htmlFor="email">email</label>
-          <Field component="input" type="email" name="email" />
+          <Field component="input" type="email" name="email" id="email"/>
           <label htmlFor="password">password</label>
-          <Field component="input" type="password" name="password" />
+          <Field component="input" type="password" name="password" id="password"/>
           <label htmlFor="passwordConfirm">confirm password</label>
-          <Field component="input" type="password" name="passwordConfirm" />
+          <Field component="input" type="password" name="passwordConfirm" id="passwordConfirm"/>
           <button>Sign up</button>
         </form>
         <Link to="/login">Login</Link>
