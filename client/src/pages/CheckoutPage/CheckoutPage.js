@@ -12,7 +12,9 @@ class CheckoutPage extends Component {
     return (
       <StripeProvider apiKey={STRIPE_API_KEY}>
         <Elements>
+          <Header />
           <CheckoutForm />
+          <Footer />
         </Elements>
       </StripeProvider>
     );
