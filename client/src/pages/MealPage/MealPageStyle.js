@@ -10,4 +10,5 @@ export const SectionDivider = styled.section`
 export const MealPageWrapper = styled.section`
   padding: 10px 25px;
   margin: 0 auto;
+  line-height: 1.3;
 `;

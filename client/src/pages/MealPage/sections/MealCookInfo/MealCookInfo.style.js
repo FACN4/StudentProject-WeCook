@@ -51,7 +51,7 @@ export const CookName = styled.h2`
   font-family: ${props => props.theme.headerFont};
   color: ${props => props.theme.darkBlue};
   font-size: 18px;
-  margin: 5px 0px;
+  margin: 0px 0px 5px;
 `;
 
 export const CookImage = styled.img`
