@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import getMealReviews from "../../../../actions/getMealReviews";
-import { H2, H3, ReviewDate, Description } from "./MealReview.style"
+import { H2, H3, ReviewDate, Description } from "./MealReview.style";
 import { Stars } from "../../../../components";
 
 class MealPage extends Component {
@@ -19,11 +19,11 @@ class MealPage extends Component {
           reviewed_at,
           review_msg
         } = reviewEle;
-        const rating = Number(star_rating)*10
+        const rating = Number(star_rating) * 10;
         let Review = (
           <article key={index}>
             <H3>{username}</H3>
-            <Stars rating={rating}/>
+            <Stars rating={rating} />
             <ReviewDate>{reviewed_at}</ReviewDate>
             <Description>{review_msg}</Description>
           </article>
@@ -38,7 +38,7 @@ class MealPage extends Component {
     );
   };
   render() {
-    if (!this.props.mealReviews.isFulfilled) return <h1>Loading</h1>;
+    if (!this.props.mealReviews.isFulfilled) return <Loading />;
     const { mealReviews, cookReviews } = this.organiseReviews(
       this.props.mealReviews.data,
       this.props.mealId

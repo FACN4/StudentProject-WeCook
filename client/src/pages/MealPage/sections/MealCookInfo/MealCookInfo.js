@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import getMealCookInfo from "../../../../actions/getMealCookInfo";
-import { Stars } from "../../../../components";
+import { Stars, Loading } from "../../../../components";
 
 import {
   H2,
@@ -19,7 +19,7 @@ class MealCookInfo extends Component {
     this.props.getMealCookInfo(this.props.mealId);
   }
   render() {
-    if (!this.props.mealCookInfo.isFulfilled) return <h1>Loading</h1>;
+    if (!this.props.mealCookInfo.isFulfilled) return <Loading />;
     const {
       cook_firstname,
       cook_summary,

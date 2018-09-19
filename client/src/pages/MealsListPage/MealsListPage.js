@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import timeRemaining from "../../utils/formatingLogic";
-import { Footer, MealCard, Header, Stars } from "../../components";
+import { Footer, MealCard, Header, Stars, Loading } from "../../components";
 import {
   MealList,
   MealDetails,
@@ -15,7 +15,7 @@ import {
 
 class MealListPage extends Component {
   render() {
-    if (!this.props.mealList.isFulfilled) return <h1>Loading</h1>;
+    if (!this.props.mealList.isFulfilled) return <Loading />;
     const mealCount = this.props.mealList.data.length;
     return (
       <React.Fragment>
