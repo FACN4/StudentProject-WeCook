@@ -34,8 +34,8 @@ class RegisterPage extends React.Component {
           <label htmlFor="passwordConfirm">confirm password</label>
           <Field component="input" type="password" name="passwordConfirm" />
           <button>Sign up</button>
-          <Link to="/login">Login</Link>
         </form>
+        <Link to="/login">Login</Link>
       </React.Fragment>
     );
   }
@@ -56,7 +56,7 @@ RegisterPage.propTypes = {
   passwordConfirm:PropTypes.string
 };
 
-const mapStateToProps = ({form:{loginForm:{values}}}) => {
+const mapStateToProps = ({form:{registerForm:{values}}}) => {
   return {
     username: values.username,
     postCode: values.postCode,
@@ -70,11 +70,11 @@ const mapStateToProps = ({form:{loginForm:{values}}}) => {
 
 const ConnectedRegisterPage = connect(
   mapStateToProps,
-  mapDispatchToProps
+  mapDispatchToProps,
 )(RegisterPage);
 
 export default reduxForm({
-  form: "loginForm",
+  form: "registerForm",
   initialValues: {
     username:"",
     postCode:"",

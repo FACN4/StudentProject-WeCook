@@ -12,6 +12,11 @@ class LoginPage extends React.Component {
     event.preventDefault();
     this.props.userLogin({username,password});
   };
+  //
+  // componentDidUpdate() {
+	// 	if(this.props.match.params.id && !this.props.initialized)
+	// 		this.props.initialize(this.props.initialValues);
+	// }
 
   render() {
     return (
@@ -24,8 +29,8 @@ class LoginPage extends React.Component {
           <label htmlFor="password">password</label>
           <Field component="input" type="password" name="password" />
           <button>Login</button>
-          <Link to="/register">Register</Link>
         </form>
+        <Link to="/register">Register</Link>
       </React.Fragment>
     );
   }
@@ -48,7 +53,7 @@ const mapStateToProps = ({form:{loginForm:{values}}}) => {
   };
 };
 
-const ConnectedLoginPage = connect(
+const connectedLoginPage = connect(
   mapStateToProps,
   mapDispatchToProps
 )(LoginPage);
@@ -59,4 +64,4 @@ export default reduxForm({
     username:"",
     password:""
   }
-})(ConnectedLoginPage);
+})(connectedLoginPage);
