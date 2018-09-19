@@ -20,7 +20,6 @@ class HomePage extends Component {
 
   submit = (values) => {
     const { postcode, deliveryDate } = values;
-    console.log(postcode, deliveryDate, "here");
     this.props.findMeals({ postcode, deliveryDate });
   };
   render () {
@@ -42,8 +41,13 @@ class HomePage extends Component {
 
 HomePage.propTypes = {
   findMeals: PropTypes.func,
+  mealsFound: PropTypes.func,
   deliveryDate: PropTypes.string,
-  postcode: PropTypes.string
+  postcode: PropTypes.string,
+  isFulfilled: PropTypes.bool,
+  history: PropTypes.shape({
+    push: PropTypes.func
+  })
 };
 
 const mapDispatchToProps = {
