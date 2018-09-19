@@ -5,17 +5,17 @@ export const StyledFooter = styled.footer`
   background-color: ${props => props.theme.lightGrey};
   height: 52px;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   line-height: 52px;
-  padding-left: 10px;
+  padding: 0 25px;
   font-size: 14px;
-  align-items:center;
+  align-items: center;
 `;
 
 export const Icons = styled.section`
   display: flex;
-  align-items:center;
+  align-items: center;
   img {
-    padding: 5px;
+    padding-left: 10px;
   }
 `;
