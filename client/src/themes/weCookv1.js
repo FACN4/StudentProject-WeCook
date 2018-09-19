@@ -6,7 +6,8 @@ const wecookTheme = {
   orange: "#D58629",
   white: "#fff",
   headerFont: "'Crete Round', serif",
-  bodyFont: "'Raleway', sans-serif"
+  bodyFont: "'Raleway', sans-serif",
+  desktopWidth: "80%"
 };
 
 export default wecookTheme;
