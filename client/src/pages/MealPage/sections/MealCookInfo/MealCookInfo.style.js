@@ -6,7 +6,7 @@ export const MealLogistics = styled.section`
   grid-template-columns: 1fr 1fr;
 `;
 
-export const Description = styled.span`
+export const Description = styled.div`
   font-family: ${props => props.theme.bodyFont};
   color: ${props => props.theme.darkBlue};
   font-size: 14px;

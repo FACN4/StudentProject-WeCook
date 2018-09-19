@@ -1,11 +1,11 @@
 const { db } = require('../db_connection');
 
-const getMealCard = (mealId) => {
+const getAvailableMeals = (mealDate) => {
   const queryString = `
   SELECT
-    meal.id, meal.meal_title, meal.price, meal.meal_scheduled_at, meal.final_booking_at, meal.remaining_portions, meal_thumbnails.meal_image_url, cook_info.cook_firstname, cook_thumbnails.cook_image_url, av_review.avg_star_rating, av_review.count_reviews
+    meal.id, meal.meal_title, meal.price, meal.final_booking_at, meal.remaining_portions, date_trunc('day',meal.meal_scheduled_at), meal_thumbnails.meal_image_url, cook_info.cook_firstname, cook_info.kitchen_lat_long, cook_info.delivery_range_m, cook_thumbnails.cook_image_url, av_review.avg_star_rating, av_review.count_reviews
   FROM
-    (SELECT * FROM meals WHERE meals.id = $1) AS meal
+    (SELECT * FROM meals WHERE final_booking_at > NOW() AND date_trunc('day',meal_scheduled_at) = date_trunc('day',$1::timestamp)) AS meal
   LEFT JOIN
     (SELECT * FROM meal_images WHERE is_thumbnail=true) AS meal_thumbnails
   ON
@@ -30,8 +30,7 @@ const getMealCard = (mealId) => {
   ON
     meal.cook_user_id = av_review.cook_user_id;
     `;
-
-  return db.one(queryString, [mealId]);
+  return db.any(queryString, [mealDate]);
 };
 
-module.exports = { getMealCard };
+module.exports = { getAvailableMeals };
