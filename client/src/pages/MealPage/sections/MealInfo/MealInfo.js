@@ -54,7 +54,7 @@ class MealInfo extends Component {
         <H2>Ingredients</H2>
         <Description>{ingredients.join(", ")}</Description>
         <H2>Tags</H2>
-        <Tag> {tags.join(", ")}</Tag>
+        {tags.map(tags => <Tag key={tags}>{tags}</Tag>)}
       </React.Fragment>
     );
   }
