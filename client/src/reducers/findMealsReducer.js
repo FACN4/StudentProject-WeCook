@@ -1,14 +1,14 @@
-import { GET_MEAL_LIST } from "../actions/actionTypes";
+import { FIND_MEALS } from "../actions/actionTypes";
 
 const initialState = {};
 
 export default function(state = initialState, action) {
   switch (action.type) {
-    case `${GET_MEAL_LIST}_PENDING`:
+    case `${FIND_MEALS}_PENDING`:
       return { isPending: true };
-    case `${GET_MEAL_LIST}_FULFILLED`:
+    case `${FIND_MEALS}_FULFILLED`:
       return { data: action.payload.data, isFulfilled: true };
-    case `${GET_MEAL_LIST}_REJECTED`:
+    case `${FIND_MEALS}_REJECTED`:
       return { isRejected: true, error: action.payload };
     default:
       return state;
