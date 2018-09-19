@@ -5,7 +5,7 @@ export const StyledFooter = styled.footer`
   background-color: ${props => props.theme.lightGrey};
   height: 52px;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   line-height: 52px;
   padding-left: 10px;
   font-size: 14px;
