@@ -12,7 +12,8 @@ import {
   MealScheduled,
   Description,
   H2,
-  Tag
+  Tag,
+  TagHeader
 } from "./MealInfo.style";
 
 class MealInfo extends Component {
@@ -53,7 +54,7 @@ class MealInfo extends Component {
         <Description>{description}</Description>
         <H2>Ingredients</H2>
         <Description>{ingredients.join(", ")}</Description>
-        <H2>Tags</H2>
+        <TagHeader>Tags</TagHeader>
         {tags.map(tags => <Tag key={tags}>{tags}</Tag>)}
       </React.Fragment>
     );

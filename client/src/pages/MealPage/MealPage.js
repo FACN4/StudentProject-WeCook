@@ -5,19 +5,25 @@ import { MoneyButton, Header } from "../../components";
 import MealInfo from "./sections/MealInfo/MealInfo";
 import MealCookInfo from "./sections/MealCookInfo/MealCookInfo";
 import MealReviews from "./sections/MealReviews/MealReviews";
-import { SectionDivider } from "./MealPageStyle";
+import { SectionDivider, MealPageWrapper } from "./MealPageStyle";
 
 class MealPage extends Component {
   render() {
-    const {match:{params:{mealId}}} = this.props
+    const {
+      match: {
+        params: { mealId }
+      }
+    } = this.props;
     return (
       <React.Fragment>
         <Header />
-        <MealInfo mealId={mealId} />
-        <SectionDivider />
-        <MealCookInfo mealId={mealId} />
-        <SectionDivider />
-        <MealReviews mealId={mealId} />
+        <MealPageWrapper>
+          <MealInfo mealId={mealId} />
+          <SectionDivider />
+          <MealCookInfo mealId={mealId} />
+          <SectionDivider />
+          <MealReviews mealId={mealId} />
+        </MealPageWrapper>
         {this.props.mealInfo.isFulfilled && (
           <MoneyButton
             type="add"

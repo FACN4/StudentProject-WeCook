@@ -16,7 +16,7 @@ export const H2 = styled.h2`
   font-family: ${props => props.theme.headerFont};
   color: ${props => props.theme.darkBlue};
   font-size: 18px;
-  margin: 20px 0px;
+  margin-bottom: 15px;
 `;
 
 export const Contact = styled.button`
@@ -27,14 +27,14 @@ export const Contact = styled.button`
   background: ${props => props.theme.darkBlue};
   color: ${props => props.theme.white};
   border: 0;
-  margin-top: 10px;
+  margin-top: 15px;
   border-radius: 10px;
 `;
 
 export const CookInfo = styled.section`
   display: grid;
   grid-template-columns: 120px auto;
-  margin: 10px 0px;
+  margin: 0px 0px;
 `;
 
 export const Details = styled.section``;

@@ -4,6 +4,7 @@ export const MealLogistics = styled.section`
   font-family: ${props => props.theme.bodyFont};
   display: grid;
   grid-template-columns: 1fr 1fr;
+  margin-bottom: 15px;
 `;
 
 export const MealScheduled = styled.span`
@@ -33,17 +34,20 @@ export const RemainingPortions = styled.span`
 `;
 
 export const Description = styled.p`
-  padding: 15px 0 5px;
   font-family: ${props => props.theme.bodyFont};
   color: ${props => props.theme.darkBlue};
   font-size: 14px;
+  margin: 15px 0px;
 `;
 
 export const H2 = styled.h2`
   font-family: ${props => props.theme.headerFont};
   color: ${props => props.theme.darkBlue};
   font-size: 18px;
-  margin: 10px 0px;
+`;
+
+export const TagHeader = styled(H2)`
+  margin-bottom: 15px;
 `;
 
 export const Tag = styled.span`
@@ -51,6 +55,7 @@ export const Tag = styled.span`
   padding: 5px;
   color: ${props => props.theme.darkBlue};
   font-weight: bold;
-  margin-right: 5px;
+  margin-right: 10px;
+  margin-top: 15px;
   font-size: 14px;
 `;
