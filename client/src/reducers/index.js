@@ -1,5 +1,5 @@
 import { combineReducers } from "redux";
-import { reducer as formReducer } from "redux-form";
+import { reducer as formReducer } from 'redux-form'
 import basketReducer from "./basketReducer";
 import getMealInfoReducer from "./getMealInfoReducer";
 import getMealReviewsReducer from "./getMealReviewsReducer";
