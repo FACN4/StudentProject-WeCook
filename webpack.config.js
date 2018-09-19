@@ -1,6 +1,8 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+const nodeExternals = require('webpack-node-externals');
+const Dotenv = require('dotenv-webpack');
 
 module.exports = {
   entry: './client/src/index.js',
@@ -9,6 +11,8 @@ module.exports = {
     filename: 'index_bundle.js',
     publicPath: '/',
   },
+  target: 'node', // in order to ignore built-in modules like path, fs, etc.
+  externals: [nodeExternals()], // in order to ignore all modules in node_modules folder
   module: {
     rules: [
       {
@@ -37,6 +41,7 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: './client/src/index.html',
     }),
+    new Dotenv(),
   ],
   optimization: {
     minimizer: [new UglifyJsPlugin()],
