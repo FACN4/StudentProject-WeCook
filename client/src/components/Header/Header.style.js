@@ -14,12 +14,12 @@ export const H1 = styled.h1`
 
 export const User = styled.img`
   height: 20px;
-  padding: 18px 0 0 20px;
+  padding: 18px 0 0 ${props => props.theme.mobilePadding};
 `;
 
 export const EmptyShoppingBasket = styled.img`
   width: 20px;
-  margin: 18px 20px 0 0px;
+  margin: 18px ${props => props.theme.mobilePadding} 0 0px;
   text-align: right;
 `;
 
@@ -27,7 +27,7 @@ export const ShoppingBasket = styled.section`
   background: url(${fullBasketIcon});
   width: 20px;
   height: 30px;
-  margin: 13px 20px 0 0px;
+  margin: 13px ${props => props.theme.mobilePadding} 0 0px;
   text-align: center;
   line-height: 1;
   font-size: 12px;
