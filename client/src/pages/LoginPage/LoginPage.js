@@ -4,28 +4,53 @@ import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import { Field, reduxForm } from "redux-form";
 import userLogin from "../../actions/userLogin";
-import { Header } from "../../components"
+import { Header, Footer } from "../../components";
+import {
+  LoginWrapper,
+  Login,
+  LoginInput,
+  PasswordInput,
+  Form,
+  StyledLink,
+  Or
+} from "./LoginPage.style";
 
 class LoginPage extends React.Component {
   handleSubmit = event => {
-    const {username, password} = this.props
+    const { username, password } = this.props;
     event.preventDefault();
-    this.props.userLogin({username,password});
+    this.props.userLogin({ username, password });
   };
 
   render() {
     return (
       <React.Fragment>
         <Header />
-        <h1>Login</h1>
-        <form onSubmit={this.handleSubmit}>
-          <label htmlFor="username">username</label>
-          <Field component="input" type="text" name="username" id="username"/>
-          <label htmlFor="password">password</label>
-          <Field component="input" type="password" name="password" id="password"/>
-          <button>Login</button>
-        </form>
-        <Link to="/register">Register</Link>
+        <LoginWrapper>
+          <h1>Login</h1>
+          <Form onSubmit={this.handleSubmit}>
+            <label htmlFor="username">username</label>
+            <Field
+              component={LoginInput}
+              placeholder="Username"
+              type="text"
+              name="username"
+              id="username"
+            />
+            <label htmlFor="password">password</label>
+            <Field
+              component={PasswordInput}
+              placeholder="Password"
+              type="password"
+              name="password"
+              id="password"
+            />
+            <Login>Login</Login>
+          </Form>
+          <Or>Or</Or>
+          <StyledLink to="/register">Create an Account</StyledLink>
+        </LoginWrapper>
+        <Footer />
       </React.Fragment>
     );
   }
@@ -41,7 +66,11 @@ LoginPage.propTypes = {
   password: PropTypes.string
 };
 
-const mapStateToProps = ({form:{loginForm:{values}}}) => {
+const mapStateToProps = ({
+  form: {
+    loginForm: { values }
+  }
+}) => {
   return {
     username: values.username,
     password: values.password
@@ -56,7 +85,7 @@ const connectedLoginPage = connect(
 export default reduxForm({
   form: "loginForm",
   initialValues: {
-    username:"",
-    password:""
+    username: "",
+    password: ""
   }
 })(connectedLoginPage);
