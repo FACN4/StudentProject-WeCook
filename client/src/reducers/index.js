@@ -14,5 +14,5 @@ export default combineReducers({
   mealReviews: getMealReviewsReducer,
   form: formReducer,
   userStatus: userStatusReducer,
-  mealCookData: getMealCookInfoReducer
+  mealCookData: getMealCookInfoReducer,
 });

@@ -1,37 +1,44 @@
-import React from "react";
+import React, {Component} from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import axios from "axios";
 import HomeHeader from "./sections/HomeHeader/HomeHeader";
 import MealSearchForm from "./sections/MealSearchForm/MealSearchForm";
 import { Footer } from "../../components";
 import { FooterWrapper } from "../../components/Footer/FooterWrapper";
 import { StyledPara } from "./HomePage.style";
-import findMeals from "../../actions/findMeals";
+import {findMeals, mealsFound} from "../../actions/findMeals";
 
-const HomePage = props => {
-  const submit = values => {
+
+class HomePage extends Component {
+
+  componentDidUpdate() {
+    if (this.props.isFulfilled) {
+      this.props.mealsFound();
+      this.props.history.push('/mealList');
+    }
+  }
+
+  submit = (values) => {
     const { postcode, deliveryDate } = values;
-    axios(`http://api.postcodes.io/postcodes/${postcode}`)
-      .then(({ data: { result: location } }) => {
-        props.findMeals({ location, deliveryDate });
-      })
-      .catch(console.log);
+    console.log(postcode, deliveryDate, "here");
+    this.props.findMeals({ postcode, deliveryDate });
   };
-  return (
-    <React.Fragment>
-      <FooterWrapper>
-        <HomeHeader />
-        <StyledPara>
-          Home cooked food made next door, delivered by your neighbour. Book
-          ahead for your next meal
-        </StyledPara>
-        <MealSearchForm onSubmit={submit} />
-      </FooterWrapper>
-      <Footer />
-    </React.Fragment>
-  );
-};
+  render () {
+    return (
+      <React.Fragment>
+        <FooterWrapper>
+          <HomeHeader />
+          <StyledPara>
+            Home cooked food made next door, delivered by your neighbour. Book
+            ahead for your next meal
+          </StyledPara>
+          <MealSearchForm onSubmit={this.submit} />
+        </FooterWrapper>
+        <Footer />
+      </React.Fragment>
+    );
+  }
+}
 
 HomePage.propTypes = {
   findMeals: PropTypes.func,
@@ -40,10 +47,14 @@ HomePage.propTypes = {
 };
 
 const mapDispatchToProps = {
-  findMeals
+  findMeals,
+  mealsFound
 };
+const mapStateToProps = ({ mealList }) => ({
+  isFulfilled: mealList.isFulfilled
+});
 
 export default connect(
-  null,
+  mapStateToProps,
   mapDispatchToProps
 )(HomePage);

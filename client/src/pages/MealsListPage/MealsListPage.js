@@ -18,7 +18,7 @@ import reviewImage from "../../assets/stars.png";
 
 class MealListPage extends Component {
   render() {
-    if (!this.props.mealList.isFulfilled) return <h1>Loading</h1>;
+    if (!this.props.mealList.data) return <h1>Loading</h1>;
     const mealCount = this.props.mealList.data.length;
     return (
       <React.Fragment>
