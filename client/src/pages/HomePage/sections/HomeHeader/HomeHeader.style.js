@@ -11,7 +11,7 @@ export const StyledHeader = styled.header`
 
 export const Title = styled.h1`
   color: ${props => props.theme.darkBlue};
-  margin: 0;
+  margin:0;
   padding: 60px 0px 20px 0px;
   font-size: 40px;
   text-align: center;
@@ -24,6 +24,7 @@ export const Tagline = styled.p`
   font-size: 20px;
   text-align: center;
 `;
+
 export const Logo = styled.img`
   height: 60px;
   margin: -12px 12px -12px 0px;

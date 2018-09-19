@@ -1,9 +1,10 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { reduxForm } from "redux-form";
+import moment from "moment";
 import "react-datepicker/dist/react-datepicker.css";
-import {RenderDatePicker} from "../../../../components"
-import "./MealSearchForm.css"
+import { RenderDatePicker } from "../../../../components";
+import "./MealSearchForm.css";
 
 import {
   DateInput,
@@ -23,7 +24,7 @@ class MealSearchForm extends Component {
           placeholder="Enter your postcode"
         />
         <DateInput
-          name="delivery-date"
+          name="deliveryDate"
           type="text"
           component={RenderDatePicker}
           placeholder="Delivery Date"
@@ -39,5 +40,9 @@ MealSearchForm.propTypes = {
 };
 
 export default reduxForm({
-  form: "mealSearch"
+  form: "mealSearch",
+  initialValues: {
+    postcode: "",
+    deliveryDate: moment().add(1, "days")
+  }
 })(MealSearchForm);

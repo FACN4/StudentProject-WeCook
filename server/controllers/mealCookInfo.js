@@ -1,4 +1,4 @@
-const { getMealCookInfo } = require('../database/getQueries/getMealCookInfo');
+const { getMealCookInfo } = require('../database/getQueries');
 
 exports.get = (req, res) => {
   const { mealId } = req.params;
