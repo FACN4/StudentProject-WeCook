@@ -32,7 +32,8 @@ export const RemainingPortions = styled.span`
   text-align: right;
 `;
 
-export const Description = styled.span`
+export const Description = styled.p`
+  padding: 15px 0 5px;
   font-family: ${props => props.theme.bodyFont};
   color: ${props => props.theme.darkBlue};
   font-size: 14px;
