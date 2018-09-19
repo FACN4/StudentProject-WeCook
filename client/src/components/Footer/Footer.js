@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import instaIcon from "../../assets/instagram.png";
 import FBIcon from "../../assets/faceBook.png";
-import healthOrgIcon from "../../assets/Health.png";
 import { StyledFooter, Icons } from "./Footer.style";
 
 export default class Footer extends Component {
@@ -12,7 +11,6 @@ export default class Footer extends Component {
         <Icons>
           <img src={instaIcon} />
           <img src={FBIcon} />
-          <img src={healthOrgIcon} />
         </Icons>
       </StyledFooter>
     );

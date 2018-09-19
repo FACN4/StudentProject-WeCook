@@ -1,24 +1,48 @@
-import React from "react";
+import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import { Order, Price, MoneyButtonWrapper } from "./MoneyButton.style";
+import priceFormat from "../../utils/priceFormat";
+import {
+  Order,
+  Price,
+  MoneyButtonWrapper,
+  Checkout,
+  AddToBasket
+} from "./MoneyButton.style";
 
 import addToBasket from "../../actions/addToBasket";
 
-const MoneyButton = props => (
-  <MoneyButtonWrapper>
-    <Order>
-      <Price>Price: £{props.mealInfo.price}.</Price>
-      <button onClick={() => props.addToBasket(props.mealId, props.mealInfo)}>
-        Add to Basket item
-      </button>
-    </Order>
-  </MoneyButtonWrapper>
-);
+class MoneyButton extends Component {
+  render() {
+    return (
+      <MoneyButtonWrapper>
+        {this.props.type === "add" ? (
+          <Order>
+            <Price>Price: £{this.props.mealInfo.price}.</Price>
+            <AddToBasket
+              onClick={() =>
+                this.props.addToBasket(this.props.mealId, this.props.mealInfo)
+              }
+            >
+              Add to Basket item
+            </AddToBasket>
+          </Order>
+        ) : (
+          <Order>
+            <Price>Total: £{priceFormat(this.props.total)}</Price>
+            <Checkout onClick={() => this.props.checkout()}>Checkout</Checkout>
+          </Order>
+        )}
+      </MoneyButtonWrapper>
+    );
+  }
+}
 
 MoneyButton.propTypes = {
   addToBasket: PropTypes.func.isRequired,
-  mealId: PropTypes.string
+  mealId: PropTypes.string,
+  mealInfo: PropTypes.any,
+  type: PropTypes.string
 };
 
 export default connect(
