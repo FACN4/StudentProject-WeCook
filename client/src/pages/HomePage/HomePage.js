@@ -17,7 +17,6 @@ const HomePage = (props) => {
       props.findMeals({location, deliveryDate})
     })
     .catch(console.log)
-    // this.props.getMealList(values)
   }
   return (
     <React.Fragment>
