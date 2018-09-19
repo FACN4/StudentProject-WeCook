@@ -33,7 +33,7 @@ export const InputField = styled.input`
 `;
 
 export const LoginInput = styled(InputField)`
-  background: url(https://user-images.githubusercontent.com/9437789/45782441-9c069600-bc6b-11e8-8584-6c9d87f84612.png);
+  background: url(https://user-images.githubusercontent.com/9437789/45783448-73cc6680-bc6e-11e8-98de-c5ea235f98a2.jpg);
   background-repeat: no-repeat;
   background-position: 97% 50%;
   background-size: auto 27px;
@@ -41,7 +41,7 @@ export const LoginInput = styled(InputField)`
 `;
 
 export const PasswordInput = styled(InputField)`
-  background: url(https://user-images.githubusercontent.com/9437789/45782440-9c069600-bc6b-11e8-8252-02db112ea399.png);
+  background: url(https://user-images.githubusercontent.com/9437789/45783449-73cc6680-bc6e-11e8-9e2d-ec03c86b8b41.png);
   background-repeat: no-repeat;
   background-position: 97% 50%;
   background-size: auto 27px;
