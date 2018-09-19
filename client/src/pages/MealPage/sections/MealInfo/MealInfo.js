@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import { Gallery, Loading } from "../../../../components";
 import getMealInfo from "../../../../actions/getMealInfo";
 import timeRemaining from "../../../../utils/formatingLogic";
+import dateFormat from "../../../../utils/dateFormat";
 import {
   MealLogistics,
   Price,
@@ -43,7 +44,7 @@ class MealInfo extends Component {
       <React.Fragment>
         <h1>{meal_title}</h1>
         <MealLogistics>
-          <MealScheduled>{meal_scheduled_at}</MealScheduled>
+          <MealScheduled>{dateFormat(meal_scheduled_at)}</MealScheduled>
           <Price>{"£" + price + "per serving"}</Price>
           <Deadline>{deadline}</Deadline>
           <RemainingPortions>
