@@ -38,7 +38,10 @@ class Header extends Component {
             />
           ) : (
             <ShoppingBasket>
-              {Object.keys(this.props.basket).length}
+              {Object.keys(this.props.basket).reduce((acc,key) => {
+                const {quantity} = this.props.basket[key]
+                return acc + quantity
+              },0)}
             </ShoppingBasket>
           )}
         </Link>
@@ -49,6 +52,11 @@ class Header extends Component {
 
 Header.propTypes = {
   userLogout: PropTypes.func,
+  basket: PropTypes.shape({
+    key: PropTypes.shape({
+      quantity: PropTypes.number
+    })
+  })
 };
 
 const mapStateToProps = ({ basket }) => ({
