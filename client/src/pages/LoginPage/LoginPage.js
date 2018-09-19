@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import { Field, reduxForm } from "redux-form";
 import userLogin from "../../actions/userLogin";
+import { Header } from "../../components"
 
 class LoginPage extends React.Component {
   handleSubmit = event => {
@@ -15,11 +16,12 @@ class LoginPage extends React.Component {
   render() {
     return (
       <React.Fragment>
+        <Header />
         <h1>Login</h1>
         <form onSubmit={this.handleSubmit}>
           <label htmlFor="username">username</label>
           <Field component="input" type="text" name="username" />
-          <label htmlFor="password">username</label>
+          <label htmlFor="password">password</label>
           <Field component="input" type="password" name="password" />
           <button>Login</button>
           <Link to="/register">Register</Link>
