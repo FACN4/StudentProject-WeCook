@@ -2,7 +2,13 @@ import React, { Component } from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import { hot } from 'react-hot-loader'
 
-import { MealPage, MealsListPage, BasketPage, HomePage } from "./pages";
+import {
+  MealPage,
+  MealsListPage,
+  BasketPage,
+  HomePage,
+  CheckoutPage
+} from "./pages";
 
 class Router extends Component {
   render() {
@@ -14,6 +20,7 @@ class Router extends Component {
             <Route exact path="/mealList" component={MealsListPage} />
             <Route exact path="/mealInfo/:mealId" component={MealPage} />
             <Route exact path="/basket" component={BasketPage} />
+            <Route exact path="/checkout" component={CheckoutPage} />
           </Switch>
         </React.Fragment>
       </BrowserRouter>
@@ -21,4 +28,4 @@ class Router extends Component {
   }
 }
 
-export default hot(module)(Router)
+export default hot(module)(Router);

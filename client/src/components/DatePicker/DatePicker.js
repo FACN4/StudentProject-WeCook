@@ -9,7 +9,6 @@ class RenderDatePicker extends Component {
     startDate: moment().add(1, 'days')
   };
   changeDate = date => {
-    console.log(date);
     this.setState({
       startDate: date
     });
@@ -21,6 +20,7 @@ class RenderDatePicker extends Component {
         <DatePicker
           minDate={moment()}
           maxDate={moment().add(2, "months")}
+
           customInput=<input className='date-picker-home'/>
           dateFormat="DD/MM/YYYY"
           onChange={(date) => {

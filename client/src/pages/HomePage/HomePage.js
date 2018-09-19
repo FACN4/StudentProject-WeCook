@@ -17,6 +17,10 @@ const HomePage = (props) => {
       props.findMeals({location, deliveryDate})
     })
     .catch(console.log)
+    
+const HomePage = () => {
+  const submit = values => {
+    // TODO
   }
   return (
     <React.Fragment>
@@ -44,3 +48,5 @@ export default connect(
   null,
   mapDispatchToProps
 )(HomePage);
+
+export default HomePage;

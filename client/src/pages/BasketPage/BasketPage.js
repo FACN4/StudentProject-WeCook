@@ -2,11 +2,21 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
-import { MealCard} from "../../components";
+import { MealCard, MoneyButton} from "../../components";
 import removeBasketItem from "../../actions/removeBasketItem";
 import { MealName, Delivery, OrderInfo, Cost } from "./BasketPage.style";
 
 class BasketPage extends Component {
+  orderSum = () => {
+    const { basket } = this.props;
+    return Object.keys(basket).reduce(function(previous, key) {
+      return (
+        previous +
+        parseFloat(basket[key].mealInfo.price) *
+          parseFloat(basket[key].quantity)
+      );
+    }, 0);
+  };
   render() {
     if (Object.keys(this.props.basket).length === 0) {
       return (
@@ -56,6 +66,7 @@ class BasketPage extends Component {
               </MealCard>
             );
           })};
+          <MoneyButton type="checkout" total={this.orderSum()} />
         </React.Fragment>
       );
     }
