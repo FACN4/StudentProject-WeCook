@@ -22,8 +22,6 @@ router.get('/api/userLogout', userLogout.get);
 router.post('/api/userLogin', userLogin.post);
 router.post('/api/userRegister', userRegister.post);
 router.post('/api/charge', stripeCharge.post);
-
-// POST routes
 router.post('/api/findMeals', findMeals.post);
-router.post('/api/charge', stripeCharge.post);
+
 module.exports = router;

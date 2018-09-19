@@ -3,7 +3,6 @@ import { CardElement, injectStripe } from "react-stripe-elements";
 import axios from "axios";
 import ThankYou from "../ThankYou/ThankYou";
 
-
 class CheckoutForm extends Component {
   state = {
     complete: false,
