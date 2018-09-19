@@ -4,7 +4,6 @@ const { STRIPE_KEY } = process.env;
 const stripe = require('stripe')(STRIPE_KEY);
 
 exports.post = (req, res) => {
-  console.log(req);
   stripe.charges
     .create({
       amount: 2000,
@@ -13,7 +12,6 @@ exports.post = (req, res) => {
       source: req.body,
     })
     .then((result) => {
-      console.log(result);
       res.status(200).send(result.status);
     })
     .catch((err) => {
