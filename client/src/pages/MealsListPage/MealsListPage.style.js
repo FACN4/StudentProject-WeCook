@@ -23,6 +23,14 @@ export const MealCardReview = styled.section`
   margin-top: 5px;
 `;
 
+export const ReviewCount = styled.span`
+  font-family: ${props => props.theme.bodyFont};
+  font-size: 12px;
+  margin-left: 5px;
+  padding-top: 6px;
+  color: ${props => props.theme.darkBlue};
+`;
+
 export const TimeRemaning = styled.span`
   color: ${props => props.theme.green};
 `;

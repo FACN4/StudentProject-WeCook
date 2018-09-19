@@ -10,7 +10,8 @@ import {
   MealCardReview,
   TimeRemaning,
   MealSection,
-  CookDetails
+  CookDetails,
+  ReviewCount
 } from "./MealsListPage.style";
 
 class MealListPage extends Component {
@@ -39,7 +40,7 @@ class MealListPage extends Component {
                     <Link to={meal_link}>{meal.meal_title}</Link>
                     <MealCardReview>
                       <Stars rating={rating} />
-                      <span>{meal.count_reviews} reviews</span>
+                      <ReviewCount>{meal.count_reviews} reviews</ReviewCount>
                     </MealCardReview>
                     £{meal.price}/serving{" "}
                     <TimeRemaning>{deadline}</TimeRemaning>
