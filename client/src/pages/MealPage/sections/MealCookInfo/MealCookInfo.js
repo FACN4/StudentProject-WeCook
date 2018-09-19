@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import getMealCookInfo from "../../../../actions/getMealCookInfo";
-import {Stars} from '../../../../components'
+import { Stars } from "../../../../components";
 
 import {
   H2,
@@ -25,10 +25,10 @@ class MealCookInfo extends Component {
       cook_summary,
       cook_description,
       cook_image_url,
-      av_reviews,
+      av_reviews: avg_reviews,
       count_reviews
     } = this.props.mealCookInfo.data;
-    const rating = Number(av_reviews)*10
+    const rating = Number(avg_reviews) * 10;
     return (
       <section>
         <H2>About The Cook</H2>
@@ -36,7 +36,7 @@ class MealCookInfo extends Component {
           <CookImage src={cook_image_url} alt="cook image" />
           <Details>
             <CookName>{cook_firstname}</CookName>
-            <Stars rating={rating}/>
+            <Stars rating={rating} />
             <span>{count_reviews} reviews</span>
             <Description>{cook_summary}</Description>
           </Details>

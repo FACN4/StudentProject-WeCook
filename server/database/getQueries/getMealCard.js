@@ -21,7 +21,7 @@ const getMealCard = (mealId) => {
   LEFT JOIN
     (
       SELECT
-        reviews.cook_user_id, AVG(reviews.star_rating) AS av_star_rating, COUNT(reviews.star_rating) AS count_reviews
+        reviews.cook_user_id, AVG(reviews.star_rating) AS avg_star_rating, COUNT(reviews.star_rating) AS count_reviews
       FROM
         reviews
       GROUP BY
