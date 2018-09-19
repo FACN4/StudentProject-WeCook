@@ -13,8 +13,6 @@ export default combineReducers({
   mealList: findMealsReducer,
   mealReviews: getMealReviewsReducer,
   form: formReducer,
-  mealReviews: getMealReviewsReducer,
-  mealList: getMealListReducer,
   userStatus: userStatusReducer,
   mealCookData: getMealCookInfoReducer
 });
