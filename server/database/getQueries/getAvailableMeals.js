@@ -32,9 +32,5 @@ const getAvailableMeals = (mealDate) => {
     `;
   return db.any(queryString, [mealDate]);
 };
-// console.log(new Date(2018, 8, 21));
-// getAvailableMeals(new Date(2018, 8, 21))
-//   .then(console.log)
-//   .catch(console.log);
 
 module.exports = { getAvailableMeals };

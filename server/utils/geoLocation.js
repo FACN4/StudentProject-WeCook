@@ -6,9 +6,6 @@ const filterLocalMeals = (mealArray, { latitude: cusLat, longitude: cusLong }) =
     { latitude: cookLat, longitude: cookLong },
     { latitude: cusLat, longitude: cusLong },
   );
-  console.log('customer', cusLat, cusLong);
-  console.log('cook', cookLat, cookLong);
-  console.log(distance);
   return distance < maxDelivery;
 });
 
