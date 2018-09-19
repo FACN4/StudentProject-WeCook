@@ -5,6 +5,5 @@
     'styled-components',
     '@babel/plugin-proposal-class-properties',
     'emotion',
-    '@babel/plugin-transform-async-to-generator',
   ],
 }

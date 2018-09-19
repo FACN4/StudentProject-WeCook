@@ -5,7 +5,7 @@ class ThankYou extends Component {
   render() {
     return (
       <React.Fragment>
-        <h1>Thank you for your order</h1>;
+        <h1>Thank you for your order</h1>
         <OrderDescription>
           <p>
             Hi Paul, we’ve received your order #1223003 and we are passing it

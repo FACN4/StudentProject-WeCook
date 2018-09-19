@@ -4,12 +4,11 @@ import axios from "axios";
 import ThankYou from "../ThankYou/ThankYou";
 
 class CheckoutForm extends Component {
-  constructor(props) {
-    super(props);
-    this.state = { complete: false, error: "" };
-    this.submit = this.submit.bind(this);
-  }
-  submit(event) {
+  state = {
+    complete: false,
+    error: ""
+  };
+  submit = event => {
     this.props.stripe
       .createToken({ name: "Name" })
       .then(res => {
@@ -28,7 +27,7 @@ class CheckoutForm extends Component {
       .catch(err => {
         this.setState({ error: err });
       });
-  }
+  };
   render() {
     if (this.state.complete) return <ThankYou />;
     return (
