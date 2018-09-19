@@ -17,6 +17,7 @@ class LoginPage extends React.Component {
       <React.Fragment>
         <h1>Login</h1>
         <form onSubmit={this.handleSubmit}>
+          <label htmlFor="username">username</label>
           <Field component="input" type="text" name="username" />
           <Field component="input" type="password" name="password" />
           <button>Login</button>
