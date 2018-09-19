@@ -9,6 +9,7 @@ class RenderDatePicker extends Component {
     startDate: moment().add(1, 'days')
   };
   changeDate = date => {
+    console.log(date);
     this.setState({
       startDate: date
     });

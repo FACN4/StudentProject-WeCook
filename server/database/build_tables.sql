@@ -28,7 +28,7 @@ CREATE TABLE cook_info(
   council_certified BOOLEAN NOT NULL,
   audited_by_wecook TIMESTAMP WITH TIME ZONE NOT NULL,
   lvl2_food_handling BOOLEAN NOT NULL,
-  delivery_range_km REAL NOT NULL,
+  delivery_range_m INTEGER NOT NULL,
   became_cook_at TIMESTAMP WITH TIME ZONE DEFAULT NOW()
 );
 CREATE TABLE cook_images(
