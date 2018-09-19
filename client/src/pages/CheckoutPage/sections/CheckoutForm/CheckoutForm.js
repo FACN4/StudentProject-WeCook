@@ -3,12 +3,11 @@ import { CardElement, injectStripe } from "react-stripe-elements";
 import axios from "axios";
 
 class CheckoutForm extends Component {
-  constructor(props) {
-    super(props);
-    this.state = { complete: false, error: "" };
-    this.submit = this.submit.bind(this);
-  }
-  submit(event) {
+  state = {
+    complete: false,
+    error: ""
+  };
+  submit = event => {
     this.props.stripe
       .createToken({ name: "Name" })
       .then(res => {
@@ -27,7 +26,7 @@ class CheckoutForm extends Component {
       .catch(err => {
         this.setState({ error: err });
       });
-  }
+  };
   render() {
     if (this.state.complete) return <h1>Order Succesful</h1>;
     return (
