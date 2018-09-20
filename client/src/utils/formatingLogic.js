@@ -9,7 +9,7 @@ const timeRemaining = milliseconds => {
     const remaining = Math.floor(milliseconds / (1000 * 60));
     return `${remaining} minutes to order`;
   } else {
-    return `${hours} hours to order`;
+    return `${Math.floor(hours)} hours to order`;
   }
 };
 

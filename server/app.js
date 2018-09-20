@@ -7,6 +7,7 @@ const app = express();
 app.set('PORT', process.env.PORT || 5000);
 
 app.use(bodyParser.json());
+app.use(bodyParser.text());
 app.disable('x-powered-by');
 app.use(controllers);
 

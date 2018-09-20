@@ -11,7 +11,7 @@
     "coverage": "nyc --reporter=lcov npm run test",
     "start": "npm run build && npm run serverHeroku",
     "serverHeroku": "node server/index.js",
-    "client": "webpack-dev-server --mode development --devtool inline-source-map --hot",
+    "client": "webpack-dev-server --mode development --hot --devtool inline-source-map",
     "build": "webpack --mode production",
     "dev": "concurrently \"npm run server\" \"npm run client\""
   },

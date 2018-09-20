@@ -13,6 +13,9 @@ import {
 import addToBasket from "../../actions/addToBasket";
 
 class MoneyButton extends Component {
+  goToCheckout = () => {
+    this.props.history.push('/checkout')
+  }
   render() {
     return (
       <MoneyButtonWrapper>
@@ -30,7 +33,7 @@ class MoneyButton extends Component {
         ) : (
           <Order>
             <Price>Total: £{priceFormat(this.props.total)}</Price>
-            <Checkout onClick={() => this.props.checkout()}>Checkout</Checkout>
+            <Checkout onClick={() => this.goToCheckout()}>Checkout</Checkout>
           </Order>
         )}
       </MoneyButtonWrapper>
