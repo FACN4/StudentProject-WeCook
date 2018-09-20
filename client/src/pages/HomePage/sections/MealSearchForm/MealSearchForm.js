@@ -17,14 +17,18 @@ class MealSearchForm extends Component {
   render() {
     return (
       <StyledForm onSubmit={this.props.handleSubmit}>
+        <label htmlFor="postcode">Enter your postcode</label>
         <LocationInput
+          id="postcode"
           name="postcode"
           component="input"
           type="text"
           placeholder="Enter your postcode"
         />
+        <label htmlFor="delivery-date">Choose your delivery date</label>
         <DateInput
-          name="deliveryDate"
+          id="delivery-date"
+          name="delivery-date"
           type="text"
           component={RenderDatePicker}
           placeholder="Delivery Date"
