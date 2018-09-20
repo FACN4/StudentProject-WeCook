@@ -1,8 +1,7 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
-import { Field, reduxForm } from "redux-form";
+import { reduxForm } from "redux-form";
 import userLogin from "../../actions/userLogin";
 import { Header, Footer } from "../../components";
 import {
@@ -30,16 +29,16 @@ class LoginPage extends React.Component {
           <h1>Login</h1>
           <Form onSubmit={this.handleSubmit}>
             <label htmlFor="username">username</label>
-            <Field
-              component={LoginInput}
+            <LoginInput
+              component="input"
               placeholder="Username"
               type="text"
               name="username"
               id="username"
             />
             <label htmlFor="password">password</label>
-            <Field
-              component={PasswordInput}
+            <PasswordInput
+              component="input"
               placeholder="Password"
               type="password"
               name="password"

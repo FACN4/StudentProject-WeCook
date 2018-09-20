@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
+import { Field } from "redux-form";
 
 export const LoginWrapper = styled.section`
   width: 80%;
@@ -14,7 +15,7 @@ export const Form = styled.form`
   margin-top: 0px;
 `;
 
-export const InputField = styled.input`
+export const InputField = styled(Field)`
   margin: 0 auto;
   display: block;
   border: 0.5px solid #b6b6b6;

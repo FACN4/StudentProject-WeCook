@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import { Field, reduxForm } from "redux-form";
@@ -46,56 +45,56 @@ class RegisterPage extends React.Component {
           <h1>Register</h1>
           <form onSubmit={this.handleSubmit}>
             <label htmlFor="username">username</label>
-            <Field
+            <UsernameInput
               placeholder="Username"
-              component={UsernameInput}
+              component="input"
               type="text"
               name="username"
               id="username"
             />
             <label htmlFor="postCode">post code</label>
-            <Field
+            <LocationInput
               placeholder="Postcode"
-              component={LocationInput}
+              component="input"
               type="text"
               name="postCode"
               id="postCode"
             />
             <label htmlFor="houseNo">house number</label>
-            <Field
+            <LocationInput
               placeholder="House Number"
-              component={LocationInput}
+              component="input"
               type="number"
               name="houseNo"
               id="houseNo"
             />
             <label htmlFor="phoneNo">phone number</label>
-            <Field
-              component={PhoneInput}
+            <PhoneInput
+              component="input"
               placeholder="Phone Number"
               type="text"
               name="phoneNo"
               id="phoneNo"
             />
             <label htmlFor="email">email</label>
-            <Field
-              component={EmailInput}
+            <EmailInput
+              component="input"
               placeholder="Email Address"
               type="email"
               name="email"
               id="email"
             />
             <label htmlFor="password">password</label>
-            <Field
-              component={PasswordInput}
+            <PasswordInput
+              component="input"
               placeholder="Password"
               type="password"
               name="password"
               id="password"
             />
             <label htmlFor="passwordConfirm">confirm password</label>
-            <Field
-              component={PasswordInput}
+            <PasswordInput
+              component="input"
               placeholder="Confirm Password"
               type="password"
               name="passwordConfirm"

@@ -10,7 +10,8 @@ exports.post = (req, res) => {
       res.cookie(...createJWTcookie(userId));
       res.send();
     })
-    .catch(() => {
+    .catch((err) => {
+      console.log(err);
       res.status('500').send('Sorry, could not create account');
     });
 };
