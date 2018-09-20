@@ -6,6 +6,7 @@ import getMealReviewsReducer from "./getMealReviewsReducer";
 import findMealsReducer from "./findMealsReducer";
 import getMealCookInfoReducer from "./getMealCookInfoReducer";
 import userStatusReducer from "./userStatusReducer"
+import getConfirmationData from "./getConfirmationData"
 
 export default combineReducers({
   basket: basketReducer,
@@ -14,5 +15,6 @@ export default combineReducers({
   mealReviews: getMealReviewsReducer,
   form: formReducer,
   userStatus: userStatusReducer,
-  mealCookData: getMealCookInfoReducer
+  mealCookData: getMealCookInfoReducer,
+  confirmationData: getConfirmationData
 });
