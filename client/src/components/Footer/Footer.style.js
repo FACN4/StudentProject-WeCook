@@ -5,7 +5,7 @@ export const StyledFooter = styled.footer`
   background-color: ${props => props.theme.lightGrey};
   height: 52px;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   line-height: 52px;
   padding: 0 ${props => props.theme.mobilePadding};
   font-size: 14px;
@@ -16,6 +16,6 @@ export const Icons = styled.section`
   display: flex;
   align-items: center;
   img {
-    padding-left: 5px;
+    padding-left: 10px;
   }
 `;

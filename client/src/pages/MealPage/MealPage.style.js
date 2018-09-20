@@ -8,6 +8,8 @@ export const SectionDivider = styled.section`
 `;
 
 export const MealPageWrapper = styled.section`
-  padding: 0 ${props => props.theme.mobilePadding};
+  padding: 0 ${props => props.theme.mobilePadding} 25px;
+  padding: 10px 25px;
   margin: 0 auto;
+  line-height: 1.3;
 `;

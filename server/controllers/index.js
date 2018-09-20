@@ -11,19 +11,19 @@ const userLogout = require('./userLogout');
 const stripeCharge = require('./stripeCharge');
 const mealCookInfo = require('./mealCookInfo');
 const findMeals = require('./findMeals');
+const confirmationData = require('./confirmationData');
 
 // GET routes
 router.get('/api/mealInfo/:mealId', mealInfo.get);
 router.get('/api/mealCookInfo/:mealId', mealCookInfo.get);
 router.get('/api/mealReviews/:mealId', mealReviews.get);
 router.get('/api/userLogout', userLogout.get);
+router.get('/api/confirmationData', confirmationData.get);
 
 // POST routes
 router.post('/api/userLogin', userLogin.post);
 router.post('/api/userRegister', userRegister.post);
 router.post('/api/charge', stripeCharge.post);
-
-// POST routes
 router.post('/api/findMeals', findMeals.post);
-router.post('/api/charge', stripeCharge.post);
+
 module.exports = router;

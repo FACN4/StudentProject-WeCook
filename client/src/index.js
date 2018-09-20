@@ -9,7 +9,7 @@ import wecookTheme from "./themes/weCookv1";
 import { Loading } from "./components";
 import "./assets/global.css";
 
-import Routes from "./Router";
+import Router from "./Router";
 
 class App extends Component {
   render() {
@@ -17,7 +17,7 @@ class App extends Component {
       <Provider store={store}>
         <ThemeProvider theme={wecookTheme}>
           <PersistGate loading={<Loading />} persistor={persistor}>
-            <Routes />
+            <Router />
           </PersistGate>
         </ThemeProvider>
       </Provider>

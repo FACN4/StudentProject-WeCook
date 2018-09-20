@@ -1,6 +1,7 @@
 import React, { Component } from "react";
-import { BrowserRouter, Route, Switch } from "react-router-dom";
 import { connect } from "react-redux";
+import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
+import PropTypes from "prop-types";
 import { hot } from "react-hot-loader";
 import {
   MealPage,
@@ -12,19 +13,26 @@ import {
   HomePage
 } from "./pages";
 
-class Routes extends Component {
+class Router extends Component {
   render() {
     return (
       <BrowserRouter>
         <React.Fragment>
           <Switch>
+
             <Route exact path="/" component={HomePage} />
             <Route exact path="/mealList" component={MealsListPage} />
             <Route exact path="/mealInfo/:mealId" component={MealPage} />
             <Route exact path="/basket" component={BasketPage} />
-            <Route exact path="/login" component={LoginPage} />
-            <Route exact path="/register" component={RegisterPage} />
-            <Route exact path="/checkout" component={CheckoutPage} />
+            <Route exact path="/login"
+              render={() => (this.props.loggedIn ? (<Redirect to="/basket"/>):(<LoginPage />))}
+            />
+            <Route exact path="/register"
+              render={() => (this.props.loggedIn ? (<Redirect to="/basket"/>):(<RegisterPage />))}
+            />
+            <Route exact path="/checkout"
+              render={() => (this.props.loggedIn ? (<CheckoutPage />) : (<Redirect to="/login"/>))}
+            />
           </Switch>
         </React.Fragment>
       </BrowserRouter>
@@ -32,9 +40,15 @@ class Routes extends Component {
   }
 }
 
-const connectedRoutes = connect(
-  null,
-  null
-)(Routes);
+Router.propTypes = {
+  loggedIn: PropTypes.bool,
+};
 
-export default hot(module)(connectedRoutes);
+const mapStateToProps = ({userStatus:{loggedIn}}) => ({loggedIn:loggedIn})
+
+const connectedRouter = connect(
+  mapStateToProps,
+  null
+)(Router);
+
+export default hot(module)(connectedRouter);
