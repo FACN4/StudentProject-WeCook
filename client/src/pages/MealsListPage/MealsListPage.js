@@ -3,7 +3,8 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import timeRemaining from "../../utils/formatingLogic";
-import { MealCard, Header, Stars, Loading } from "../../components";
+import { MealCard, Header, Stars, Loading, Footer, FooterWrapper } from "../../components";
+
 import {
   MealList,
   MealDetails,
@@ -15,14 +16,13 @@ import {
   MealListWrapper
 } from "./MealsListPage.style";
 
-import reviewImage from "../../assets/stars.png";
-
 class MealListPage extends Component {
   render() {
-    if (!this.props.mealList.isFulfilled) return <Loading />;
+    if (!this.props.mealList.data) return <Loading />;
     const mealCount = this.props.mealList.data.length;
     return (
       <React.Fragment>
+        <FooterWrapper>
         <Header />
         <MealListWrapper>
           <h1>{mealCount} menus available in your local area for this date</h1>
@@ -62,6 +62,7 @@ class MealListPage extends Component {
             })}
           </MealList>
         </MealListWrapper>
+      </FooterWrapper>
         <Footer />
       </React.Fragment>
     );

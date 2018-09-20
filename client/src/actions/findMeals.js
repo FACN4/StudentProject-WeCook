@@ -1,13 +1,37 @@
 import axios from "axios";
-import { FIND_MEALS } from "./actionTypes";
+import { FIND_MEALS, MEALS_FOUND } from "./actionTypes";
 
-const findMeals = (reqDetails) => {
+export const findMeals = ({ postcode, deliveryDate }) => {
   return dispatch => {
-    dispatch({
-      type: FIND_MEALS,
-      payload: axios.post('/api/findMeals',reqDetails)
-    });
+    axios(`http://api.postcodes.io/postcodes/${postcode}`)
+      .then(({ data: { result: location } }) => {
+        return axios
+          .post("/api/findMeals", { location, deliveryDate })
+          .catch(() => console.log("No Meals available"));
+      })
+      .then(res => {
+        const { data } = res;
+        if (data.length){
+          return dispatch({
+            type: FIND_MEALS,
+            payload: res
+          });
+        } else {
+          return dispatch({
+            type: `${FIND_MEALS}_REJECTED`,
+            payload: null
+          });
+        }
+      })
+      .catch(() => console.log("Please enter a valid postcode"));
   };
 };
 
-export default findMeals;
+export const mealsFound = () => {
+  return dispatch => {
+    dispatch({
+      type: MEALS_FOUND,
+      payload: null
+    });
+  };
+};

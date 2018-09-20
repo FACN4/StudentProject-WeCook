@@ -38,6 +38,7 @@ export const StyledHeader = styled.header`
   background: ${props => props.theme.lightBlue};
   color: ${props => props.theme.white};
   font-family: ${props => props.theme.headerFont};
+  width: 100%;
   height: 56px;
   font-style: Regular;
   text-align: center;

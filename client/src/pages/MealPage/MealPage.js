@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import { MoneyButton, Header } from "../../components";
+import { MoneyButton, Header, FooterWrapper } from "../../components";
 import MealInfo from "./sections/MealInfo/MealInfo";
 import MealCookInfo from "./sections/MealCookInfo/MealCookInfo";
 import MealReviews from "./sections/MealReviews/MealReviews";
@@ -15,15 +15,15 @@ class MealPage extends Component {
       }
     } = this.props;
     return (
-      <React.Fragment>
-        <Header />
-        <MealPageWrapper>
-          <MealInfo mealId={mealId} />
-          <SectionDivider />
-          <MealCookInfo mealId={mealId} />
-          <SectionDivider />
-          <MealReviews mealId={mealId} />
-        </MealPageWrapper>
+      <FooterWrapper>
+          <Header />
+          <MealPageWrapper>
+            <MealInfo mealId={mealId} />
+            <SectionDivider />
+            <MealCookInfo mealId={mealId} />
+            <SectionDivider />
+            <MealReviews mealId={mealId} />
+          </MealPageWrapper>
         {this.props.mealInfo.isFulfilled && (
           <MoneyButton
             type="add"
@@ -31,7 +31,7 @@ class MealPage extends Component {
             mealId={mealId}
           />
         )}
-      </React.Fragment>
+      </FooterWrapper>
     );
   }
 }

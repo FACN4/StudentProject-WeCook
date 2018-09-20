@@ -25,10 +25,10 @@ class MealSearchForm extends Component {
           type="text"
           placeholder="Enter your postcode"
         />
-        <label htmlFor="delivery-date">Choose your delivery date</label>
+        <label htmlFor="deliveryDate">Choose your delivery date</label>
         <DateInput
-          id="delivery-date"
-          name="delivery-date"
+          id="deliverDate"
+          name="deliveryDate"
           type="text"
           component={RenderDatePicker}
           placeholder="Delivery Date"

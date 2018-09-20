@@ -12,16 +12,18 @@ export const ThankyouWrapper = styled.section`
 `;
 
 export const H2 = styled.h2`
+  margin: 15px 0px;
   font-family: ${props => props.theme.headerFont};
   font-size: 20px;
   font-weight: bold;
 `;
 
-export const OrderDetails = styled.span`
+export const OrderDetails = styled.p`
   font-family: ${props => props.theme.bodyFont};
   color: ${props => props.theme.darkBlue};
   font-size: 14px;
   font-weight: bold;
+  margin-bottom: 10px;
 `;
 
 export const Address = styled.span`
