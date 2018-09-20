@@ -10,7 +10,9 @@ import {
   MealCardReview,
   TimeRemaning,
   MealSection,
-  CookDetails
+  CookDetails,
+  ReviewCount,
+  MealListWrapper
 } from "./MealsListPage.style";
 
 class MealListPage extends Component {
@@ -20,39 +22,44 @@ class MealListPage extends Component {
     return (
       <React.Fragment>
         <Header />
-        <h1>{mealCount} menus available in your local area for this date</h1>
-        <MealList>
-          {this.props.mealList.data.map(meal => {
-            const deadline = timeRemaining(
-              new Date(meal.final_booking_at) - Date.now()
-            );
-            const rating = Number(meal.avg_star_rating) * 10;
-            const meal_link = `/mealInfo/${meal.id}`;
-            return (
-              <MealCard
-                key={meal.id}
-                mealImage={meal.meal_image_url}
-                link={meal_link}
-              >
-                <MealSection>
-                  <MealDetails>
-                    <Link to={meal_link}>{meal.meal_title}</Link>
-                    <MealCardReview>
-                      <Stars rating={rating} />
-                      <span>{meal.count_reviews} reviews</span>
-                    </MealCardReview>
-                    £{meal.price}/serving{" "}
-                    <TimeRemaning>{deadline}</TimeRemaning>
-                  </MealDetails>
-                  <CookDetails>
-                    <img src={meal.cook_image_url} alt={meal.cook_firstname} />
-                    By {meal.cook_firstname}
-                  </CookDetails>
-                </MealSection>
-              </MealCard>
-            );
-          })};
-        </MealList>
+        <MealListWrapper>
+          <h1>{mealCount} menus available in your local area for this date</h1>
+          <MealList>
+            {this.props.mealList.data.map(meal => {
+              const deadline = timeRemaining(
+                new Date(meal.final_booking_at) - Date.now()
+              );
+              const rating = Number(meal.avg_star_rating) * 10;
+              const meal_link = `/mealInfo/${meal.id}`;
+              return (
+                <MealCard
+                  key={meal.id}
+                  mealImage={meal.meal_image_url}
+                  link={meal_link}
+                >
+                  <MealSection>
+                    <MealDetails>
+                      <Link to={meal_link}>{meal.meal_title}</Link>
+                      <MealCardReview>
+                        <Stars rating={rating} />
+                        <ReviewCount>{meal.count_reviews} reviews</ReviewCount>
+                      </MealCardReview>
+                      £{meal.price}/serving{" "}
+                      <TimeRemaning>{deadline}</TimeRemaning>
+                    </MealDetails>
+                    <CookDetails>
+                      <img
+                        src={meal.cook_image_url}
+                        alt={meal.cook_firstname}
+                      />
+                      By {meal.cook_firstname}
+                    </CookDetails>
+                  </MealSection>
+                </MealCard>
+              );
+            })}
+          </MealList>
+        </MealListWrapper>
         <Footer />
       </React.Fragment>
     );
