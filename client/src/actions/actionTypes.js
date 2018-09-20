@@ -9,3 +9,4 @@ export const USER_LOGIN = "USER_LOGIN";
 export const USER_REGISTER = "USER_REGISTER";
 export const USER_LOGOUT = "USER_LOGOUT";
 export const MEALS_FOUND = "MEALS_FOUND";
+export const EDIT_BASKET_ITEM = "EDIT_BASKET_ITEM"

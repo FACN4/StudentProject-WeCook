@@ -14,7 +14,7 @@ const saveSubsetFilter = createFilter("mealList", ["data"]);
 const persistConfig = {
   key: "root",
   storage,
-  whitelist: ["userStatus", "mealList"],
+  whitelist: ["userStatus", "mealList","basket"],
   transforms: [saveSubsetFilter]
 };
 const persistedReducer = persistReducer(persistConfig, rootReducer);

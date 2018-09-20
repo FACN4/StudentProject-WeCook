@@ -11,6 +11,7 @@ import {
   TimeRemaning,
   MealSection,
   CookDetails,
+  ReviewCount,
   MealListWrapper
 } from "./MealsListPage.style";
 
@@ -30,6 +31,7 @@ class MealListPage extends Component {
               const deadline = timeRemaining(
                 new Date(meal.final_booking_at) - Date.now()
               );
+              const rating = Number(meal.avg_star_rating) * 10;
               const meal_link = `/mealInfo/${meal.id}`;
               return (
                 <MealCard
@@ -41,8 +43,8 @@ class MealListPage extends Component {
                     <MealDetails>
                       <Link to={meal_link}>{meal.meal_title}</Link>
                       <MealCardReview>
-                        <img src={reviewImage} alt="Review Image" />
-                        {meal.count_reviews} reviews
+                        <Stars rating={rating} />
+                        <ReviewCount>{meal.count_reviews} reviews</ReviewCount>
                       </MealCardReview>
                       £{meal.price}/serving{" "}
                       <TimeRemaning>{deadline}</TimeRemaning>
@@ -57,7 +59,7 @@ class MealListPage extends Component {
                   </MealSection>
                 </MealCard>
               );
-            })};
+            })}
           </MealList>
         </MealListWrapper>
         <Footer />
