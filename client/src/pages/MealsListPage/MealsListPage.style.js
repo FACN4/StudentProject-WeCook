@@ -28,6 +28,14 @@ export const MealCardReview = styled.section`
   margin-top: 5px;
 `;
 
+export const ReviewCount = styled.span`
+  font-family: ${props => props.theme.bodyFont};
+  font-size: 12px;
+  margin-left: 5px;
+  padding-top: 6px;
+  color: ${props => props.theme.darkBlue};
+`;
+
 export const TimeRemaning = styled.span`
   color: ${props => props.theme.green};
 `;
@@ -47,8 +55,13 @@ export const CookDetails = styled.section`
   }
 `;
 
+export const MealListWrapper = styled.section`
+  padding: 0 25px;
+  margin: 0 auto;
+`;
+
 export const MealList = styled.section`
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-around;
   flex-wrap: wrap;
 `;
