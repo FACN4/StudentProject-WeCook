@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import getMealReviews from "../../../../actions/getMealReviews";
 import { H2, H3, ReviewDate, Description } from "./MealReview.style";
 import { Stars, Loading } from "../../../../components";
+import dateFormat from "../../../../utils/dateFormat";
 
 class MealPage extends Component {
   componentDidMount() {
@@ -24,7 +25,7 @@ class MealPage extends Component {
           <article key={index}>
             <H3>{username}</H3>
             <Stars rating={rating} />
-            <ReviewDate>{reviewed_at}</ReviewDate>
+            <ReviewDate>{dateFormat(reviewed_at)}</ReviewDate>
             <Description>{review_msg}</Description>
           </article>
         );
