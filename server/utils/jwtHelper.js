@@ -1,4 +1,5 @@
 const jwt = require('jsonwebtoken');
+
 require('env2')('./.env');
 
 const verifyJWT = token => new Promise((resolve, reject) => {
@@ -11,5 +12,6 @@ const verifyJWT = token => new Promise((resolve, reject) => {
 });
 
 const createJWTcookie = details => ['jwt', jwt.sign(details, process.env.SECRET), { maxAge: 1000 * 60 * 60 * 24 * 30, httpOnly: true }];
+
 
 module.exports = { verifyJWT, createJWTcookie };
