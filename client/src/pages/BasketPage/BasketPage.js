@@ -84,7 +84,7 @@ class BasketPage extends Component {
               </MealCard>
             );
           })};
-          <MoneyButton type="checkout" total={this.orderSum()} />
+          <MoneyButton type="checkout" total={this.orderSum()} history={this.props.history}/>
         </React.Fragment>
       );
     }
