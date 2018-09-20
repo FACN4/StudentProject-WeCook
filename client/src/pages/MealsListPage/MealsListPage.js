@@ -15,6 +15,8 @@ import {
   MealListWrapper
 } from "./MealsListPage.style";
 
+import reviewImage from "../../assets/stars.png";
+
 class MealListPage extends Component {
   render() {
     if (!this.props.mealList.isFulfilled) return <h1>Loading</h1>;
@@ -84,8 +86,7 @@ const mealPropType = PropTypes.shape({
   count_review: PropTypes.string,
   price: PropTypes.string,
   final_booking_at: PropTypes.string,
-  meal_image_url: PropTypes.arr,
-  avg_star_rating: PropTypes.string
+  meal_image_url: PropTypes.arr
 });
 
 const mapStateToProps = ({ mealList }) => ({
