@@ -48,6 +48,8 @@ class BasketPage extends Component {
     } else {
       return (
         <React.Fragment>
+          <Header />
+          <BasketPageWrapper>
           <h1>Your Basket..</h1>
           {Object.keys(this.props.basket).map((itemId, index) => {
             const {
@@ -84,6 +86,7 @@ class BasketPage extends Component {
               </MealCard>
             );
           })};
+          </BasketPageWrapper>
           <MoneyButton type="checkout" total={this.orderSum()} history={this.props.history}/>
         </React.Fragment>
       );
