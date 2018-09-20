@@ -11,7 +11,9 @@ import {
   CookInfo,
   Details,
   CookImage,
-  CookName
+  CookName,
+  Rating,
+  ReviewCount
 } from "./MealCookInfo.style";
 
 class MealCookInfo extends Component {
@@ -36,8 +38,10 @@ class MealCookInfo extends Component {
           <CookImage src={cook_image_url} alt="cook image" />
           <Details>
             <CookName>{cook_firstname}</CookName>
-            <Stars rating={rating} />
-            <span>{count_reviews} reviews</span>
+            <Rating>
+              <Stars rating={rating} />
+              <ReviewCount>{count_reviews} reviews</ReviewCount>
+            </Rating>
             <Description>{cook_summary}</Description>
           </Details>
         </CookInfo>
