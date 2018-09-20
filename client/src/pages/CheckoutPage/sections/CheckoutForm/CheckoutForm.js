@@ -65,7 +65,7 @@ class CheckoutForm extends Component {
             <H2>Payment</H2>
             <CardDetails>Please enter your card details below.</CardDetails>
             <CardElement className="card-element" />
-            <Paynow onClick={this.submit}>Send</Paynow>
+            <Paynow onClick={this.submit}>Pay Now</Paynow>
             <p>Powered by Stripe</p>
             <H2>Delivery Address</H2>
             Deliver to: <Address>{userData.username}</Address>
