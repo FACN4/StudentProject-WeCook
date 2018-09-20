@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import { reduxForm } from "redux-form";
 import userLogin from "../../actions/userLogin";
-import { Header, Footer } from "../../components";
+import { Header, Footer, FooterWrapper } from "../../components";
 import {
   LoginWrapper,
   Login,
@@ -24,6 +24,7 @@ class LoginPage extends React.Component {
   render() {
     return (
       <React.Fragment>
+        <FooterWrapper>
         <Header />
         <LoginWrapper>
           <h1>Login</h1>
@@ -49,6 +50,7 @@ class LoginPage extends React.Component {
           <Or>Or</Or>
           <StyledLink to="/register">Create an Account</StyledLink>
         </LoginWrapper>
+      </FooterWrapper>
         <Footer />
       </React.Fragment>
     );

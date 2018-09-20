@@ -6,12 +6,13 @@ import {
   Address,
   ThankyouWrapper
 } from "./ThankYou.style";
-import { Header } from "../../../../components";
+import { Header, Footer, FooterWrapper } from "../../../../components";
 
 class ThankYou extends Component {
   render() {
     return (
       <React.Fragment>
+        <FooterWrapper>
         <Header />
         <ThankyouWrapper>
           <h1>Thank you for your order</h1>
@@ -28,6 +29,8 @@ class ThankYou extends Component {
             <Address>Clapham</Address> <Address>SW129NJ</Address>
           </OrderDescription>
         </ThankyouWrapper>
+      </FooterWrapper>
+      <Footer />
       </React.Fragment>
     );
   }

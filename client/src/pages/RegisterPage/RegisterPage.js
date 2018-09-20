@@ -1,9 +1,9 @@
 import React from "react";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
-import { Field, reduxForm } from "redux-form";
+import { reduxForm } from "redux-form";
 import userRegister from "../../actions/userRegister";
-import { Header, Footer } from "../../components";
+import { Header, Footer, FooterWrapper } from "../../components";
 import {
   RegisterWrapper,
   Or,
@@ -40,71 +40,73 @@ class RegisterPage extends React.Component {
   render() {
     return (
       <React.Fragment>
-        <Header />
-        <RegisterWrapper>
-          <h1>Register</h1>
-          <form onSubmit={this.handleSubmit}>
-            <label htmlFor="username">username</label>
-            <UsernameInput
-              placeholder="Username"
-              component="input"
-              type="text"
-              name="username"
-              id="username"
-            />
-            <label htmlFor="postCode">post code</label>
-            <LocationInput
-              placeholder="Postcode"
-              component="input"
-              type="text"
-              name="postCode"
-              id="postCode"
-            />
-            <label htmlFor="houseNo">house number</label>
-            <LocationInput
-              placeholder="House Number"
-              component="input"
-              type="number"
-              name="houseNo"
-              id="houseNo"
-            />
-            <label htmlFor="phoneNo">phone number</label>
-            <PhoneInput
-              component="input"
-              placeholder="Phone Number"
-              type="text"
-              name="phoneNo"
-              id="phoneNo"
-            />
-            <label htmlFor="email">email</label>
-            <EmailInput
-              component="input"
-              placeholder="Email Address"
-              type="email"
-              name="email"
-              id="email"
-            />
-            <label htmlFor="password">password</label>
-            <PasswordInput
-              component="input"
-              placeholder="Password"
-              type="password"
-              name="password"
-              id="password"
-            />
-            <label htmlFor="passwordConfirm">confirm password</label>
-            <PasswordInput
-              component="input"
-              placeholder="Confirm Password"
-              type="password"
-              name="passwordConfirm"
-              id="passwordConfirm"
-            />
-            <Register>Register</Register>
-          </form>
-          <Or>Or</Or>
-          <StyledLink to="/login">Login</StyledLink>
-        </RegisterWrapper>
+        <FooterWrapper>
+          <Header />
+          <RegisterWrapper>
+            <h1>Register</h1>
+            <form onSubmit={this.handleSubmit}>
+              <label htmlFor="username">username</label>
+              <UsernameInput
+                placeholder="Username"
+                component="input"
+                type="text"
+                name="username"
+                id="username"
+              />
+              <label htmlFor="postCode">post code</label>
+              <LocationInput
+                placeholder="Postcode"
+                component="input"
+                type="text"
+                name="postCode"
+                id="postCode"
+              />
+              <label htmlFor="houseNo">house number</label>
+              <LocationInput
+                placeholder="House Number"
+                component="input"
+                type="number"
+                name="houseNo"
+                id="houseNo"
+              />
+              <label htmlFor="phoneNo">phone number</label>
+              <PhoneInput
+                component="input"
+                placeholder="Phone Number"
+                type="text"
+                name="phoneNo"
+                id="phoneNo"
+              />
+              <label htmlFor="email">email</label>
+              <EmailInput
+                component="input"
+                placeholder="Email Address"
+                type="email"
+                name="email"
+                id="email"
+              />
+              <label htmlFor="password">password</label>
+              <PasswordInput
+                component="input"
+                placeholder="Password"
+                type="password"
+                name="password"
+                id="password"
+              />
+              <label htmlFor="passwordConfirm">confirm password</label>
+              <PasswordInput
+                component="input"
+                placeholder="Confirm Password"
+                type="password"
+                name="passwordConfirm"
+                id="passwordConfirm"
+              />
+              <Register>Register</Register>
+            </form>
+            <Or>Or</Or>
+            <StyledLink to="/login">Login</StyledLink>
+          </RegisterWrapper>
+        </FooterWrapper>
         <Footer />
       </React.Fragment>
     );

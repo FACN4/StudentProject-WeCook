@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
-import { MealCard, MoneyButton, Header} from "../../components";
+import { MealCard, MoneyButton, Header, FooterWrapper} from "../../components";
 import removeBasketItem from "../../actions/removeBasketItem";
 
 import {
@@ -31,7 +31,7 @@ class BasketPage extends Component {
   render() {
     if (Object.keys(this.props.basket).length === 0) {
       return (
-        <React.Fragment>
+        <FooterWrapper>
           <Header />
           <BasketPageWrapper>
             <h1>Your Basket is empty!</h1>
@@ -43,11 +43,11 @@ class BasketPage extends Component {
               Continue shopping on the <Link to="/">WeCook homepage</Link>
             </p>
           </BasketPageWrapper>
-        </React.Fragment>
+        </FooterWrapper>
       );
     } else {
       return (
-        <React.Fragment>
+        <FooterWrapper>
           <Header />
           <BasketPageWrapper>
           <h1>Your Basket..</h1>
@@ -88,7 +88,7 @@ class BasketPage extends Component {
           })};
           </BasketPageWrapper>
           <MoneyButton type="checkout" total={this.orderSum()} history={this.props.history}/>
-        </React.Fragment>
+        </FooterWrapper>
       );
     }
   }

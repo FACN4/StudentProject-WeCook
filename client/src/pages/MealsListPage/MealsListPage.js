@@ -3,7 +3,8 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import timeRemaining from "../../utils/formatingLogic";
-import { MealCard, Header, Stars, Loading, Footer } from "../../components";
+import { MealCard, Header, Stars, Loading, Footer, FooterWrapper } from "../../components";
+
 import {
   MealList,
   MealDetails,
@@ -21,6 +22,7 @@ class MealListPage extends Component {
     const mealCount = this.props.mealList.data.length;
     return (
       <React.Fragment>
+        <FooterWrapper>
         <Header />
         <MealListWrapper>
           <h1>{mealCount} menus available in your local area for this date</h1>
@@ -60,6 +62,7 @@ class MealListPage extends Component {
             })}
           </MealList>
         </MealListWrapper>
+      </FooterWrapper>
         <Footer />
       </React.Fragment>
     );
