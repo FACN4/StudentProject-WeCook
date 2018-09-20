@@ -4,8 +4,14 @@ const { getConfirmationData } = require('../database/getQueries');
 
 exports.get = (req, res) => {
   const { jwt } = cookie.parse(req.headers.cookie);
+  console.log('here!');
   verifyJWT(jwt)
-    .then(getConfirmationData)
-    .then(row => res.send(row))
-    .catch(() => res.status('500').send('Sorry, something went wrong'));
+    .then(id => getConfirmationData(id))
+    .then((row) => {
+      res.send(row);
+    })
+    .catch((err) => {
+      console.log(err);
+      res.status('500').send('Sorry, something went wrong');
+    });
 };

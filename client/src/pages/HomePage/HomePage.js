@@ -3,8 +3,7 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import HomeHeader from "./sections/HomeHeader/HomeHeader";
 import MealSearchForm from "./sections/MealSearchForm/MealSearchForm";
-import { Footer } from "../../components";
-import { FooterWrapper } from "../../components/Footer/FooterWrapper";
+import { Footer, FooterWrapper } from "../../components";
 import { StyledPara } from "./HomePage.style";
 import {findMeals, mealsFound} from "../../actions/findMeals";
 

@@ -18,15 +18,15 @@ class ThankYou extends Component {
           <h1>Thank you for your order</h1>
           <OrderDescription>
             <p>
-              Hi Paul, we’ve received your order #1223003 and we are passing it
+              Hi FAC, we’ve received your order #1223003 and we are passing it
               onto Mama Afifi.
             </p>
             <p>We’ll email you an update when the meal is on the way.</p>
             <H2>Order Details</H2>
-            <OrderDetails>Order #1223003 for 7pm on 22/09/18</OrderDetails>
-            Deliver to: <Address>Paul O’Connor</Address>
-            <Address>28 Fernbank Mews</Address>
-            <Address>Clapham</Address> <Address>SW129NJ</Address>
+            <OrderDetails>Order #1223003 for 7pm on 21/09/18</OrderDetails>
+            Deliver to: <Address>FAC</Address>
+            <Address>12</Address>
+            <Address>N19 4AH</Address> <Address>London</Address>
           </OrderDescription>
         </ThankyouWrapper>
       </FooterWrapper>
