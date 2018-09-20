@@ -11,6 +11,11 @@ export const MealDetails = styled.section`
   }
 `;
 
+export const MealListWrapper = styled.section`
+  padding: 0 ${props => props.theme.mobilePadding};
+  margin: 0 auto;
+`;
+
 export const MealSection = styled.section`
   display: grid;
   grid-template-columns: 235px 90px;

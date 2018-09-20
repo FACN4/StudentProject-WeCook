@@ -43,7 +43,7 @@ class MealInfo extends Component {
         <h1>{meal_title}</h1>
         <MealLogistics>
           <MealScheduled>{meal_scheduled_at}</MealScheduled>
-          <Price>{"£" + price + "per serving"}</Price>
+          <Price>{"£" + price + " per serving"}</Price>
           <Deadline>{deadline}</Deadline>
           <RemainingPortions>
             {remaining_portions} servings left

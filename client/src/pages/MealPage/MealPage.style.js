@@ -6,3 +6,8 @@ export const SectionDivider = styled.section`
   height: 1px;
   background-color: #ccd0d1;
 `;
+
+export const MealPageWrapper = styled.section`
+  padding: 0 ${props => props.theme.mobilePadding};
+  margin: 0 auto;
+`;

@@ -7,15 +7,15 @@ export const StyledFooter = styled.footer`
   display: flex;
   justify-content: space-around;
   line-height: 52px;
-  padding-left: 10px;
+  padding: 0 ${props => props.theme.mobilePadding};
   font-size: 14px;
-  align-items:center;
+  align-items: center;
 `;
 
 export const Icons = styled.section`
   display: flex;
-  align-items:center;
+  align-items: center;
   img {
-    padding: 5px;
+    padding-left: 5px;
   }
 `;

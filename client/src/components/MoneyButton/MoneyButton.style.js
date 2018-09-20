@@ -38,7 +38,7 @@ export const Price = styled.section`
   padding: 0;
   margin: 0;
   line-height: 53px;
-  padding-left: 20px;
+  padding-left: ${props => props.theme.mobilePadding};
 `;
 
 export const MoneyButtonWrapper = styled.section`

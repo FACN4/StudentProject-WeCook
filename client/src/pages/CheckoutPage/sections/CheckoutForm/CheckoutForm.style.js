@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const CheckoutWrapper = styled.section`
-  padding: 0 25px 15px;
+  padding: 0 ${props => props.theme.mobilePadding} 15px;
   margin: 0 auto;
   font-size: 14px;
   font-family: ${props => props.theme.bodyFont};
