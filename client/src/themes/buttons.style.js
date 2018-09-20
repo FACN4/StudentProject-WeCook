@@ -10,12 +10,12 @@ export const Search = styled.button`
   font-family: ${props => props.theme.bodyFont};
   padding: 0px 20px;
   width: 100%;
-  margin:auto;
-  border:none;
+  margin: auto;
+  border: none;
 `;
 
 export const InputField = styled(Field)`
-  border: 0.5px solid #B6B6B6;
+  border: 0.5px solid #b6b6b6;
   border-radius: 10px;
   height: 40px;
   font-size: 17px;
@@ -37,6 +37,20 @@ export const LocationInput = styled(InputField)`
 `;
 
 export const DateInput = styled(InputField)`
+  background: url(https://user-images.githubusercontent.com/28222381/45644814-4e512880-bac7-11e8-842b-9f3310232676.jpg);
+  background-repeat: no-repeat;
+  background-position: 97% 50%;
+  background-size: auto 27px;
+`;
+
+export const UserLogin = styled(InputField)`
+  background: url(https://user-images.githubusercontent.com/28222381/45644814-4e512880-bac7-11e8-842b-9f3310232676.jpg);
+  background-repeat: no-repeat;
+  background-position: 97% 50%;
+  background-size: auto 27px;
+`;
+
+export const UserPassword = styled(InputField)`
   background: url(https://user-images.githubusercontent.com/28222381/45644814-4e512880-bac7-11e8-842b-9f3310232676.jpg);
   background-repeat: no-repeat;
   background-position: 97% 50%;
