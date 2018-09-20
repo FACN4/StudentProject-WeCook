@@ -55,11 +55,6 @@ export const CookDetails = styled.section`
   }
 `;
 
-export const MealListWrapper = styled.section`
-  padding: 0 25px;
-  margin: 0 auto;
-`;
-
 export const MealList = styled.section`
   display: flex;
   justify-content: space-around;
