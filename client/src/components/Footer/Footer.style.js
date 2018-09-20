@@ -7,7 +7,7 @@ export const StyledFooter = styled.footer`
   display: flex;
   justify-content: space-between;
   line-height: 52px;
-  padding: 0 25px;
+  padding: 0 ${props => props.theme.mobilePadding};
   font-size: 14px;
   align-items: center;
 `;

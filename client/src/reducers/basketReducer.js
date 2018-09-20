@@ -1,4 +1,4 @@
-import { ADD_TO_BASKET, REMOVE_BASKET_ITEM } from "../actions/actionTypes";
+import { ADD_TO_BASKET, REMOVE_BASKET_ITEM, EDIT_BASKET_ITEM } from "../actions/actionTypes";
 
 const initialState = {};
 
@@ -19,6 +19,11 @@ export default function(state = initialState, action) {
     case REMOVE_BASKET_ITEM: {
       const { [mealId]: value, ...stateWithoutMeal } = state;
       return stateWithoutMeal;
+    }
+    case EDIT_BASKET_ITEM: {
+      const {mealId, quantity} = action.payload
+      const meal = state[mealId]
+      return { ...state, [mealId]:{...meal, quantity:Number(quantity)}};
     }
     default:
       return state;
