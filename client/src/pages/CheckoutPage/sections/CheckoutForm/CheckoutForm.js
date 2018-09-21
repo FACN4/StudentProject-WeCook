@@ -56,7 +56,7 @@ class CheckoutForm extends Component {
           <Header />
           <CheckoutWrapper>
             <h1>Confirm Your Order</h1>
-            <Delivery>For delivery for 7pm on 22/09/18</Delivery>
+            <Delivery>For delivery for 7pm on 01/01/19</Delivery>
             <MealCard
               mealImage={basket[firstMeal].mealInfo.meal_image_url[0].mealUrl}
             >
