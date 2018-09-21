@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
-import { MealCard, MoneyButton, Header, FooterWrapper} from "../../components";
+import { MealCard, MoneyButton, Header, FooterWrapper } from "../../components";
 import removeBasketItem from "../../actions/removeBasketItem";
 
 import {
@@ -50,44 +50,48 @@ class BasketPage extends Component {
         <FooterWrapper>
           <Header />
           <BasketPageWrapper>
-          <h1>Your Basket..</h1>
-          {Object.keys(this.props.basket).map((itemId, index) => {
-            const {
-              meal_title,
-              price,
-              meal_scheduled_at,
-              remaining_portions,
-              final_booking_at,
-              meal_image_url
-            } = this.props.basket[itemId].mealInfo;
-            const { quantity } = this.props.basket[itemId];
-            return (
-              <MealCard mealImage={meal_image_url[0].mealUrl} key={index}>
-                <MealName>{meal_title}</MealName>
-                <Delivery>For delivery for 7pm on 22/09/18</Delivery>
-                <OrderInfo>
-                  <Cost>Cost: £{price} each</Cost>
-                  <select
-                    onChange={({ target: { value } }) =>
-                      this.changePortions(itemId, value)
-                    }
-                    value={quantity}
-                  >
-                    <option value={1}>1 Serving</option>
-                    <option value={2}>2 Servings</option>
-                    <option value={3}>3 Servings</option>
-                    <option value={4}>4 Servings</option>
-                    <option value={5}>5 Servings</option>
-                  </select>
-                  <button onClick={() => this.props.removeBasketItem(itemId)}>
-                    Delete
-                  </button>
-                </OrderInfo>
-              </MealCard>
-            );
-          })};
+            <h1>Your Basket..</h1>
+            {Object.keys(this.props.basket).map((itemId, index) => {
+              const {
+                meal_title,
+                price,
+                meal_scheduled_at,
+                remaining_portions,
+                final_booking_at,
+                meal_image_url
+              } = this.props.basket[itemId].mealInfo;
+              const { quantity } = this.props.basket[itemId];
+              return (
+                <MealCard mealImage={meal_image_url[0].mealUrl} key={index}>
+                  <MealName>{meal_title}</MealName>
+                  <Delivery>For delivery for 7pm on 01/01/19</Delivery>
+                  <OrderInfo>
+                    <Cost>Cost: £{price} each</Cost>
+                    <select
+                      onChange={({ target: { value } }) =>
+                        this.changePortions(itemId, value)
+                      }
+                      value={quantity}
+                    >
+                      <option value={1}>1 Serving</option>
+                      <option value={2}>2 Servings</option>
+                      <option value={3}>3 Servings</option>
+                      <option value={4}>4 Servings</option>
+                      <option value={5}>5 Servings</option>
+                    </select>
+                    <button onClick={() => this.props.removeBasketItem(itemId)}>
+                      Delete
+                    </button>
+                  </OrderInfo>
+                </MealCard>
+              );
+            })}
           </BasketPageWrapper>
-          <MoneyButton type="checkout" total={this.orderSum()} history={this.props.history}/>
+          <MoneyButton
+            type="checkout"
+            total={this.orderSum()}
+            history={this.props.history}
+          />
         </FooterWrapper>
       );
     }

@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import getMealReviews from "../../../../actions/getMealReviews";
 import { H2, H3, ReviewDate, Description } from "./MealReview.style";
-import { Stars, Loading } from "../../../../components";
+import { Stars } from "../../../../components";
 import dateFormat from "../../../../utils/dateFormat";
 
 class MealPage extends Component {
@@ -39,7 +39,7 @@ class MealPage extends Component {
     );
   };
   render() {
-    if (!this.props.mealReviews.isFulfilled) return <Loading />;
+    if (!this.props.mealReviews.isFulfilled) return null;
     const { mealReviews, cookReviews } = this.organiseReviews(
       this.props.mealReviews.data,
       this.props.mealId

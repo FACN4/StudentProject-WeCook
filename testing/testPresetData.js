@@ -2,8 +2,8 @@ const mealCardResult = {
   id: 1,
   meal_title: 'Russian tomato sauce with shashlikee',
   price: '5.00',
-  meal_scheduled_at: new Date('Fri Sep 21 2018 11:05:06 GMT+0300 (EEST)'),
-  final_booking_at: new Date('Fri Sep 21 2018 06:05:06 GMT+0300 (EEST)'),
+  meal_scheduled_at: new Date('Tues Jan 1 2019 11:05:06 GMT+0300 (EEST)'),
+  final_booking_at: new Date('Tues Jan 1 2019 06:05:06 GMT+0300 (EEST)'),
   remaining_portions: 15,
   meal_image_url:
     'https://user-images.githubusercontent.com/28222381/45268801-1163b100-b48b-11e8-85b0-d32b09a111e3.jpg',
@@ -17,11 +17,11 @@ const mealCardResult = {
 const mealInfoResult = {
   meal_title: 'Russian tomato sauce with shashlikee',
   price: '5.00',
-  meal_scheduled_at: new Date('Fri Sep 21 2018 11:05:06 GMT+0300 (EEST)'),
+  meal_scheduled_at: new Date('Tues Jan 1 2019 11:05:06 GMT+0300 (EEST)'),
   description:
     'Robust lamb and onion kebabs steeped in a tenderizing seltzer and vinegar marinade are paired with a sauce of tomatoes, prunes, and herbs. All ingredients are sourced locally.',
   remaining_portions: 15,
-  final_booking_at: new Date('Fri Sep 21 2018 06:05:06 GMT+0300 (EEST)'),
+  final_booking_at: new Date('Tues Jan 1 2019 06:05:06 GMT+0300 (EEST)'),
   ingredients: [
     'Milk',
     'Flour',

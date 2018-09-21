@@ -4,7 +4,6 @@ const { getConfirmationData } = require('../database/getQueries');
 
 exports.get = (req, res) => {
   const { jwt } = cookie.parse(req.headers.cookie);
-  console.log('here!');
   verifyJWT(jwt)
     .then(id => getConfirmationData(id))
     .then((row) => {
