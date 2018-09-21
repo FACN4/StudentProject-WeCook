@@ -2,9 +2,12 @@
 
 WeCook is a platform to connect people who love to cook, with hungry customers in their local community.
 
-Demo
+<img src="https://user-images.githubusercontent.com/9437789/45885721-d2edc080-bdbf-11e8-9789-b6332caf76a3.gif" alt="WeCook" width="200" />
 
+--
 Heroku Link: <a href="https://we-cook.herokuapp.com">WeCook</a>
+
+Note: Meal data is available for the date 1/1/2019 and the post code N19 4AH only. Error handling is not in the current version.
 
 ## Design Week
 
@@ -33,9 +36,9 @@ So our MVP journey became:
 
 ![](https://i.imgur.com/mxmc1sg.png)
 
-We used Dribbble and secondary research to identfy a number of designs that inspired us. The clear consensus was that the team wanted:
+We used Dribbble and secondary research to identify a number of designs that inspired us. The clear consensus was that the team wanted:
 
-- **A clean interface** - easy to use, well structued and also gives the user a sense of 'cleanliness'.
+- **A clean interface** - easy to use, well structured and also gives the user a sense of 'cleanliness'.
 
 - **Images at the heart of the design** - pictures of the meal and the cooks should be central to the design to create trust and a better UX.
 
@@ -63,11 +66,11 @@ We then took the <a href="https://www.figma.com/proto/D4zqWG20m9DLnlgYVVr2iwNa/W
 
 We received some valuable insights, both positive and negative, notably:
 
-| Strengths                                                                        | Weaknesses                                                    |
-| -------------------------------------------------------------------------------- | ------------------------------------------------------------- |
-| Like the community aspect of the idea                                            | Important to build trust between customers and cooks          |
-| The design was received well                                                     | Visuals should be even more important in the design           |
-| Most said they would be interested in using the app either as a cook or customer | Allergy & Reglious food concerns should be clear in meal tags |
+| Strengths                                                                        | Weaknesses                                                     |
+| -------------------------------------------------------------------------------- | -------------------------------------------------------------- |
+| Like the community aspect of the idea                                            | Important to build trust between customers and cooks           |
+| The design was received well                                                     | Visuals should be even more important in the design            |
+| Most said they would be interested in using the app either as a cook or customer | Allergy & Religious food concerns should be clear in meal tags |
 
 We then iterated on our design to address the concerns highlighted in the user testing:
 
@@ -75,7 +78,7 @@ We then iterated on our design to address the concerns highlighted in the user t
 
 2.  **Visuals** - We added a large gallery component to the original designs for the meal and cook information pages.
 
-3.  **Food Concerns** - We added clear tagging on the meal information page for allergy and relgious information and also functionality to message the cook.
+3.  **Food Concerns** - We added clear tagging on the meal information page for allergy and religious information and also functionality to message the cook.
 
 A full overview of the user testing insights can be found <a href="https://github.com/FACN4/StudentProject-WeCook/issues/1">here</a>
 
@@ -107,7 +110,7 @@ The database for our projects includes the following 7 tables and keys:
 With a little bit more time we would add the following to WeCook:
 
 - Desktop design
-- Photo optimization
+- Photo optimisation
 - Error handling
 - Testing
 - Cook section
