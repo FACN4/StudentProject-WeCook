@@ -7,6 +7,11 @@ export const StyledHeader = styled.header`
   background-size: cover;
   height: 250px;
   background-position: bottom;
+
+  @media only screen and (min-width: 600px) {
+    background-image: url(https://user-images.githubusercontent.com/28222381/45878093-906cb980-bda8-11e8-9534-61322b3c14c7.png);
+}
+
 `;
 
 export const Title = styled.h1`
