@@ -28,7 +28,7 @@ class HomePage extends Component {
           <HomeHeader />
           <StyledPara>
             Home cooked food made next door, delivered by your neighbour. Book
-            ahead for your next meal
+            ahead for your next meal.
           </StyledPara>
           <MealSearchForm onSubmit={this.submit} />
         </FooterWrapper>
