@@ -3,7 +3,7 @@ import { FIND_MEALS, MEALS_FOUND } from "./actionTypes";
 
 export const findMeals = ({ postcode, deliveryDate }) => {
   return dispatch => {
-    axios(`http://api.postcodes.io/postcodes/${postcode}`)
+    axios(`https://api.postcodes.io/postcodes/${postcode}`)
       .then(({ data: { result: location } }) => {
         return axios
           .post("/api/findMeals", { location, deliveryDate })
