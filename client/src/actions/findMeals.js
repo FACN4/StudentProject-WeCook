@@ -3,7 +3,7 @@ import { FIND_MEALS, MEALS_FOUND } from "./actionTypes";
 
 export const findMeals = ({ postcode, deliveryDate }) => {
   return dispatch => {
-    axios(`http://api.postcodes.io/postcodes/${postcode}`)
+    axios(`https://api.postcodes.io/postcodes/${postcode}`)
       .then(({ data: { result: location } }) => {
         return axios
           .post("/api/findMeals", { location, deliveryDate })
@@ -17,6 +17,7 @@ export const findMeals = ({ postcode, deliveryDate }) => {
             payload: res
           });
         } else {
+          console.log("Could not find any meals");
           return dispatch({
             type: `${FIND_MEALS}_REJECTED`,
             payload: null
