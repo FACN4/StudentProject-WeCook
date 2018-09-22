@@ -1,5 +1,3 @@
-require('env2')('./.env');
-
 const { STRIPE_KEY } = process.env;
 const stripe = require('stripe')(STRIPE_KEY);
 
