@@ -1,3 +1,5 @@
+/* eslint no-console: 0 */
+
 const fs = require('fs');
 const { db } = require('./db_connection');
 
@@ -7,7 +9,11 @@ const cookFillerData = fs.readFileSync(`${__dirname}/cook_filler_data.sql`, 'utf
 if (process.argv[2] === 'run') {
   db.none(emptyTables)
     .then(() => db.none(cookFillerData))
-    .catch(err => new Error(err));
+    .then(() => console.log('Success'))
+    .catch((err) => {
+      console.log(err);
+      return new Error(err);
+    });
 }
 
 module.exports = { emptyTables, cookFillerData };

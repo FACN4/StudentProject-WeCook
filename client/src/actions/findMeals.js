@@ -17,6 +17,7 @@ export const findMeals = ({ postcode, deliveryDate }) => {
             payload: res
           });
         } else {
+          console.log("Could not find any meals");
           return dispatch({
             type: `${FIND_MEALS}_REJECTED`,
             payload: null
